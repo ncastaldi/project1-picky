@@ -7,13 +7,30 @@ $(document).ready(function () {
   var ingredientsForm = $("#ingredientsForm");
 
   /* Declare JavaScript Variables */
-  var noNuts;
-  var noDairy;
-  var noEggs;
+  var noTreeNuts = false;
+  var noDairy = false;
+  var noEggs = false;
 
   /* Define Functions */
   function settingSearchCriteria(event) {
-    console.log($(this).attr("data-type").val());
+    var allergySelected = $(this.attr("data-type"));
+    if (allergySelected === treeNuts) {
+      if (noTreeNuts) {
+        noTreeNuts = false;
+      } else {
+        noTreeNuts = true;
+      }
+    }
+    if (noDairy) {
+      noDairy = false;
+    } else {
+      noDairy = true;
+    }
+    if (noEggs) {
+      noEggs = false;
+    } else {
+      noEggs = true;
+    }
   }
 
   function findRecipe(event) {
@@ -29,6 +46,9 @@ $(document).ready(function () {
       appID +
       "&app_key=" +
       appKey;
+    if (noNuts) {
+      searchURL = searchURL + "&healthLabels=tree-nut-free";
+    }
     $.ajax({
       url: searchURL,
       method: "GET",
@@ -42,8 +62,8 @@ $(document).ready(function () {
 
     //btn.value = 'Sending...';
 
-    const serviceID = 'default_service';
-    const templateID = 'template_241tje5';
+    const serviceID = "default_service";
+    const templateID = "template_241tje5";
     var passed_html = $("#passed_html").val();
     var user_email = $("#user_email").val();
 
