@@ -1,7 +1,89 @@
+
 h1 {
-  color: red;
+  color: #e30022;
+}
+
+
+/* ///daniel */
+/* Set height of body and the document to 100% to enable "full page tabs" */
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+  background-color: #e30022 !important;
+  background: cover;
 }
 .navbar {
-  color: white;
   background-color: #e30022;
+  padding: 0;
+}
+.navbar-brand {
+  margin: 0 auto;
+  
+}
+#logo {
+  width: 200px;
+}
+
+
+/* Style tab links */
+.tablink {
+  background-color: #e30022;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+.tablink:hover {
+  background-color: #90000e;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+#Home {background-color: #e30022;}
+#Allergy {background-color:#e30022;}
+#Diet {background-color: #e30022;}
+#Cuisine {background-color:#e30022;}
+
+
+#Home {background-color: #e30022;}
+#Allergy {background-color:#c90012;}
+#Diet {background-color: #b70012;}
+#Cuisine {background-color:#90000E;}
+
+#search-bar {
+  background-color: #90000E;
+  color:white;
+  border-color: #e30022;
+}
+
+.input-group.md-form.form-sm.form-1 input{
+  border: 1px solid #bdbdbd;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+.input-group.md-form.form-sm.form-2 input {
+  border: 1px solid #bdbdbd;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+.input-group.md-form.form-sm.form-2 input.red-border {
+  border: 1px solid #ef9a9a;
+}
+.input-group.md-form.form-sm.form-2 input.lime-border {
+  border: 1px solid #cddc39;
+}
+.input-group.md-form.form-sm.form-2 input.amber-border {
+  border: 1px solid #ffca28;
 }
