@@ -4,6 +4,8 @@ $(document).ready(function () {
   var recipeSearchBtn = $("#recipeSearchBtn");
   var buttonSelectors = $("#buttonSelectors");
 
+  var ingredientsForm = $("#ingredientsForm");
+
   /* Declare JavaScript Variables */
   var noNuts;
   var noDairy;
@@ -35,28 +37,26 @@ $(document).ready(function () {
     });
   }
 
+  function saveList(event) {
+    event.preventDefault();
+
+    //btn.value = 'Sending...';
+
+    const serviceID = 'default_service';
+    const templateID = 'template_241tje5';
+    var passed_html = $("#passed_html").val();
+    var user_email = $("#user_email").val();
+
+    emailjs.send(serviceID, templateID, {
+      passed_html: passed_html,
+      user_email: user_email,
+    });
+  }
+
   /* Make Function Calls */
 
   /* Register Event Listeners */
   buttonSelectors.on("click", ".allergy", settingSearchCriteria);
   recipeSearchBtn.on("click", findRecipe);
-  $("#form").on("submit", function (event) {
-    event.preventDefault();
-
-    btn.value = "Sending...";
-
-    const serviceID = "service_y9qb5eg";
-    const templateID = "template_241tje5";
-
-    emailjs.sendForm(serviceID, templateID, this).then(
-      () => {
-        btn.value = "Send Email";
-        alert("Sent!");
-      },
-      (err) => {
-        btn.value = "Send Email";
-        alert(JSON.stringify(err));
-      }
-    );
-  });
+  ingredientsForm.on("submit", saveList);
 });
