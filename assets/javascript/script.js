@@ -2,10 +2,18 @@ $(document).ready(function () {
   /* Declare DOM Variables */
   var userQueryInput = $("#userQueryInput");
   var recipeSearchBtn = $("#recipeSearchBtn");
+  var buttonSelectors = $("#buttonSelectors");
 
   /* Declare JavaScript Variables */
+  var noNuts;
+  var noDairy;
+  var noEggs;
 
   /* Define Functions */
+  function settingSearchCriteria(event) {
+    console.log($(this).attr("data-type").val());
+  }
+
   function findRecipe(event) {
     event.preventDefault();
     var searchQuery = userQueryInput.val();
@@ -30,6 +38,7 @@ $(document).ready(function () {
   /* Make Function Calls */
 
   /* Register Event Listeners */
+  buttonSelectors.on("click", ".allergy", settingSearchCriteria);
   recipeSearchBtn.on("click", findRecipe);
   $("#form").on("submit", function (event) {
     event.preventDefault();
