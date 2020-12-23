@@ -56,7 +56,6 @@ $(document).ready(function () {
   function findRecipe(event) {
     event.preventDefault();
     var searchQuery = userQueryInput.val();
-    console.log(searchQuery);
     var appID = "097df148";
     var appKey = "9aac325c109e9c8f03dcbcb3501b2988";
     var searchURL =
@@ -66,16 +65,18 @@ $(document).ready(function () {
       appID +
       "&app_key=" +
       appKey;
-    if (noTreeNuts) {
+
+    // Adding these tags to the URL if the approiate selector is true.
+    if (noTreeNuts && searchURL.indexOf("health=tree-nut-free") === -1) {
       searchURL = searchURL + "&health=tree-nut-free";
     }
-    if (noEggs) {
+    if (noEggs && searchURL.indexOf("health=vegan") === -1) {
       searchURL = searchURL + "&health=vegan";
     }
-    if (noDairy) {
+    if (noDairy && searchURL.indexOf("health=vegan") === -1) {
       searchURL = searchURL + "&health=vegan";
     }
-    if (noPeanuts) {
+    if (noPeanuts && searchURL.indexOf("health=peanut-free") === -1) {
       searchURL = searchURL + "&health=peanut-free";
     }
     console.log(searchURL);
