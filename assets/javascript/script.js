@@ -3,6 +3,8 @@ $(document).ready(function () {
   var userQueryInput = $("#userQueryInput");
   var recipeSearchBtn = $("#recipeSearchBtn");
 
+  var ingredientsForm = $("#ingredientsForm");
+
   /* Declare JavaScript Variables */
 
   /* Define Functions */
@@ -31,7 +33,7 @@ $(document).ready(function () {
 
   /* Register Event Listeners */
   recipeSearchBtn.on("click", findRecipe);
-  $("#form").on("submit", function (event) {
+  $("#ingredientsForm").on("submit", function (event) {
     event.preventDefault();
 
     btn.value = "Sending...";
