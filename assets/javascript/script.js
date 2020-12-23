@@ -1,4 +1,12 @@
 $(document).ready(function () {
 
-    console.log("jQuery linked");
+    /* Declare DOM Variables */
+
+    /* Declare JavaScript Variables */
+
+    /* Define Functions */
+
+    /* Make Function Calls */
+
+    /* Register Event Listeners */
 })
