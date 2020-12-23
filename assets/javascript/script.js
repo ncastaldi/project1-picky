@@ -29,11 +29,7 @@ $(document).ready(function () {
     });
   }
 
-  /* Make Function Calls */
-
-  /* Register Event Listeners */
-  recipeSearchBtn.on("click", findRecipe);
-  $("#ingredientsForm").on("submit", function (event) {
+  function saveList(event) {
     event.preventDefault();
 
     //btn.value = 'Sending...';
@@ -47,5 +43,11 @@ $(document).ready(function () {
       passed_html: passed_html,
       user_email: user_email,
     });
-  });
+  }
+
+  /* Make Function Calls */
+
+  /* Register Event Listeners */
+  recipeSearchBtn.on("click", findRecipe);
+  $("#ingredientsForm").on("submit", saveList);
 });
