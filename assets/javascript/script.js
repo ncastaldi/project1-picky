@@ -7,7 +7,7 @@ $(document).ready(function () {
   var ingredientsForm = $("#ingredientsForm");
 
   /* Declare JavaScript Variables */
-  var noTreeNuts = false;
+  var noTreeNuts = true;
   var noDairy = false;
   var noEggs = false;
 
@@ -46,9 +46,10 @@ $(document).ready(function () {
       appID +
       "&app_key=" +
       appKey;
-    if (noNuts) {
+    if (noTreeNuts) {
       searchURL = searchURL + "&healthLabels=tree-nut-free";
     }
+    console.log(searchURL);
     $.ajax({
       url: searchURL,
       method: "GET",
