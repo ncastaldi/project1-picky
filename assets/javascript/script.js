@@ -49,5 +49,5 @@ $(document).ready(function () {
 
   /* Register Event Listeners */
   recipeSearchBtn.on("click", findRecipe);
-  $("#ingredientsForm").on("submit", saveList);
+  ingredientsForm.on("submit", saveList);
 });
