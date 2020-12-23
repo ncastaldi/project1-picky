@@ -36,20 +36,16 @@ $(document).ready(function () {
   $("#ingredientsForm").on("submit", function (event) {
     event.preventDefault();
 
-    btn.value = "Sending...";
+    //btn.value = 'Sending...';
 
-    const serviceID = "service_y9qb5eg";
-    const templateID = "template_241tje5";
+    const serviceID = 'default_service';
+    const templateID = 'template_241tje5';
+    var passed_html = $("#passed_html").val();
+    var user_email = $("#user_email").val();
 
-    emailjs.sendForm(serviceID, templateID, this).then(
-      () => {
-        btn.value = "Send Email";
-        alert("Sent!");
-      },
-      (err) => {
-        btn.value = "Send Email";
-        alert(JSON.stringify(err));
-      }
-    );
+    emailjs.send(serviceID, templateID, {
+      passed_html: passed_html,
+      user_email: user_email,
+    });
   });
 });
