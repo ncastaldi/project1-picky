@@ -9,20 +9,22 @@ $(document).ready(function () {
     /* Make Function Calls */
 
     /* Register Event Listeners */
-    sendIngredientListEl.on("click", function () {
-        document.getElementById('contact-form').addEventListener('submit', function (event) {
-            event.preventDefault();
-            // generate a five digit number for the contact_number variable
-            this.contact_number.value = Math.random() * 100000 | 0;
-            // these IDs from the previous steps
-            emailjs.sendForm('contact_service', 'contact_form', this)
-                .then(function () {
-                    console.log('SUCCESS!');
-                }, function (error) {
-                    console.log('FAILED...', error);
-                });
-        });
-    }
-    })
+    $('#form').on('submit', function (event) {
+        event.preventDefault();
+
+        btn.value = 'Sending...';
+
+        const serviceID = 'service_y9qb5eg';
+        const templateID = 'template_241tje5';
+
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                btn.value = 'Send Email';
+                alert('Sent!');
+            }, (err) => {
+                btn.value = 'Send Email';
+                alert(JSON.stringify(err));
+            });
+    });
 
 })
