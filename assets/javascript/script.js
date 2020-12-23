@@ -7,29 +7,49 @@ $(document).ready(function () {
   var ingredientsForm = $("#ingredientsForm");
 
   /* Declare JavaScript Variables */
-  var noTreeNuts = true;
+  var noTreeNuts = false;
   var noDairy = false;
   var noEggs = false;
+  var noPeanuts = false;
 
   /* Define Functions */
+
+  // Function to toggle the allergen variables.
   function settingSearchCriteria(event) {
-    var allergySelected = $(this.attr("data-type"));
-    if (allergySelected === treeNuts) {
-      if (noTreeNuts) {
-        noTreeNuts = false;
-      } else {
-        noTreeNuts = true;
-      }
-    }
-    if (noDairy) {
-      noDairy = false;
-    } else {
-      noDairy = true;
-    }
-    if (noEggs) {
-      noEggs = false;
-    } else {
-      noEggs = true;
+    var allergySelected = $(this).attr("data-type");
+    switch (allergySelected) {
+      case "treeNuts":
+        if (noTreeNuts) {
+          noTreeNuts = false;
+          break;
+        } else {
+          noTreeNuts = true;
+          break;
+        }
+      case "dairy":
+        if (noDairy) {
+          noDairy = false;
+          break;
+        } else {
+          noDairy = true;
+          break;
+        }
+      case "eggs":
+        if (noEggs) {
+          noEggs = false;
+          break;
+        } else {
+          noEggs = true;
+          break;
+        }
+      case "peanuts":
+        if (noPeanuts) {
+          noPeanuts = false;
+          break;
+        } else {
+          noPeanuts = true;
+          break;
+        }
     }
   }
 
@@ -47,7 +67,16 @@ $(document).ready(function () {
       "&app_key=" +
       appKey;
     if (noTreeNuts) {
-      searchURL = searchURL + "&healthLabels=tree-nut-free";
+      searchURL = searchURL + "&health=tree-nut-free";
+    }
+    if (noEggs) {
+      searchURL = searchURL + "&health=vegan";
+    }
+    if (noDairy) {
+      searchURL = searchURL + "&health=vegan";
+    }
+    if (noPeanuts) {
+      searchURL = searchURL + "&health=peanut-free";
     }
     console.log(searchURL);
     $.ajax({
