@@ -10,9 +10,15 @@ $(document).ready(function () {
     event.preventDefault();
     var searchQuery = userQueryInput.val();
     console.log(searchQuery);
-    var key = "097df148";
+    var appID = "097df148";
+    var appKey = "9aac325c109e9c8f03dcbcb3501b2988";
     var searchURL =
-      "https://api.edamam.com/search?q=" + searchQuery + "&app_id=" + key;
+      "https://api.edamam.com/search?q=" +
+      searchQuery +
+      "&app_id=" +
+      appID +
+      "&app_key=" +
+      appKey;
     $.ajax({
       url: searchURL,
       method: "GET",
