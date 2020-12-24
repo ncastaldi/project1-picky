@@ -1,3 +1,7 @@
+@import 
+url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
 
 h1 {
   color: #e30022;
@@ -9,9 +13,10 @@ h1 {
 body {
   height: 100%;
   margin: 0;
-  font-family: Arial;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bolder;
   background-color: #e30022 !important;
-  background: cover;
+
 }
 .navbar {
   background-color: #e30022;
@@ -25,6 +30,15 @@ body {
   width: 200px;
 }
 
+button {
+align-items: center;
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+padding-left: 100px;
+padding: 15px 32px;
+border: none;
+background: #e30022;
+ 
+}
 
 /* Style tab links */
 .tablink {
@@ -62,28 +76,47 @@ body {
 #Diet {background-color: #b70012;}
 #Cuisine {background-color:#90000E;}
 
-#search-bar {
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+  color: white;
+}
+
+searchTerm {
+  width: 100%;
+  border: 3px solid white;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  background-color: #e30022;
   background-color: #90000E;
   color:white;
   border-color: #e30022;
+  font-family: 'Roboto', sans-serif;
+}
+.searchTerm:focus{
+  color: #FFFFFF;
+}
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 3px solid rgb(205, 10, 10);
+  text-align: center;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 25px;
+}
+.fa-hand-pointer {
+  color:white;
+  background: #e30022;
+  font-size: 30px;
 }
 
-.input-group.md-form.form-sm.form-1 input{
-  border: 1px solid #bdbdbd;
-  border-top-right-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
-}
-.input-group.md-form.form-sm.form-2 input {
-  border: 1px solid #bdbdbd;
-  border-top-left-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
-}
-.input-group.md-form.form-sm.form-2 input.red-border {
-  border: 1px solid #ef9a9a;
-}
-.input-group.md-form.form-sm.form-2 input.lime-border {
-  border: 1px solid #cddc39;
-}
-.input-group.md-form.form-sm.form-2 input.amber-border {
-  border: 1px solid #ffca28;
-}
+/*Resize the wrap to see the search bar change!*/
+
+
