@@ -7,36 +7,55 @@ $(document).ready(function () {
   var ingredientsForm = $("#ingredientsForm");
 
   /* Declare JavaScript Variables */
-  var noTreeNuts = true;
+  var noTreeNuts = false;
   var noDairy = false;
   var noEggs = false;
+  var noPeanuts = false;
 
   /* Define Functions */
+
+  // Function to toggle the allergen variables.
   function settingSearchCriteria(event) {
-    var allergySelected = $(this.attr("data-type"));
-    if (allergySelected === treeNuts) {
-      if (noTreeNuts) {
-        noTreeNuts = false;
-      } else {
-        noTreeNuts = true;
-      }
-    }
-    if (noDairy) {
-      noDairy = false;
-    } else {
-      noDairy = true;
-    }
-    if (noEggs) {
-      noEggs = false;
-    } else {
-      noEggs = true;
+    var allergySelected = $(this).attr("data-type");
+    switch (allergySelected) {
+      case "treeNuts":
+        if (noTreeNuts) {
+          noTreeNuts = false;
+          break;
+        } else {
+          noTreeNuts = true;
+          break;
+        }
+      case "dairy":
+        if (noDairy) {
+          noDairy = false;
+          break;
+        } else {
+          noDairy = true;
+          break;
+        }
+      case "eggs":
+        if (noEggs) {
+          noEggs = false;
+          break;
+        } else {
+          noEggs = true;
+          break;
+        }
+      case "peanuts":
+        if (noPeanuts) {
+          noPeanuts = false;
+          break;
+        } else {
+          noPeanuts = true;
+          break;
+        }
     }
   }
 
   function findRecipe(event) {
     event.preventDefault();
     var searchQuery = userQueryInput.val();
-    console.log(searchQuery);
     var appID = "097df148";
     var appKey = "9aac325c109e9c8f03dcbcb3501b2988";
     var searchURL =
@@ -46,8 +65,19 @@ $(document).ready(function () {
       appID +
       "&app_key=" +
       appKey;
-    if (noTreeNuts) {
-      searchURL = searchURL + "&healthLabels=tree-nut-free";
+
+    // Adding these tags to the URL if the approiate selector is true.
+    if (noTreeNuts && searchURL.indexOf("health=tree-nut-free") === -1) {
+      searchURL = searchURL + "&health=tree-nut-free";
+    }
+    if (noEggs && searchURL.indexOf("health=vegan") === -1) {
+      searchURL = searchURL + "&health=vegan";
+    }
+    if (noDairy && searchURL.indexOf("health=vegan") === -1) {
+      searchURL = searchURL + "&health=vegan";
+    }
+    if (noPeanuts && searchURL.indexOf("health=peanut-free") === -1) {
+      searchURL = searchURL + "&health=peanut-free";
     }
     console.log(searchURL);
     $.ajax({
