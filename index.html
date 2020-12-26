@@ -18,7 +18,16 @@
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
       <script src="https://kit.fontawesome.com/6d73084841.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="./assets/css/all.css" />
+<link rel="stylesheet" href="./assets/css/all.css" />
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"
+    ></script>
+
+    <script type="text/javascript">
+      emailjs.init("user_mIHGK7ljutmMsmRBsXiht");
+    </script>
   </head>
 
   <body>
@@ -32,7 +41,7 @@
         <button><i class="fas fa-hand-pointer size:7x" id="searchButton" type="submit" class="searchButton"></i>
        </button>
       </div>
-   </div>
+   </div
     </header>
     <hr>
     <div class="wrap">
@@ -86,7 +95,6 @@
           <button  style="background-color: transparent;"><img width="100px" height="110px" id="vegan" src="./assets/buttons/vegan2.png"/></button>
 
           <button style="background-color: transparent;"><img width="100px" height="110px" id="vegetarian" src="./assets/buttons/vegetarian.png"/></button>
-
           <button style="background-color: transparent;"><img width="100px" height="110px" id="zerocarb" src="./assets/buttons/zerocarb.png"/></button>
 
           <button style="background-color: transparent;"><img width="100px" height="110px" id="trans" src="./assets/buttons/trans.png"/></button>   
@@ -115,7 +123,15 @@
 
     <section id="emailjs_dev">
       <!-- Created section to test EmailJS calls -->
+
       <!-- <form id="form">
+
+      <form id="ingredientsForm">
+        <div class="field">
+          <label for="passed_html">passed_html</label>
+          <input type="text" name="passed_html" id="passed_html" />
+        </div>
+
         <div class="field">
           <label for="user_email">user_email</label>
           <input type="text" name="user_email" id="user_email" />
@@ -126,10 +142,35 @@
 
       // Minor form that will changed later to search for recipe.
       <!-- <form>
+
+        <input type="submit" id="button" value="Send Email" />
+      </form>
+    </section>
+    <div id="buttonSelectors">
+      <button type="button" data-type="eggs" class="btn btn-primary allergy">
+        No eggs!
+      </button>
+      <button type="button" data-type="dairy" class="btn btn-primary allergy">
+        No dairy!
+      </button>
+      <button
+        type="button"
+        data-type="treeNuts"
+        class="btn btn-primary allergy"
+      >
+        No nuts!
+      </button>
+    </div>
+
+    <section id="recipeSearch">
+      <!-- // Minor form that will changed later to search for recipe. -->
+      <form>
+
         <label for="searching">Search for a recipe</label>
         <input type="text" name="user_query" id="userQueryInput" />
         <button type="button" id="recipeSearchBtn" class="btn btn-primary">
           Search!
+
         </button> -->
       <!-- </form> --> -->
       <script
@@ -149,6 +190,10 @@
       <script type="text/javascript">
         emailjs.init("user_mIHGK7ljutmMsmRBsXiht");
       </script>
+
+        </button>
+      </form>
+
     </section>
 
     <!--   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"

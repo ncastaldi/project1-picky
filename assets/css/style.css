@@ -1,3 +1,4 @@
+
 @import 
 url(https://fonts.googleapis.com/css?family=Open+Sans);
 
@@ -118,5 +119,28 @@ searchTerm {
 }
 
 /*Resize the wrap to see the search bar change!*/
+.field {
+  margin-bottom: 10px;
+}
 
+.field label {
+  display: block;
+  font-size: 12px;
+  color: #777;
+}
 
+.field input {
+  display: block;
+  min-width: 250px;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+input[type="submit"] {
+  display: block;
+  padding: 6px 30px;
+  font-size: 14px;
+  background-color: #4460AA;
+  color: #fff;
+  border: none
+}
