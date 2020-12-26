@@ -106,6 +106,32 @@ $(document).ready(function () {
     });
   }
 
+  //Function to call Spoontacular API
+  function searchSpoontacular(event) {
+    event.preventDefault();
+
+    var recipeSearchURL = "https://api.spoonacular.com/recipes/complexSearch?apiKey=55ef65bbdb1c401490f851867d7b839f";
+    var searchQuery = "&query=chicken";
+
+    $.ajax({
+      url: recipeSearchURL + searchQuery,
+      method: 'GET'
+    }).then(function (response) {
+      //DO SOMETHING
+      console.log("10 Results from query: " + response.results);
+      var recipeID = response.results[0].id;
+      var recipeStepsURL = "https://api.spoonacular.com/recipes/" + recipeID + "/analyzedInstructions?apiKey=55ef65bbdb1c401490f851867d7b839f";
+
+      $.ajax({
+        url: recipeStepsURL,
+        method: 'GET'
+      }).then(function (response2) {
+        console.log("Recipe Steps: " + response2);
+      })
+
+
+    })
+  }
   /* Make Function Calls */
 
   /* Register Event Listeners */
