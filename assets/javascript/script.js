@@ -175,12 +175,8 @@ $(document).ready(function () {
   buttonSelectors.on("click", ".allergy", settingSearchCriteria);
   recipeSearchBtn.on("click", findRecipe);
   ingredientsForm.on("submit", saveList);
-<<<<<<< HEAD
 
   spoontacularButton.on("click", searchSpoontacular);
-=======
-  /* Register Event Listeners */
->>>>>>> e19e1ccff078df82331b6ce6de62dd9a1d73219d
 });
 
 function openPage(pageName, elmnt, color) {
