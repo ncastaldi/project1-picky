@@ -108,6 +108,16 @@ $(document).ready(function () {
     for (var i = 0; i < searchResults.length; i++) {
       resultTitle.push(searchResults[i].recipe.label);
       resultImage.push(searchResults[i].recipe.image);
+
+      var recipeResultCardEl = $("<div>");
+      // recipeResultCardEl.addClass("row");
+      var recipeResultImg = $("<img>");
+      recipeResultImg.attr("src", resultImage[i]);
+      recipeResultCardEl.append(recipeResultImg);
+      var recipeResultTitleEl = $("<p>");
+      recipeResultTitleEl.attr("text", resultTitle[i]);
+      recipeResultCardEl.append(recipeResultTitleEl);
+      dynamicContentEl.append(recipeResultCardEl);
     }
 
     console.log(resultTitle);

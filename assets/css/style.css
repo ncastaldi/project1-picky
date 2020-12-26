@@ -36,7 +36,6 @@ input[type="submit"] {
   color: #fff;
   border: none;
 }
-
 /* ELEMENT STYLES */
 
 /* CLASS STYLES */
@@ -153,6 +152,16 @@ input[type="submit"] {
 
 #Diet {
   background-color: #e30022;
+}
+
+#dynamicContent img {
+  width: 200px;
+  float: right;
+}
+
+#dynamicContent p {
+  color: black;
+  font-size: xx-large;
 }
 #Home {
   background-color: #e30022;
