@@ -12,9 +12,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
 
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/6d73084841.js" crossorigin="anonymous"></script>
+  <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> -->
+  <script src="https://kit.fontawesome.com/125e323a70.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./assets/css/style.css" />
   <link rel="stylesheet" href="./assets/css/all.css" />
 
@@ -32,8 +32,8 @@
       <a class="navbar-brand"><img id="logo" src="./assets/picky-logo.png" /></a>
     </nav>
     <div class="search input-group md-form form-sm form-2 pl-0">
-      <input type="text" id="rs" class="searchTerm form-control my-0 py-1" placeholder="Recipe Search">
-      <button><i class="fas fa-hand-pointer size:7x" id="searchButton" type="submit" class="searchButton"></i>
+      <input type="text" id="rs userQueryInput" class="searchTerm form-control my-0 py-1" placeholder="Recipe Search">
+      <button id="recipeSearchBtn">
       </button>
     </div>
     </div>
@@ -57,28 +57,28 @@
       <p>
         Pick a concern
       <div class="btn-group ">
-        <button style="background-color: transparent;"><img width="100px" height="110px" id="gluten"
+        <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="gluten"
             src="./assets/buttons/gluten.png" /></button>
 
-        <button style="background-color: transparent;"><img width="100px" height="110px" id="shellfish"
+        <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="shellfish"
             src="./assets/buttons/shellfish.png" /></button>
 
-        <button style="background-color: transparent;"><img width="100px" height="110px" id="alcohol"
+        <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="alcohol"
             src="./assets/buttons/alcohol.png" /></button>
 
-        <button style="background-color: transparent;"><img width="100px" height="110px" id="peanuts"
+        <button class="allergy" data-type="peanuts"style="background-color: transparent;"><img width="100px" height="110px" id="peanuts"
             src="./assets/buttons/peanuts.png" /></button>
 
-        <button style="background-color: transparent;"><img width="100px" height="110px" id="egg"
+        <button class="allergy" data-type="eggs" style="background-color: transparent;"><img width="100px" height="110px" id="egg"
             src="./assets/buttons/egg.png" /></button>
 
-        <button style="background-color: transparent;"><img width="100px" height="110px" id="fish"
+        <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="fish"
             src="./assets/buttons/fish.png" /></button>
 
-        <button style="background-color: transparent;"><img width="100px" height="110px" id="corn"
+        <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="corn"
             src="./assets/buttons/corn.png" /></button>
 
-        <button style="background-color: transparent;"><img width="100px" height="110px" id="gluten"
+        <button class="allergy" data-type="treeNuts" style="background-color: transparent;"><img width="100px" height="110px" id="gluten"
             src="./assets/buttons/nuts.png" /></button>
       </div>
 
@@ -88,7 +88,7 @@
     <div id="Diet" class="tabcontent">
       <h3>Diet Specific</h3>
       <p>Get in touch, or swing by for a cup of coffee.</p>
-      <div class="btn-group ">
+      <div id="buttonSelectors" class="btn-group">
         <button style="background-color: transparent;"><img width="100px" height="110px" id="paleo"
             src="./assets/buttons/paleo.png" /></button>
 
