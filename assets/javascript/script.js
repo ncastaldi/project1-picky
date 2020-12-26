@@ -6,6 +6,8 @@ $(document).ready(function () {
 
   var ingredientsForm = $("#ingredientsForm");
 
+  var spoontacularButton = $("#spoontacular");
+
   /* Declare JavaScript Variables */
   var noTreeNuts = false;
   var noDairy = false;
@@ -110,6 +112,8 @@ $(document).ready(function () {
   buttonSelectors.on("click", ".allergy", settingSearchCriteria);
   recipeSearchBtn.on("click", findRecipe);
   ingredientsForm.on("submit", saveList);
+
+  spoontacularButton.on("click", searchSpoontacular);
 });
 
 
