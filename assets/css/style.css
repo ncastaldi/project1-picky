@@ -1,27 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-h1 {
-  color: #e30022;
-}
-
-/* ///daniel */
-/* Set height of body and the document to 100% to enable "full page tabs" */
-body {
+/* ELEMENT STYLES */
+body { /* Set height of body and the document to 100% to enable "full page tabs" */
   height: 100%;
   margin: 0;
   font-family: "Roboto", sans-serif;
   font-weight: bolder;
-  /* background-color: #e30022 !important; */
-}
-.navbar {
-  background-color: #e30022;
-  padding: 0;
-}
-.navbar-brand {
-  margin: 0 auto;
-}
-#logo {
-  width: 200px;
+  background-color: #e30022 !important;
 }
 
 button {
@@ -33,55 +18,54 @@ button {
   background: #e30022;
 }
 
-/* Style tab links */
-.tablink {
-  background-color: #e30022;
-  color: white;
-  float: left;
+h1 {
+  color: #e30022;
+}
+
+input[type="submit"] {
+  display: block;
+  padding: 6px 30px;
+  font-size: 14px;
+  background-color: #4460aa;
+  color: #fff;
   border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  font-size: 17px;
-  width: 25%;
 }
 
-.tablink:hover {
-  background-color: #90000e;
-}
+/* ELEMENT STYLES */
 
-/* Style the tab content (and add height:100% for full page content) */
-.tabcontent {
+/* CLASS STYLES */
+.fa-hand-pointer {
   color: white;
-  display: none;
-  padding: 100px 20px;
-  height: 100%;
+  background: #e30022;
+  font-size: 30px;
 }
 
-#Home {
-  background-color: #e30022;
-}
-#Allergy {
-  background-color: #e30022;
-}
-#Diet {
-  background-color: #e30022;
-}
-#Cuisine {
-  background-color: #e30022;
+.field { /*Resize the wrap to see the search bar change!*/
+  margin-bottom: 10px;
 }
 
-#Home {
-  background-color: #e30022;
+.field label {
+  display: block;
+  font-size: 12px;
+  color: #777;
 }
-#Allergy {
-  background-color: #c90012;
+
+.field input {
+  display: block;
+  min-width: 250px;
+  line-height: 1.5;
+  font-size: 14px;
 }
-#Diet {
-  background-color: #b70012;
-}
-#Cuisine {
-  background-color: #90000e;
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 3px solid rgb(205, 10, 10);
+  text-align: center;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 25px;
 }
 
 .search {
@@ -108,45 +92,74 @@ button {
 .searchTerm:focus {
   color: black;
 }
-.searchButton {
-  width: 40px;
-  height: 36px;
-  border: 3px solid rgb(205, 10, 10);
-  text-align: center;
+
+.tabcontent { /* Style the tab content (and add height:100% for full page content) */
   color: white;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 25px;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
 }
-.fa-hand-pointer {
+
+.tablink { /* Style tab links */
+  background-color: #e30022;
   color: white;
-  background: #e30022;
-  font-size: 30px;
-}
-
-/*Resize the wrap to see the search bar change!*/
-.field {
-  margin-bottom: 10px;
-}
-
-.field label {
-  display: block;
-  font-size: 12px;
-  color: #777;
-}
-
-.field input {
-  display: block;
-  min-width: 250px;
-  line-height: 1.5;
-  font-size: 14px;
-}
-
-input[type="submit"] {
-  display: block;
-  padding: 6px 30px;
-  font-size: 14px;
-  background-color: #4460aa;
-  color: #fff;
+  float: left;
   border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
 }
+
+.tablink:hover {
+  background-color: #90000e;
+}
+
+.navbar {
+  background-color: #e30022;
+  padding: 0;
+}
+.navbar-brand {
+  margin: 0 auto;
+}
+/* CLASS STYLES */
+
+/* ID STYLES */
+#Allergy {
+  background-color: #e30022;
+}
+
+#Allergy {
+  background-color: #c90012;
+}
+
+#Cuisine {
+  background-color: #e30022;
+}
+
+#Cuisine {
+  background-color: #90000e;
+}
+#Diet {
+  background-color: #b70012;
+}
+
+#Diet {
+  background-color: #e30022;
+}
+#Home {
+  background-color: #e30022;
+}
+
+#Home {
+  background-color: #e30022;
+}
+
+#logo {
+  width: 200px;
+}
+/* ID STYLES */
+
+/* MEDIA QUERIES */
+/* MEDIA QUERIES */
