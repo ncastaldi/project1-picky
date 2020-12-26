@@ -110,12 +110,12 @@ $(document).ready(function () {
       resultImage.push(searchResults[i].recipe.image);
 
       var recipeResultCardEl = $("<div>");
-      // recipeResultCardEl.addClass("row");
+      recipeResultCardEl.addClass("row");
       var recipeResultImg = $("<img>");
       recipeResultImg.attr("src", resultImage[i]);
       recipeResultCardEl.append(recipeResultImg);
       var recipeResultTitleEl = $("<p>");
-      recipeResultTitleEl.attr("text", resultTitle[i]);
+      recipeResultTitleEl.text(resultTitle[i]);
       recipeResultCardEl.append(recipeResultTitleEl);
       dynamicContentEl.append(recipeResultCardEl);
     }
