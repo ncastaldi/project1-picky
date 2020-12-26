@@ -3,17 +3,17 @@ $(document).ready(function () {
   var userQueryInput = $("#userQueryInput");
   var recipeSearchBtn = $("#recipeSearchBtn");
   var buttonSelectors = $("#buttonSelectors");
-
   var ingredientsForm = $("#ingredientsForm");
+  /* Declare DOM Variables */
 
   /* Declare JavaScript Variables */
   var noTreeNuts = false;
   var noDairy = false;
   var noEggs = false;
   var noPeanuts = false;
+  /* Declare JavaScript Variables */
 
   /* Define Functions */
-
   // Function to toggle the allergen variables.
   function settingSearchCriteria(event) {
     var allergySelected = $(this).attr("data-type");
@@ -53,6 +53,7 @@ $(document).ready(function () {
     }
   }
 
+  //Function to query Edamam API
   function findRecipe(event) {
     event.preventDefault();
     var searchQuery = userQueryInput.val();
@@ -88,6 +89,7 @@ $(document).ready(function () {
     });
   }
 
+  //Function to send saved ingredient list via EmailJS API
   function saveList(event) {
     event.preventDefault();
 
@@ -103,13 +105,16 @@ $(document).ready(function () {
       user_email: user_email,
     });
   }
+  /* Define Functions */
 
+  /* Make Function Calls */
   /* Make Function Calls */
 
   /* Register Event Listeners */
   buttonSelectors.on("click", ".allergy", settingSearchCriteria);
   recipeSearchBtn.on("click", findRecipe);
   ingredientsForm.on("submit", saveList);
+  /* Register Event Listeners */
 });
 
 
