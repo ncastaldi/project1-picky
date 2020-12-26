@@ -18,6 +18,12 @@ button {
   background: #e30022;
 }
 
+div { //this code is for testing purposes and should be remomved or commented out before pushing
+  border-width: 5px;
+  border-color: yellowgreen;
+  border-style: solid;
+}
+
 h1 {
   color: #e30022;
 }
