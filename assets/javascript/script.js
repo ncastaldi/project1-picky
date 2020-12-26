@@ -4,6 +4,8 @@ $(document).ready(function () {
   var recipeSearchBtn = $("#recipeSearchBtn");
   var buttonSelectors = $("#buttonSelectors");
   var ingredientsForm = $("#ingredientsForm");
+
+  var dynamicContentEl = $("#dynamicContent");
   /* Declare DOM Variables */
 
   /* Declare JavaScript Variables */
@@ -11,6 +13,10 @@ $(document).ready(function () {
   var noDairy = false;
   var noEggs = false;
   var noPeanuts = false;
+
+  var searchResults = [];
+  var resultTitle = [];
+  var resultImage = [];
   /* Declare JavaScript Variables */
 
   /* Define Functions */
@@ -57,8 +63,8 @@ $(document).ready(function () {
   function findRecipe(event) {
     event.preventDefault();
     var searchQuery = userQueryInput.val();
-    var appID = "097df148";
-    var appKey = "9aac325c109e9c8f03dcbcb3501b2988";
+    var appID = "a1693f14";
+    var appKey = "f3aa39b9486a7dff1bea7a4cbcede5a9";
     var searchURL =
       "https://api.edamam.com/search?q=" +
       searchQuery +
@@ -86,7 +92,27 @@ $(document).ready(function () {
       method: "GET",
     }).then(function (response) {
       console.log(response);
+
+      searchResults = response.hits;
+
+      displayRecipes(event);
     });
+  }
+
+  //Function to display search results
+  function displayRecipes(event) {
+    event.preventDefault();
+
+    console.log(searchResults[0].recipe.image);
+
+    for (var i = 0; i < searchResults.length; i++) {
+      resultTitle.push(searchResults[i].recipe.label);
+      resultImage.push(searchResults[i].recipe.image);
+    }
+
+    console.log(resultTitle);
+    console.log(resultImage);
+    console.log("yay");
   }
 
   //Function to send saved ingredient list via EmailJS API
@@ -117,9 +143,6 @@ $(document).ready(function () {
   /* Register Event Listeners */
 });
 
-
-
-////daniels filter tabs
 function openPage(pageName, elmnt, color) {
   // Hide all elements with class="tabcontent" by default */
   var i, tabcontent, tablinks;
