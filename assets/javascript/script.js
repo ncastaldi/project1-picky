@@ -69,13 +69,14 @@ $(document).ready(function () {
 
   //Function to query Edamam API
   function findRecipe(event) {
+
     event.preventDefault();
-    var searchQuery = userQueryInput.val();
+    var searchQueryEdamam = $(this).prev().val();
     var appID = "a1693f14";
     var appKey = "f3aa39b9486a7dff1bea7a4cbcede5a9";
     var searchURL =
       "https://api.edamam.com/search?q=" +
-      searchQuery +
+      searchQueryEdamam +
       "&app_id=" +
       appID +
       "&app_key=" +
@@ -106,7 +107,7 @@ $(document).ready(function () {
 
       searchResults = response.hits;
 
-      displayRecipes(event);
+      // displayRecipes(event);
     });
   }
 
@@ -158,27 +159,29 @@ $(document).ready(function () {
   function searchSpoontacular(event) {
     event.preventDefault();
 
-    var recipeSearchURL = "https://api.spoonacular.com/recipes/complexSearch?apiKey=55ef65bbdb1c401490f851867d7b839f";
+    var recipeSearchURL =
+      "https://api.spoonacular.com/recipes/complexSearch?apiKey=55ef65bbdb1c401490f851867d7b839f";
     var searchQuery = "&query=chicken";
 
     $.ajax({
       url: recipeSearchURL + searchQuery,
-      method: 'GET'
+      method: "GET",
     }).then(function (response) {
       //DO SOMETHING
       console.log("10 Results from query: " + response.results);
       var recipeID = response.results[0].id;
-      var recipeStepsURL = "https://api.spoonacular.com/recipes/" + recipeID + "/analyzedInstructions?apiKey=55ef65bbdb1c401490f851867d7b839f";
+      var recipeStepsURL =
+        "https://api.spoonacular.com/recipes/" +
+        recipeID +
+        "/analyzedInstructions?apiKey=55ef65bbdb1c401490f851867d7b839f";
 
       $.ajax({
         url: recipeStepsURL,
-        method: 'GET'
+        method: "GET",
       }).then(function (response2) {
         console.log("Recipe Steps: " + response2);
-      })
-
-
-    })
+      });
+    });
   }
   /* Make Function Calls */
   /* Make Function Calls */
