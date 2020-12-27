@@ -66,17 +66,21 @@ $(document).ready(function () {
         }
     }
   }
-
-  //Function to query Edamam API
-  function findRecipe(event) {
-
+  function searchingAPIs(event) {
     event.preventDefault();
-    var searchQueryEdamam = $(this).prev().val();
+    var searchQuery = $(this).prev().val();
+    searchEdamam(event, searchQuery);
+    searchSpoontacular(event, searchQuery);
+  }
+  //Function to query Edamam API
+  function searchEdamam(event, searchQuery) {
+    event.preventDefault();
+
     var appID = "a1693f14";
     var appKey = "f3aa39b9486a7dff1bea7a4cbcede5a9";
     var searchURL =
       "https://api.edamam.com/search?q=" +
-      searchQueryEdamam +
+      searchQuery +
       "&app_id=" +
       appID +
       "&app_key=" +
@@ -105,9 +109,38 @@ $(document).ready(function () {
     }).then(function (response) {
       console.log(response);
 
-      searchResults = response.hits;
+      // searchResults = response.hits;
 
       // displayRecipes(event);
+    });
+  }
+
+  //Function to call Spoontacular API
+  function searchSpoontacular(event, searchQuery) {
+    event.preventDefault();
+
+    var recipeSearchURL =
+      "https://api.spoonacular.com/recipes/complexSearch?apiKey=55ef65bbdb1c401490f851867d7b839f";
+    searchQuery = "&query=" + searchQuery;
+
+    $.ajax({
+      url: recipeSearchURL + searchQuery,
+      method: "GET",
+    }).then(function (response) {
+      //DO SOMETHING
+      console.log("10 Results from query: " + response.results);
+      var recipeID = response.results[0].id;
+      var recipeStepsURL =
+        "https://api.spoonacular.com/recipes/" +
+        recipeID +
+        "/analyzedInstructions?apiKey=55ef65bbdb1c401490f851867d7b839f";
+
+      $.ajax({
+        url: recipeStepsURL,
+        method: "GET",
+      }).then(function (response2) {
+        console.log("Recipe Steps: " + response2);
+      });
     });
   }
 
@@ -155,40 +188,12 @@ $(document).ready(function () {
   }
   /* Define Functions */
 
-  //Function to call Spoontacular API
-  function searchSpoontacular(event) {
-    event.preventDefault();
-
-    var recipeSearchURL =
-      "https://api.spoonacular.com/recipes/complexSearch?apiKey=55ef65bbdb1c401490f851867d7b839f";
-    var searchQuery = "&query=chicken";
-
-    $.ajax({
-      url: recipeSearchURL + searchQuery,
-      method: "GET",
-    }).then(function (response) {
-      //DO SOMETHING
-      console.log("10 Results from query: " + response.results);
-      var recipeID = response.results[0].id;
-      var recipeStepsURL =
-        "https://api.spoonacular.com/recipes/" +
-        recipeID +
-        "/analyzedInstructions?apiKey=55ef65bbdb1c401490f851867d7b839f";
-
-      $.ajax({
-        url: recipeStepsURL,
-        method: "GET",
-      }).then(function (response2) {
-        console.log("Recipe Steps: " + response2);
-      });
-    });
-  }
   /* Make Function Calls */
   /* Make Function Calls */
 
   /* Register Event Listeners */
   buttonSelectors.on("click", ".allergy", settingSearchCriteria);
-  recipeSearchBtn.on("click", findRecipe);
+  recipeSearchBtn.on("click", searchingAPIs);
   ingredientsForm.on("submit", saveList);
 
   spoontacularButton.on("click", searchSpoontacular);
