@@ -1,7 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 /* ELEMENT STYLES */
-body { /* Set height of body and the document to 100% to enable "full page tabs" */
+body {
+  /* Set height of body and the document to 100% to enable "full page tabs" */
   height: 100%;
   margin: 0;
   font-family: "Roboto", sans-serif;
@@ -17,8 +18,8 @@ button {
   border: none;
   background: #e30022;
 }
-
-div { //this code is for testing purposes and should be remomved or commented out before pushing
+/* //this code is for testing purposes and should be remomved or commented out before pushing */
+div {
   border-width: 5px;
   border-color: yellowgreen;
   border-style: solid;
@@ -45,7 +46,8 @@ input[type="submit"] {
   font-size: 30px;
 }
 
-.field { /*Resize the wrap to see the search bar change!*/
+.field {
+  /*Resize the wrap to see the search bar change!*/
   margin-bottom: 10px;
 }
 
@@ -98,14 +100,16 @@ input[type="submit"] {
   color: black;
 }
 
-.tabcontent { /* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  /* Style the tab content (and add height:100% for full page content) */
   color: white;
   display: none;
   padding: 100px 20px;
   height: 100%;
 }
 
-.tablink { /* Style tab links */
+.tablink {
+  /* Style tab links */
   background-color: #e30022;
   color: white;
   float: left;
