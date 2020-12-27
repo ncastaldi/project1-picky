@@ -11,6 +11,7 @@ $(document).ready(function () {
   var noDairy = false;
   var noEggs = false;
   var noPeanuts = false;
+  var noAlcohol = false;
 
   /* Define Functions */
 
@@ -50,6 +51,14 @@ $(document).ready(function () {
           noPeanuts = true;
           break;
         }
+      case "alcohol":
+        if (noAlcohol) {
+          noAlcohol = false;
+          break;
+        } else {
+          noAlcohol = true;
+          break;
+        }
     }
   }
 
@@ -78,6 +87,9 @@ $(document).ready(function () {
     }
     if (noPeanuts && searchURL.indexOf("health=peanut-free") === -1) {
       searchURL = searchURL + "&health=peanut-free";
+    }
+    if (noAlcohol && searchURL.indexOf("health=alcohol-free")) {
+      searchURL = searchURL + "&health=alcohol-free";
     }
     console.log(searchURL);
     $.ajax({
@@ -111,8 +123,6 @@ $(document).ready(function () {
   recipeSearchBtn.on("click", findRecipe);
   ingredientsForm.on("submit", saveList);
 });
-
-
 
 ////daniels filter tabs
 function openPage(pageName, elmnt, color) {
