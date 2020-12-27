@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+:root{
+  --main-bg-color: #c537337;
+  
 
+}
 /* ELEMENT STYLES */
 body {
   /* Set height of body and the document to 100% to enable "full page tabs" */
@@ -7,7 +11,7 @@ body {
   margin: 0;
   font-family: "Roboto", sans-serif;
   font-weight: bolder;
-  background-color: #e30022 !important;
+  background-color: var(--main-bg-color) !important;
 }
 
 button {
@@ -16,7 +20,8 @@ button {
   padding-left: 100px;
   padding: 15px 32px;
   border: none;
-  background: #e30022;
+  background: #222020;
+  color:#ebe1e1;
 }
 /* //this code is for testing purposes and should be remomved or commented out before pushing */
 div {
@@ -26,7 +31,7 @@ div {
 }
 
 h1 {
-  color: #e30022;
+  color: #f1ebeb;
 }
 
 input[type="submit"] {
@@ -42,7 +47,7 @@ input[type="submit"] {
 /* CLASS STYLES */
 .fa-hand-pointer {
   color: white;
-  background: #e30022;
+  background: var(--main-bg-color);
   font-size: 30px;
 }
 
@@ -54,7 +59,7 @@ input[type="submit"] {
 .field label {
   display: block;
   font-size: 12px;
-  color: #777;
+  color: rgb(49, 45, 45);
 }
 
 .field input {
@@ -90,10 +95,10 @@ input[type="submit"] {
   height: 20px;
   border-radius: 5px 0 0 5px;
   outline: none;
-  background-color: #e30022;
-  background-color: #90000e;
+  background-color: var(--main-bg-color);
+  
   color: white;
-  border-color: #e30022;
+  border-color: var(--main-bg-color);
   font-family: "Roboto", sans-serif;
 }
 .searchTerm:focus {
@@ -110,7 +115,7 @@ input[type="submit"] {
 
 .tablink {
   /* Style tab links */
-  background-color: #e30022;
+  background-color: var(--main-bg-color);
   color: white;
   float: left;
   border: none;
@@ -121,12 +126,12 @@ input[type="submit"] {
   width: 25%;
 }
 
-.tablink:hover {
-  background-color: #90000e;
+.tabLink:hover {
+  background-color: var(--main-bg-color);
 }
 
 .navbar {
-  background-color: #e30022;
+  background-color: var(--main-bg-color);
   padding: 0;
 }
 .navbar-brand {
@@ -136,27 +141,17 @@ input[type="submit"] {
 
 /* ID STYLES */
 #Allergy {
-  background-color: #e30022;
+  background-color:var(--main-bg-color);
 }
 
-#Allergy {
-  background-color: #c90012;
-}
 
 #Cuisine {
-  background-color: #e30022;
+  background-color: var(--main-bg-color);
 }
 
-#Cuisine {
-  background-color: #90000e;
-}
-#Diet {
-  background-color: #b70012;
-}
 
-#Diet {
-  background-color: #e30022;
-}
+
+
 
 #dynamicContent img {
   width: 200px;
@@ -164,16 +159,15 @@ input[type="submit"] {
 }
 
 #dynamicContent p {
-  color: black;
+  color: rgb(243, 242, 242);
   font-size: xx-large;
 }
 #Home {
-  background-color: #e30022;
+  background-color: var(--main-bg-color);
 }
 
-#Home {
-  background-color: #e30022;
-}
+
+
 
 #logo {
   width: 200px;
