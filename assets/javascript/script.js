@@ -5,14 +5,14 @@ $(document).ready(function () {
   var buttonSelectors = $("#buttonSelectors");
   var ingredientsForm = $("#ingredientsForm");
 
-  var dynamicContentEl = $("#dynamicContent");
-  /* Declare DOM Variables */
+  var spoontacularButton = $("#spoontacular");
 
   /* Declare JavaScript Variables */
   var noTreeNuts = false;
   var noDairy = false;
   var noEggs = false;
   var noPeanuts = false;
+  var noAlcohol = false;
 
   var searchResults = [];
   var resultTitle = [];
@@ -56,6 +56,14 @@ $(document).ready(function () {
           noPeanuts = true;
           break;
         }
+      case "alcohol":
+        if (noAlcohol) {
+          noAlcohol = false;
+          break;
+        } else {
+          noAlcohol = true;
+          break;
+        }
     }
   }
 
@@ -85,6 +93,9 @@ $(document).ready(function () {
     }
     if (noPeanuts && searchURL.indexOf("health=peanut-free") === -1) {
       searchURL = searchURL + "&health=peanut-free";
+    }
+    if (noAlcohol && searchURL.indexOf("health=alcohol-free")) {
+      searchURL = searchURL + "&health=alcohol-free";
     }
     console.log(searchURL);
     $.ajax({
@@ -143,6 +154,32 @@ $(document).ready(function () {
   }
   /* Define Functions */
 
+  //Function to call Spoontacular API
+  function searchSpoontacular(event) {
+    event.preventDefault();
+
+    var recipeSearchURL = "https://api.spoonacular.com/recipes/complexSearch?apiKey=55ef65bbdb1c401490f851867d7b839f";
+    var searchQuery = "&query=chicken";
+
+    $.ajax({
+      url: recipeSearchURL + searchQuery,
+      method: 'GET'
+    }).then(function (response) {
+      //DO SOMETHING
+      console.log("10 Results from query: " + response.results);
+      var recipeID = response.results[0].id;
+      var recipeStepsURL = "https://api.spoonacular.com/recipes/" + recipeID + "/analyzedInstructions?apiKey=55ef65bbdb1c401490f851867d7b839f";
+
+      $.ajax({
+        url: recipeStepsURL,
+        method: 'GET'
+      }).then(function (response2) {
+        console.log("Recipe Steps: " + response2);
+      })
+
+
+    })
+  }
   /* Make Function Calls */
   /* Make Function Calls */
 
@@ -150,7 +187,8 @@ $(document).ready(function () {
   buttonSelectors.on("click", ".allergy", settingSearchCriteria);
   recipeSearchBtn.on("click", findRecipe);
   ingredientsForm.on("submit", saveList);
-  /* Register Event Listeners */
+
+  spoontacularButton.on("click", searchSpoontacular);
 });
 
 function openPage(pageName, elmnt, color) {

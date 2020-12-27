@@ -5,12 +5,13 @@
 
 }
 /* ELEMENT STYLES */
-body { /* Set height of body and the document to 100% to enable "full page tabs" */
+body {
+  /* Set height of body and the document to 100% to enable "full page tabs" */
   height: 100%;
   margin: 0;
   font-family: "Roboto", sans-serif;
   font-weight: bolder;
-  background-color: #c53737 !important;
+  background-color: var(--main-bg-color) !important;
 }
 
 button {
@@ -22,8 +23,8 @@ button {
   background: #222020;
   color:#ebe1e1;
 }
-div { /*this code is for testing purposes and should be remomved or commented out before pushing*/
-
+/* //this code is for testing purposes and should be remomved or commented out before pushing */
+div {
   border-width: 5px;
   border-color: yellowgreen;
   border-style: solid;
@@ -46,11 +47,12 @@ input[type="submit"] {
 /* CLASS STYLES */
 .fa-hand-pointer {
   color: white;
-  background: #c53737;
+  background: var(--main-bg-color);
   font-size: 30px;
 }
 
-.field { /*Resize the wrap to see the search bar change!*/
+.field {
+  /*Resize the wrap to see the search bar change!*/
   margin-bottom: 10px;
 }
 
@@ -93,25 +95,27 @@ input[type="submit"] {
   height: 20px;
   border-radius: 5px 0 0 5px;
   outline: none;
-  background-color: #c53737;
-  background-color: #c53737;
+  background-color: var(--main-bg-color);
+  
   color: white;
-  border-color: #c53737;
+  border-color: var(--main-bg-color);
   font-family: "Roboto", sans-serif;
 }
 .searchTerm:focus {
   color: black;
 }
 
-.tabContent { /* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  /* Style the tab content (and add height:100% for full page content) */
   color: white;
   display: none;
   padding: 100px 20px;
   height: 100%;
 }
 
-.tabLink { /* Style tab links */
-  background-color: #c53737;
+.tablink {
+  /* Style tab links */
+  background-color: var(--main-bg-color);
   color: white;
   float: left;
   border: none;
@@ -123,11 +127,11 @@ input[type="submit"] {
 }
 
 .tabLink:hover {
-  background-color: #c53737;
+  background-color: var(--main-bg-color);
 }
 
 .navbar {
-  background-color: #c53737;
+  background-color: var(--main-bg-color);
   padding: 0;
 }
 .navbar-brand {
@@ -137,12 +141,12 @@ input[type="submit"] {
 
 /* ID STYLES */
 #Allergy {
-  background-color:#c53737;
+  background-color:var(--main-bg-color);
 }
 
 
 #Cuisine {
-  background-color: #c53737;
+  background-color: var(--main-bg-color);
 }
 
 
