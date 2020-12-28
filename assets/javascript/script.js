@@ -108,6 +108,13 @@ $(document).ready(function () {
         recipeResultImg.attr("src", recipeImage[i]);
         recipeResultCardEl.append(recipeResultImg);
 
+        // Making a button to show the recipe.
+        var openRecipe = $("<button>").text("Show Recipe");
+        openRecipe.attr("class", "btn btn-primary");
+        openRecipe.attr("id", "openRecipeButton");
+        openRecipe.attr("data-index", i);
+        recipeResultCardEl.append(openRecipe);
+
         // Appending everything to dynamicContent
         dynamicContent.append(recipeResultCardEl);
       }
@@ -149,7 +156,7 @@ $(document).ready(function () {
   /* Make Function Calls */
 
   /* Register Event Listeners */
-  //buttonSelectors.on("click", ".allergy", settingSearchCriteria);
+  buttonSelectors.on("click", ".allergy", settingSearchCriteria);
   recipeSearchBtn.on("click", searchSpoontacular);
   ingredientsForm.on("submit", saveList);
 });
