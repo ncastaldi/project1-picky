@@ -1,44 +1,37 @@
-@import 
-url(https://fonts.googleapis.com/css?family=Open+Sans);
-
-
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 h1 {
   color: #e30022;
 }
-
 
 /* ///daniel */
 /* Set height of body and the document to 100% to enable "full page tabs" */
 body {
   height: 100%;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: bolder;
   background-color: #e30022 !important;
 }
 .navbar {
-  
   padding: 0;
-/*   background-image: url("./assets/check.png");
+  /*   background-image: url("./assets/check.png");
   background: url("./assets/check.png"); */
 }
 .navbar-brand {
   margin: 0 auto;
-  
 }
 #logo {
   width: 200px;
 }
 
 button {
-align-items: center;
-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-padding-left: 100px;
-padding: 15px 32px;
-border: none;
-background: #e30022;
- 
+  align-items: center;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-left: 100px;
+  padding: 15px 32px;
+  border: none;
+  background: #e30022;
 }
 
 /* Style tab links */
@@ -66,24 +59,37 @@ background: #e30022;
   height: 100%;
 }
 
-#Home {background-color: #e30022;}
-#Allergy {background-color:#e30022;}
-#Diet {background-color: #e30022;}
-#Cuisine {background-color:#e30022;}
+#Home {
+  background-color: #e30022;
+}
+#Allergy {
+  background-color: #e30022;
+}
+#Diet {
+  background-color: #e30022;
+}
+#Cuisine {
+  background-color: #e30022;
+}
 
-
-#Home {background-color: #e30022;}
-#Allergy {background-color:#c90012;}
-#Diet {background-color: #b70012;}
-#Cuisine {background-color:#90000E;}
-
+#Home {
+  background-color: #e30022;
+}
+#Allergy {
+  background-color: #c90012;
+}
+#Diet {
+  background-color: #b70012;
+}
+#Cuisine {
+  background-color: #90000e;
+}
 
 .search {
   width: 100%;
   position: relative;
   display: flex;
   color: white;
- 
 }
 
 searchTerm {
@@ -95,13 +101,13 @@ searchTerm {
   border-radius: 5px 0 0 5px;
   outline: none;
   background-color: #e30022;
-  background-color: #90000E;
-  color:white;
+  background-color: #90000e;
+  color: white;
   border-color: #e30022;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
-searchTerm:focus{
-  color: #FFFFFF;
+searchTerm:focus {
+  color: #ffffff;
 }
 .searchButton {
   width: 40px;
@@ -114,14 +120,12 @@ searchTerm:focus{
   font-size: 25px;
 }
 .fa-hand-pointer {
-  color:white;
+  color: white;
   background: #e30022;
   font-size: 30px;
 }
 
 /*Resize the wrap to see the search bar change!*/
-
-
 
 #logo {
   width: 200px;
