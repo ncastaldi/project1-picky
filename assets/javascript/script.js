@@ -114,6 +114,9 @@ $(document).ready(function () {
   function searchSpoontacular(event, searchQuery) {
     event.preventDefault();
 
+    /* Clear dynamicContent DIV ahead of writing new search results */
+    dynamicContent.empty();
+
     // Declaring local variables.
     var recipeID = [];
     var recipeImage = [];
