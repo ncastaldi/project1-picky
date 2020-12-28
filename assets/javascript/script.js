@@ -64,17 +64,17 @@ $(document).ready(function () {
       }
 
       // Preparing the URL for the second ajax call to get the recipe.
-      var recipeStepsURL =
-        "https://api.spoonacular.com/recipes/" +
-        recipeID +
-        "/analyzedInstructions?apiKey=55ef65bbdb1c401490f851867d7b839f";
+      // var recipeStepsURL =
+      //   "https://api.spoonacular.com/recipes/" +
+      //   recipeID +
+      //   "/analyzedInstructions?apiKey=55ef65bbdb1c401490f851867d7b839f";
 
-      $.ajax({
-        url: recipeStepsURL,
-        method: "GET",
-      }).then(function (response2) {
-        // console.log("Recipe Steps: " + results);
-      });
+      // $.ajax({
+      //   url: recipeStepsURL,
+      //   method: "GET",
+      // }).then(function (response2) {
+      //   // console.log("Recipe Steps: " + results);
+      // });
     });
   }
 
