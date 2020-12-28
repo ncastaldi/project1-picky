@@ -1,7 +1,7 @@
 $(document).ready(function () {
   /* Declare DOM Variables */
   var userQueryInput = $("#userQueryInput");
-  var recipeSearchBtn = $("#recipeSearchBtn");
+  var recipeSearchBtn = $("#searchRecipieButton");
   var buttonSelectors = $("#buttonSelectors");
   var ingredientsForm = $("#ingredientsForm");
   var dynamicContent = $("#dynamicContent");
@@ -113,7 +113,7 @@ $(document).ready(function () {
   //Function to call Spoontacular API
   function searchSpoontacular(event, searchQuery) {
     event.preventDefault();
-    
+
     // Declaring local variables.
     var recipeID = [];
     var recipeImage = [];
