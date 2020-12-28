@@ -5,7 +5,6 @@ $(document).ready(function () {
   var buttonSelectors = $("#buttonSelectors");
   var ingredientsForm = $("#ingredientsForm");
   var dynamicContent = $("#dynamicContent");
-  var spoontacularButton = $("#spoontacular");
 
   /* Declare JavaScript Variables */
   var noTreeNuts = false;
@@ -153,7 +152,6 @@ $(document).ready(function () {
   //buttonSelectors.on("click", ".allergy", settingSearchCriteria);
   recipeSearchBtn.on("click", searchSpoontacular);
   ingredientsForm.on("submit", saveList);
-
 });
 
 function openPage(pageName, elmnt, color) {
