@@ -113,6 +113,7 @@ $(document).ready(function () {
   //Function to call Spoontacular API
   function searchSpoontacular(event, searchQuery) {
     event.preventDefault();
+    
     // Declaring local variables.
     var recipeID = [];
     var recipeImage = [];
@@ -135,23 +136,24 @@ $(document).ready(function () {
         recipeID.push(spoonResults[i].id);
 
         // Making recipe cards.
-
+        // Making a new row.
         var recipeResultCardEl = $("<div>");
         recipeResultCardEl.addClass("row");
 
+        // Making the title element.
         var recipeResultTitleEl = $("<p> " + recipeTitle[i] + "</p>");
         // recipeResultTitleEl.append(recipeTitle[i]);
         recipeResultCardEl.append(recipeResultTitleEl);
 
+        // Making the img's and setting the src.
         var recipeResultImg = $("<img>");
         recipeResultImg.attr("src", recipeImage[i]);
         recipeResultCardEl.append(recipeResultImg);
 
+        // Appending everything to dynamicContent
         dynamicContent.append(recipeResultCardEl);
       }
-      console.log(recipeTitle);
-      console.log(recipeID);
-      console.log(recipeImage);
+
       // Preparing the URL for the second ajax call to get the recipe.
       var recipeStepsURL =
         "https://api.spoonacular.com/recipes/" +
