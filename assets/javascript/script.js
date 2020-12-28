@@ -116,6 +116,10 @@ $(document).ready(function () {
   //Function to call Spoontacular API
   function searchSpoontacular(event, searchQuery) {
     event.preventDefault();
+    // Declaring local variables.
+    var recipeID = [];
+    var recipeImage = [];
+    var recipeTitle = [];
 
     var recipeSearchURL =
       "https://api.spoonacular.com/recipes/complexSearch?apiKey=55ef65bbdb1c401490f851867d7b839f";
@@ -129,9 +133,25 @@ $(document).ready(function () {
 
       // Defining the three main variables we will be using.
       for (let i = 0; i < spoonResults.length; i++) {
-        console.log(JSON.stringify(spoonResults[i].title));
-      }
+        recipeTitle.push(JSON.stringify(spoonResults[i].title));
+        recipeImage.push(JSON.stringify(spoonResults[i].image));
+        recipeID.push(JSON.stringify(spoonResults[i].id));
 
+        var recipeResultCardEl = $("<div>");
+        recipeResultCardEl.addClass("row");
+        var recipeResultImg = $("<img>");
+        recipeResultImg.attr("src", resultImage[i]);
+        recipeResultCardEl.append(recipeResultImg);
+        var recipeResultTitleEl = $("<p>");
+        recipeResultTitleEl.text(resultTitle[i]);
+        recipeResultCardEl.append(recipeResultTitleEl);
+        dynamicContentEl.append(recipeResultCardEl);
+
+        // Making recipe cards.
+      }
+      console.log(recipeTitle);
+      console.log(recipeID);
+      console.log(recipeImage);
       // Preparing the URL for the second ajax call to get the recipe.
       var recipeStepsURL =
         "https://api.spoonacular.com/recipes/" +
@@ -145,32 +165,6 @@ $(document).ready(function () {
         // console.log("Recipe Steps: " + results);
       });
     });
-  }
-
-  //Function to display search results
-  function displayRecipes(event) {
-    event.preventDefault();
-
-    console.log(searchResults[0].recipe.image);
-
-    for (var i = 0; i < searchResults.length; i++) {
-      resultTitle.push(searchResults[i].recipe.label);
-      resultImage.push(searchResults[i].recipe.image);
-
-      var recipeResultCardEl = $("<div>");
-      recipeResultCardEl.addClass("row");
-      var recipeResultImg = $("<img>");
-      recipeResultImg.attr("src", resultImage[i]);
-      recipeResultCardEl.append(recipeResultImg);
-      var recipeResultTitleEl = $("<p>");
-      recipeResultTitleEl.text(resultTitle[i]);
-      recipeResultCardEl.append(recipeResultTitleEl);
-      dynamicContentEl.append(recipeResultCardEl);
-    }
-
-    console.log(resultTitle);
-    console.log(resultImage);
-    console.log("yay");
   }
 
   //Function to send saved ingredient list via EmailJS API
