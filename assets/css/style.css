@@ -1,22 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-h1 {
-  color: #e30022;
-}
+
 
 /* ///daniel */
 /* Set height of body and the document to 100% to enable "full page tabs" */
-body {
-  height: 100%;
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-  font-weight: bolder;
-  background-color: #e30022 !important;
-}
 .navbar {
   padding: 0;
-  /*   background-image: url("./assets/check.png");
-  background: url("./assets/check.png"); */
+  background-size: contain;
+  background-color: #e30022;
+
 }
 .navbar-brand {
   margin: 0 auto;
@@ -24,6 +16,16 @@ body {
 #logo {
   width: 200px;
 }
+body {
+  background-image: url("/Users/danielthomasguadalupe/gt-ft/project1/assets/images/check.png");
+background-size: cover;
+
+  height: 100%;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: bolder;
+}
+
 
 button {
   align-items: center;
@@ -36,7 +38,7 @@ button {
 
 /* Style tab links */
 .tablink {
-  background-color: #e30022;
+  background-color: #90000e;
   color: white;
   float: left;
   border: none;
@@ -53,10 +55,14 @@ button {
 
 /* Style the tab content (and add height:100% for full page content) */
 .tabcontent {
-  color: white;
+  color: black;
   display: none;
   padding: 100px 20px;
   height: 100%;
+  background-color: #F5EDE0 !important;
+  /* background-image: url("/Users/danielthomasguadalupe/gt-ft/project1/assets/images/foodie.png");
+  background-size: cover; */
+
 }
 
 #Home {
@@ -124,7 +130,14 @@ searchTerm:focus {
   background: #e30022;
   font-size: 30px;
 }
+ .container {
+   text-align: center;
+   background-color: #F5EDE0;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  font-weight: bolder;
+  border: 3px solid rgb(205, 10, 10);
 
+ }
 /*Resize the wrap to see the search bar change!*/
 
 #logo {
