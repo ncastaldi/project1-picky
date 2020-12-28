@@ -21,6 +21,9 @@ $(document).ready(function () {
   function searchSpoontacular(event) {
     event.preventDefault();
 
+    /* Clear dynamicContent DIV ahead of writing new search results */
+    dynamicContent.empty();
+
     // Declaring local variables.
     var searchQuery = $(userQueryInput).val();
 
