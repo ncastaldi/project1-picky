@@ -112,6 +112,7 @@ $(document).ready(function () {
         var openRecipe = $("<button>").text("Show Recipe");
         openRecipe.attr("class", "btn btn-primary");
         openRecipe.attr("id", "openRecipeButton");
+        openRecipe.attr("data-index", i);
         recipeResultCardEl.append(openRecipe);
 
         // Appending everything to dynamicContent
