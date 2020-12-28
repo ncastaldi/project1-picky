@@ -17,6 +17,53 @@ $(document).ready(function () {
   /* Declare JavaScript Variables */
 
   /* Define Functions */
+  // Function to toggle the allergen variables.
+  function settingSearchCriteria(event) {
+    var allergySelected = $(this).attr("data-type");
+    switch (allergySelected) {
+      case "treeNuts":
+        if (noTreeNuts) {
+          noTreeNuts = false;
+          break;
+        } else {
+          noTreeNuts = true;
+          break;
+        }
+      case "dairy":
+        if (noDairy) {
+          noDairy = false;
+          break;
+        } else {
+          noDairy = true;
+          break;
+        }
+      case "eggs":
+        if (noEggs) {
+          noEggs = false;
+          break;
+        } else {
+          noEggs = true;
+          break;
+        }
+      case "peanuts":
+        if (noPeanuts) {
+          noPeanuts = false;
+          break;
+        } else {
+          noPeanuts = true;
+          break;
+        }
+      case "alcohol":
+        if (noAlcohol) {
+          noAlcohol = false;
+          break;
+        } else {
+          noAlcohol = true;
+          break;
+        }
+    }
+  }
+
   //Function to call Spoontacular API
   function searchSpoontacular(event) {
     event.preventDefault();
