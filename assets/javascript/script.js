@@ -4,7 +4,7 @@ $(document).ready(function () {
   var recipeSearchBtn = $("#recipeSearchBtn");
   var buttonSelectors = $("#buttonSelectors");
   var ingredientsForm = $("#ingredientsForm");
-
+  var dynamicContent = $("#dynamicContent");
   var spoontacularButton = $("#spoontacular");
 
   /* Declare JavaScript Variables */
@@ -14,9 +14,6 @@ $(document).ready(function () {
   var noPeanuts = false;
   var noAlcohol = false;
 
-  var searchResults = [];
-  var resultTitle = [];
-  var resultImage = [];
   /* Declare JavaScript Variables */
 
   /* Define Functions */
@@ -102,15 +99,13 @@ $(document).ready(function () {
     if (noAlcohol && searchURL.indexOf("health=alcohol-free")) {
       searchURL = searchURL + "&health=alcohol-free";
     }
-    console.log(searchURL);
+    // console.log(searchURL);
     $.ajax({
       url: searchURL,
       method: "GET",
     }).then(function (response) {
-      console.log(response);
-
+      // console.log(response);
       // searchResults = response.hits;
-
       // displayRecipes(event);
     });
   }
@@ -118,6 +113,10 @@ $(document).ready(function () {
   //Function to call Spoontacular API
   function searchSpoontacular(event, searchQuery) {
     event.preventDefault();
+    // Declaring local variables.
+    var recipeID = [];
+    var recipeImage = [];
+    var recipeTitle = [];
 
     var recipeSearchURL =
       "https://api.spoonacular.com/recipes/complexSearch?apiKey=55ef65bbdb1c401490f851867d7b839f";
@@ -127,9 +126,33 @@ $(document).ready(function () {
       url: recipeSearchURL + searchQuery,
       method: "GET",
     }).then(function (response) {
-      //DO SOMETHING
-      console.log("10 Results from query: " + response.results);
-      var recipeID = response.results[0].id;
+      var spoonResults = response.results;
+
+      // Defining the three main variables we will be using.
+      for (let i = 0; i < spoonResults.length; i++) {
+        recipeTitle.push(spoonResults[i].title);
+        recipeImage.push(spoonResults[i].image);
+        recipeID.push(spoonResults[i].id);
+
+        // Making recipe cards.
+
+        var recipeResultCardEl = $("<div>");
+        recipeResultCardEl.addClass("row");
+
+        var recipeResultTitleEl = $("<p> " + recipeTitle[i] + "</p>");
+        // recipeResultTitleEl.append(recipeTitle[i]);
+        recipeResultCardEl.append(recipeResultTitleEl);
+
+        var recipeResultImg = $("<img>");
+        recipeResultImg.attr("src", recipeImage[i]);
+        recipeResultCardEl.append(recipeResultImg);
+
+        dynamicContent.append(recipeResultCardEl);
+      }
+      console.log(recipeTitle);
+      console.log(recipeID);
+      console.log(recipeImage);
+      // Preparing the URL for the second ajax call to get the recipe.
       var recipeStepsURL =
         "https://api.spoonacular.com/recipes/" +
         recipeID +
@@ -139,35 +162,9 @@ $(document).ready(function () {
         url: recipeStepsURL,
         method: "GET",
       }).then(function (response2) {
-        console.log("Recipe Steps: " + response2);
+        // console.log("Recipe Steps: " + results);
       });
     });
-  }
-
-  //Function to display search results
-  function displayRecipes(event) {
-    event.preventDefault();
-
-    console.log(searchResults[0].recipe.image);
-
-    for (var i = 0; i < searchResults.length; i++) {
-      resultTitle.push(searchResults[i].recipe.label);
-      resultImage.push(searchResults[i].recipe.image);
-
-      var recipeResultCardEl = $("<div>");
-      recipeResultCardEl.addClass("row");
-      var recipeResultImg = $("<img>");
-      recipeResultImg.attr("src", resultImage[i]);
-      recipeResultCardEl.append(recipeResultImg);
-      var recipeResultTitleEl = $("<p>");
-      recipeResultTitleEl.text(resultTitle[i]);
-      recipeResultCardEl.append(recipeResultTitleEl);
-      dynamicContentEl.append(recipeResultCardEl);
-    }
-
-    console.log(resultTitle);
-    console.log(resultImage);
-    console.log("yay");
   }
 
   //Function to send saved ingredient list via EmailJS API
