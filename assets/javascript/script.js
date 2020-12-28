@@ -1,6 +1,6 @@
 $(document).ready(function () {
   /* Declare DOM Variables */
-  var userQueryInput = $("#userQueryInput");
+  var userQueryInput = $("#rs");
   var recipeSearchBtn = $("#searchRecipieButton");
   var buttonSelectors = $("#buttonSelectors");
   var ingredientsForm = $("#ingredientsForm");
@@ -18,10 +18,12 @@ $(document).ready(function () {
 
   /* Define Functions */
   //Function to call Spoontacular API
-  function searchSpoontacular(event, searchQuery) {
+  function searchSpoontacular(event) {
     event.preventDefault();
 
     // Declaring local variables.
+    var searchQuery = $(userQueryInput).val();
+
     var recipeID = [];
     var recipeImage = [];
     var recipeTitle = [];
@@ -98,11 +100,10 @@ $(document).ready(function () {
   /* Make Function Calls */
 
   /* Register Event Listeners */
-  buttonSelectors.on("click", ".allergy", settingSearchCriteria);
-  recipeSearchBtn.on("click", searchingAPIs);
+  //buttonSelectors.on("click", ".allergy", settingSearchCriteria);
+  recipeSearchBtn.on("click", searchSpoontacular);
   ingredientsForm.on("submit", saveList);
 
-  spoontacularButton.on("click", searchSpoontacular);
 });
 
 function openPage(pageName, elmnt, color) {
