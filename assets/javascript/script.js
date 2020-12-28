@@ -102,15 +102,13 @@ $(document).ready(function () {
     if (noAlcohol && searchURL.indexOf("health=alcohol-free")) {
       searchURL = searchURL + "&health=alcohol-free";
     }
-    console.log(searchURL);
+    // console.log(searchURL);
     $.ajax({
       url: searchURL,
       method: "GET",
     }).then(function (response) {
-      console.log(response);
-
+      // console.log(response);
       // searchResults = response.hits;
-
       // displayRecipes(event);
     });
   }
@@ -127,9 +125,14 @@ $(document).ready(function () {
       url: recipeSearchURL + searchQuery,
       method: "GET",
     }).then(function (response) {
-      //DO SOMETHING
-      console.log("10 Results from query: " + response.results);
-      var recipeID = response.results[0].id;
+      var spoonResults = response.results;
+
+      // Defining the three main variables we will be using.
+      for (let i = 0; i < spoonResults.length; i++) {
+        console.log(JSON.stringify(spoonResults[i].title));
+      }
+
+      // Preparing the URL for the second ajax call to get the recipe.
       var recipeStepsURL =
         "https://api.spoonacular.com/recipes/" +
         recipeID +
@@ -139,7 +142,7 @@ $(document).ready(function () {
         url: recipeStepsURL,
         method: "GET",
       }).then(function (response2) {
-        console.log("Recipe Steps: " + response2);
+        // console.log("Recipe Steps: " + results);
       });
     });
   }
