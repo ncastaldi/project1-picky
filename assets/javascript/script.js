@@ -4,7 +4,7 @@ $(document).ready(function () {
   var recipeSearchBtn = $("#recipeSearchBtn");
   var buttonSelectors = $("#buttonSelectors");
   var ingredientsForm = $("#ingredientsForm");
-
+  var dynamicContent = $("#dynamicContent");
   var spoontacularButton = $("#spoontacular");
 
   /* Declare JavaScript Variables */
@@ -14,9 +14,6 @@ $(document).ready(function () {
   var noPeanuts = false;
   var noAlcohol = false;
 
-  var searchResults = [];
-  var resultTitle = [];
-  var resultImage = [];
   /* Declare JavaScript Variables */
 
   /* Define Functions */
@@ -137,17 +134,20 @@ $(document).ready(function () {
         recipeImage.push(JSON.stringify(spoonResults[i].image));
         recipeID.push(JSON.stringify(spoonResults[i].id));
 
+        // Making recipe cards.
+
         var recipeResultCardEl = $("<div>");
         recipeResultCardEl.addClass("row");
-        var recipeResultImg = $("<img>");
-        recipeResultImg.attr("src", resultImage[i]);
-        recipeResultCardEl.append(recipeResultImg);
-        var recipeResultTitleEl = $("<p>");
-        recipeResultTitleEl.text(resultTitle[i]);
-        recipeResultCardEl.append(recipeResultTitleEl);
-        dynamicContentEl.append(recipeResultCardEl);
 
-        // Making recipe cards.
+        var recipeResultTitleEl = $("<p> " + recipeTitle[i] + "</p>");
+        // recipeResultTitleEl.append(recipeTitle[i]);
+        recipeResultCardEl.append(recipeResultTitleEl);
+
+        var recipeResultImg = $("<img>");
+        recipeResultImg.attr("src", JSON.parse(recipeImage[i]));
+        recipeResultCardEl.append(recipeResultImg);
+
+        dynamicContent.append(recipeResultCardEl);
       }
       console.log(recipeTitle);
       console.log(recipeID);
