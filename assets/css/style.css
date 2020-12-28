@@ -140,7 +140,7 @@ searchTerm:focus {
  .container-fluid {
    text-align: center;
    background-color: #C5C6C6;
-   font-family: 'Bebas Neue';
+   font-family: 'roboto';
 
   font-weight: bolder;
   border: 3px solid rgb(205, 10, 10);
