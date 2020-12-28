@@ -6,16 +6,20 @@
 /* Set height of body and the document to 100% to enable "full page tabs" */
 .navbar {
   padding: 0;
-  background-size: contain;
-  background-color: #e30022;
-
+  background-image: url("/Users/danielthomasguadalupe/gt-ft/project1/assets/images/beige.png");
+  background-size: cover;
 }
+         
+#logo {
+      width: 250px;
+      -webkit-filter: drop-shadow(5px 5px 5px black);
+      filter: drop-shadow(5px 5px 5px black);
+      align-content: center;
+    }
 .navbar-brand {
   margin: 0 auto;
 }
-#logo {
-  width: 200px;
-}
+
 body {
   background-image: url("/Users/danielthomasguadalupe/gt-ft/project1/assets/images/check.png");
 background-size: cover;
@@ -130,19 +134,21 @@ searchTerm:focus {
   background: #e30022;
   font-size: 30px;
 }
- .container {
+
+
+/* results container */
+ .container-fluid {
    text-align: center;
-   background-color: #F5EDE0;
-   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+   background-color: #C5C6C6;
+   font-family: 'Bebas Neue';
+
   font-weight: bolder;
   border: 3px solid rgb(205, 10, 10);
 
  }
 /*Resize the wrap to see the search bar change!*/
 
-#logo {
-  width: 200px;
-}
+
 /* ID STYLES */
 
 /* MEDIA QUERIES */
