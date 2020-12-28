@@ -1,121 +1,48 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-:root{
-  --main-bg-color: #e30022;
-  
+@import 
+url(https://fonts.googleapis.com/css?family=Open+Sans);
 
+
+
+h1 {
+  color: #e30022;
 }
-/* ELEMENT STYLES */
+
+
+/* ///daniel */
+/* Set height of body and the document to 100% to enable "full page tabs" */
 body {
-  /* Set height of body and the document to 100% to enable "full page tabs" */
   height: 100%;
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: bolder;
-  background-color: var(--main-bg-color) !important;
+  background-color: #e30022 !important;
+
+}
+.navbar {
+  background-color: #e30022;
+  padding: 0;
+}
+.navbar-brand {
+  margin: 0 auto;
+  
+}
+#logo {
+  width: 200px;
 }
 
 button {
-  align-items: center;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  padding-left: 100px;
-  padding: 15px 32px;
-  border: none;
-  background: #222020;
-  color:#ebe1e1;
-}
-/* //this code is for testing purposes and should be remomved or commented out before pushing */
-div {
-  border-width: 5px;
-  border-color: yellowgreen;
-  border-style: solid;
+align-items: center;
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+padding-left: 100px;
+padding: 15px 32px;
+border: none;
+background: #e30022;
+ 
 }
 
-h1 {
-  color: #f1ebeb;
-}
-
-input[type="submit"] {
-  display: block;
-  padding: 6px 30px;
-  font-size: 14px;
-  background-color: #4460aa;
-  color: #fff;
-  border: none;
-}
-/* ELEMENT STYLES */
-
-/* CLASS STYLES */
-.fa-hand-pointer {
-  color: white;
-  background: var(--main-bg-color);
-  font-size: 30px;
-}
-
-.field {
-  /*Resize the wrap to see the search bar change!*/
-  margin-bottom: 10px;
-}
-
-.field label {
-  display: block;
-  font-size: 12px;
-  color: rgb(49, 45, 45);
-}
-
-.field input {
-  display: block;
-  min-width: 250px;
-  line-height: 1.5;
-  font-size: 14px;
-}
-
-.searchButton {
-  width: 40px;
-  height: 36px;
-  border: 3px solid rgb(205, 10, 10);
-  text-align: center;
-  color: white;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 25px;
-}
-
-.search {
-  width: 100%;
-  position: relative;
-  display: flex;
-  color: white;
-}
-
-.searchTerm {
-  width: 100%;
-  border: 3px solid white;
-  border-right: none;
-  padding: 5px;
-  height: 20px;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-  background-color: var(--main-bg-color);
-  
-  color: white;
-  border-color: var(--main-bg-color);
-  font-family: "Roboto", sans-serif;
-}
-.searchTerm:focus {
-  color: black;
-}
-
-.tabcontent {
-  /* Style the tab content (and add height:100% for full page content) */
-  color: white;
-  display: none;
-  padding: 100px 20px;
-  height: 100%;
-}
-
+/* Style tab links */
 .tablink {
-  /* Style tab links */
-  background-color: var(--main-bg-color);
+  background-color: #e30022;
   color: white;
   float: left;
   border: none;
@@ -126,46 +53,71 @@ input[type="submit"] {
   width: 25%;
 }
 
-.tabLink:hover {
-  background-color: var(--main-bg-color);
+.tablink:hover {
+  background-color: #90000e;
 }
 
-.navbar {
-  background-color: var(--main-bg-color);
-  padding: 0;
-}
-.navbar-brand {
-  margin: 0 auto;
-}
-/* CLASS STYLES */
-
-/* ID STYLES */
-#Allergy {
-  background-color:var(--main-bg-color);
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
 }
 
+#Home {background-color: #e30022;}
+#Allergy {background-color:#e30022;}
+#Diet {background-color: #e30022;}
+#Cuisine {background-color:#e30022;}
 
-#Cuisine {
-  background-color: var(--main-bg-color);
+
+#Home {background-color: #e30022;}
+#Allergy {background-color:#c90012;}
+#Diet {background-color: #b70012;}
+#Cuisine {background-color:#90000E;}
+
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+  color: white;
 }
 
-
-
-
-
-#dynamicContent img {
-  width: 200px;
-  float: right;
+searchTerm {
+  width: 100%;
+  border: 3px solid white;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  background-color: #e30022;
+  background-color: #90000E;
+  color:white;
+  border-color: #e30022;
+  font-family: 'Roboto', sans-serif;
+}
+.searchTerm:focus{
+  color: #FFFFFF;
+}
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 3px solid rgb(205, 10, 10);
+  text-align: center;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 25px;
+}
+.fa-hand-pointer {
+  color:white;
+  background: #e30022;
+  font-size: 30px;
 }
 
-#dynamicContent p {
-  color: rgb(243, 242, 242);
-  font-size: xx-large;
-}
-#Home {
-  background-color: var(--main-bg-color);
-}
-
+/*Resize the wrap to see the search bar change!*/
 
 
 
