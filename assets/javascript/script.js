@@ -130,9 +130,9 @@ $(document).ready(function () {
 
       // Defining the three main variables we will be using.
       for (let i = 0; i < spoonResults.length; i++) {
-        recipeTitle.push(JSON.stringify(spoonResults[i].title));
-        recipeImage.push(JSON.stringify(spoonResults[i].image));
-        recipeID.push(JSON.stringify(spoonResults[i].id));
+        recipeTitle.push(spoonResults[i].title);
+        recipeImage.push(spoonResults[i].image);
+        recipeID.push(spoonResults[i].id);
 
         // Making recipe cards.
 
@@ -144,7 +144,7 @@ $(document).ready(function () {
         recipeResultCardEl.append(recipeResultTitleEl);
 
         var recipeResultImg = $("<img>");
-        recipeResultImg.attr("src", JSON.parse(recipeImage[i]));
+        recipeResultImg.attr("src", recipeImage[i]);
         recipeResultCardEl.append(recipeResultImg);
 
         dynamicContent.append(recipeResultCardEl);
