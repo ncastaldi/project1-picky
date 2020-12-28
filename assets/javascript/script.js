@@ -7,6 +7,7 @@ $(document).ready(function () {
   var dynamicContent = $("#dynamicContent");
 
   /* Declare JavaScript Variables */
+  var recipeID = [];
   var noTreeNuts = false;
   var noDairy = false;
   var noEggs = false;
@@ -73,12 +74,12 @@ $(document).ready(function () {
     // Declaring local variables.
     var searchQuery = $(userQueryInput).val();
 
-    var recipeID = [];
+    recipeID = [];
     var recipeImage = [];
     var recipeTitle = [];
 
     var recipeSearchURL =
-      "https://api.spoonacular.com/recipes/complexSearch?apiKey=55ef65bbdb1c401490f851867d7b839f";
+      "https://api.spoonacular.com/recipes/complexSearch?apiKey=096dffd3ff0d4431820fce4a3121a0c1";
     searchQuery = "&query=" + searchQuery;
 
     $.ajax({
@@ -110,7 +111,7 @@ $(document).ready(function () {
 
         // Making a button to show the recipe.
         var openRecipe = $("<button>").text("Show Recipe");
-        openRecipe.attr("class", "btn btn-primary");
+        openRecipe.attr("class", "btn btn-primary recipe");
         openRecipe.attr("id", "openRecipeButton");
         openRecipe.attr("data-index", i);
         recipeResultCardEl.append(openRecipe);
@@ -118,19 +119,25 @@ $(document).ready(function () {
         // Appending everything to dynamicContent
         dynamicContent.append(recipeResultCardEl);
       }
+    });
+  }
+  // Second AJAX call for recipe.
+  function findRecipe(event) {
+    // Using the data-index to find which recipe ID to access in the global variable.
+    var index = this.dataset.index;
 
-      // Preparing the URL for the second ajax call to get the recipe.
-      // var recipeStepsURL =
-      //   "https://api.spoonacular.com/recipes/" +
-      //   recipeID +
-      //   "/analyzedInstructions?apiKey=55ef65bbdb1c401490f851867d7b839f";
+    // Preparing the URL for the second ajax call to get the recipe.
+    var recipeStepsURL =
+      "https://api.spoonacular.com/recipes/" +
+      recipeID[index] +
+      "/analyzedInstructions?apiKey=096dffd3ff0d4431820fce4a3121a0c1";
 
-      // $.ajax({
-      //   url: recipeStepsURL,
-      //   method: "GET",
-      // }).then(function (response2) {
-      //   // console.log("Recipe Steps: " + results);
-      // });
+    console.log(recipeStepsURL);
+    $.ajax({
+      url: recipeStepsURL,
+      method: "GET",
+    }).then(function (response2) {
+      console.log(response2);
     });
   }
 
@@ -159,6 +166,7 @@ $(document).ready(function () {
   buttonSelectors.on("click", ".allergy", settingSearchCriteria);
   recipeSearchBtn.on("click", searchSpoontacular);
   ingredientsForm.on("submit", saveList);
+  dynamicContent.on("click", ".recipe", findRecipe);
 });
 
 function openPage(pageName, elmnt, color) {
