@@ -22,8 +22,8 @@ body {
 .navbar {
   
   padding: 0;
-  background-image: url("./assets/check.png");
-  background: url("./assets/check.png");
+/*   background-image: url("./assets/check.png");
+  background: url("./assets/check.png"); */
 }
 .navbar-brand {
   margin: 0 auto;
