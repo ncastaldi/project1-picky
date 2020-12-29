@@ -120,6 +120,29 @@ searchTerm:focus {
    display: none;
 
  }
+ .button-style-class {
+   width: 100px;
+   height: 110px;
+   color: #b99999;
+   src="./assets/images/blkbutton/paleo.png"
+   src="./assets/images/blkbutton/raw.png"
+   src="./assets/images/blkbutton/keto.png"
+   src="./assets/images/blkbutton/vegan2.png"
+   src="./assets/images/blkbutton/vegetarian.png"
+   src="./assets/images/blkbutton/zerocarb.png"
+   src="./assets/images/blkbutton/trans.png"
+   src="./assets/images/blkbutton/liquid.png"
+
+
+
+
+
+
+
+ 
+ 
+
+ }
 /*Resize the wrap to see the search bar change!*/
 
 

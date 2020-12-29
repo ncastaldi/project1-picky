@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -7,173 +8,129 @@
   <title>Project 1: Picky</title>
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
 
-
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/6d73084841.js" crossorigin="anonymous"></script>
+  <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> -->
+  <script src="https://kit.fontawesome.com/125e323a70.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./assets/css/style.css" />
 
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+
+  <script type="text/javascript">
+    emailjs.init("user_mIHGK7ljutmMsmRBsXiht");
+  </script>
 </head>
 
 <body>
-<nav class="navbar">
 
-  <a class="navbar-brand "><img id="logo" src="./assets/images/pickylogored.png" /></a>
+  <header>
+    <nav class="navbar">
+      <a class="navbar-brand"><img id="logo" src="./assets/picky-logo.png" /></a>
+    </nav>
+    <div class="search input-group md-form form-sm form-2 pl-0">
+      <input type="text" id="rs userQueryInput" class="searchTerm form-control my-0 py-1 h-100"
+        placeholder="Recipe Search">
+      <button id="recipeSearchBtn">Search</button>
+    </div>
+    </div>
+  </header>
+  <div class="wrap">
+    <button class="tablink" onclick="openPage('Home', this, '#e30022')" id="defaultOpen">Home</button>
+    <button class="tablink" onclick="openPage('Allergy', this, '#c90012')">Food Allergies</button>
+    <button class="tablink" onclick="openPage('Diet', this, '#b70012')">Diet Specific</button>
+    <button class="tablink" onclick="openPage('Cuisine', this, '#90000E')">Cuisine Types</button>
 
+    <div id="Home" class="tabcontent">
+      <h3>Home</h3>
+      <p>About Picky. pick, cook , eat, yum!</p>
+    </div>
 
-</nav>
-<div class="search input-group md-form form-sm form-2 pl-0">
-  <input type="text" id="rs" class="searchTerm form-control my-0 py-1" placeholder="Recipe Search">
-  <button id="searchRecipeButton"><i class="fas fa-hand-pointer size:7x" id="searchButton" type="submit"
-      class="searchButton"></i>
-  </button>
-</div>
+    <div id="Allergy" class="tabcontent">
+      <h3>Food Allergies</h3>
+      <p>
+        Pick a concern
+      <div class="btn-group ">
+        <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="gluten"
+            src="./assets/buttons/gluten.png" /></button>
 
-<hr>
-<div class="wrap">
-  <button class="tablink" onclick="openPage('About', this, '#e30022')" id="defaultOpen">About Picky</button>
-  <button class="tablink" onclick="openPage('Allergy', this, '#c90012')">Food Allergies</button>
-  <button class="tablink" onclick="openPage('Diet', this, '#b70012')">Diet Specific</button>
-  <button class="tablink" onclick="openPage('Cuisine', this, '#90000E')">Cuisine Types</button>
+        <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="shellfish"
+            src="./assets/buttons/shellfish.png" /></button>
 
-  <div id="About" class="tabcontent">
-    <h3>About Picky</h3>
-    <p>About Picky. pick, cook , eat, yum!</p>
-  </div>
+        <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="alcohol"
+            src="./assets/buttons/alcohol.png" /></button>
 
-  <div id="Allergy" class="tabcontent">
-    <h3>Food Allergies</h3>
-    <p>
-      12 buttons
-      Pick a concern
-    <div class="btn-group d-flex flex-wrap">
-      <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="gluten" src="./assets/images/blkbutton/gluten.png" /></button>
+        <button class="allergy" data-type="peanuts" style="background-color: transparent;"><img width="100px"
+            height="110px" id="peanuts" src="./assets/buttons/peanuts.png" /></button>
 
-      <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="shellfish"
-          src="./assets/images/blkbutton/shell.png" /></button>
+        <button class="allergy" data-type="eggs" style="background-color: transparent;"><img width="100px"
+            height="110px" id="egg" src="./assets/buttons/egg.png" /></button>
 
-      <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="alcohol"
-          src="./assets/images/blkbutton/alcohol.png" /></button>
+        <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="fish"
+            src="./assets/buttons/fish.png" /></button>
 
-      <button class="allergy" data-type="peanuts" style="background-color: transparent;"><img width="100px"
-          height="110px" id="peanuts" src="./assets/images/blkbutton/peanuts.png" /></button>
+        <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="corn"
+            src="./assets/buttons/corn.png" /></button>
 
-      <button class="allergy" data-type="eggs" style="background-color: transparent;"><img width="100px" height="110px"
-          id="egg" src="./assets/images/blkbutton/egg.png" /></button>
+        <button class="allergy" data-type="treeNuts" style="background-color: transparent;"><img width="100px"
+            height="110px" id="gluten" src="./assets/buttons/nuts.png" /></button>
+      </div>
 
-      <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="fish"
-          src="./assets/images/blkbutton/fish.png" /></button>
+      </p>
+    </div>
 
-      <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="corn"
-          src="./assets/images/blkbutton/corn.png" /></button>
+    <div id="Diet" class="tabcontent">
+      <h3>Diet Specific</h3>
+      <p>Get in touch, or swing by for a cup of coffee.</p>
+      <div id="buttonSelectors" class="btn-group">
+        <button style="background-color: transparent;"><img width="100px" height="110px" id="paleo"
+            src="./assets/buttons/paleo.png" /></button>
 
-      <button class="allergy " data-type="treeNuts" style="background-color: transparent;"><img width="100px"
-          height="110px" id="gluten" src="./assets/images/blkbutton/nuts.png" /></button>
+        <button style="background-color: transparent;"><img width="100px" height="110px" id="raw"
+            src="./assets/buttons/raw.png" /></button>
 
+        <button style="background-color: transparent;"><img width="100px" height="110px" id="keto"
+            src="./assets/buttons/keto.png" /></button>
+
+        <button style="background-color: transparent;"><img width="100px" height="110px" id="vegan"
+            src="./assets/buttons/vegan2.png" /></button>
+
+        <button style="background-color: transparent;"><img width="100px" height="110px" id="vegetarian"
+            src="./assets/buttons/vegetarian.png" /></button>
+        <button style="background-color: transparent;"><img width="100px" height="110px" id="zerocarb"
+            src="./assets/buttons/zerocarb.png" /></button>
+
+        <button style="background-color: transparent;"><img width="100px" height="110px" id="trans"
+            src="./assets/buttons/trans.png" /></button>
+
+        <button style="background-color: transparent;"><img width="100px" height="110px" id="liquid"
+            src="./assets/buttons/liquid.png" /></button>
+      </div>
 
     </div>
 
-  </div>
-
-  <div id="Diet" class="tabcontent">
-    <h3>Diet Specific</h3>
-    <p>9 buttons
-      Eliminating gluten means avoiding wheat, barley, rye, and other gluten-containing grains and foods made from them
-      (or that may have been cross contaminated).</p>
-
-
-    <div id="buttonSelectors" class="btn-group d-flex flex-wrap">
-      <button style="background-color: transparent;"><img width="100px" height="110px" id="paleo"
-
-          src="./assets/images/blkbutton/paleo.png" /></button>
-
-      <button style="background-color: transparent;"><img width="100px" height="110px" id="primal"
-          src="./assets/images/blkbutton/raw.png" /></button>
-
-      <button style="background-color: transparent;"><img width="100px" height="110px" id="keto"
-          src="./assets/images/blkbutton/keto.png" /></button>
-
-      <button style="background-color: transparent;"><img width="100px" height="110px" id="vegan"
-          src="./assets/images/blkbutton/vegan2.png" /></button>
-
-      <button style="background-color: transparent;"><img width="100px" height="110px" id="vegetarian"
-          src="./assets/images/blkbutton/vegetarian.png" /></button>
-      <button style="background-color: transparent;"><img width="100px" height="110px" id="pescetarian"
-          src="./assets/images/blkbutton/zerocarb.png" /></button>
-
-      <button style="background-color: transparent;"><img width="100px" height="110px" id="whole 30"
-          src="./assets/images/blkbutton/trans.png" /></button>
-
-      <button style="background-color: transparent;"><img width="100px" height="110px" id="ovoveg"
-          src="./assets/images/blkbutton/liquid.png" /></button>
-      <button style="background-color: transparent;"><img width="100px" height="110px" id="lactoveg"
-          src="./assets/images/blkbutton/liquid.png" /></button>
-
+    <div id="Cuisine" class="tabcontent">
+      <h3>Cuisine Types</h3>
+      <p>Who we are and what we do.</p>
     </div>
-
   </div>
 
-  <div id="Cuisine" class="tabcontent">
-    <h3>Cuisine Types</h3>
-    <p>26 buttons</p>
-    <button style="background-color: transparent;"><img width="100px" height="110px" id="lactoveg"
+  <div id="dynamicContent" style="height: 500px;">
 
-        src="./assets/images/blkbutton/liquid.png" /></button>
-      <button style=" background-color: transparent;"><img width="100px" height="110px" id="pescetarian"
-          src="./assets/images/blkbutton/zerocarb.png" /></button>
+    <section id="spoontacular">
+      <button class="btn btn-primary">Search Spoontacular</button>
+    </section>
 
-      <button style="background-color: transparent;"><img width="100px" height="110px" id="whole 30"
-          src="./assets/images/blkbuttontrans.png" /></button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"></script>
 
-      <button style="background-color: transparent;"><img width="100px" height="110px" id="ovoveg"
-          src="./assets/images/blkbuttonliquid.png" /></button>
-      <button style="background-color: transparent;"><img width="100px" height="110px" id="lactoveg"
-          src="./assets/images/blkbuttonliquid.png" /></button>
-  </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
-<br>
-
-  <div class="container-fluid search-results">
-    <div class="w3-row-padding w3-padding-16 w3-center">
-        <div class="col-lg-12 main center strong">
-            <h1>Picky Results</h1>
-            <div class="row">
-                <div class="col-sm-12"><hr></div>
-            </div>
-            <div class="row">
-              <div class="col-md-4">
-                  <img style="background-color: transparent;" id="logo" src="assets/images/buttons/picky fork.png" width="60%" class="img-icon float-left" alt="recipeimg">
-          
-              </div>
-              <div class="col-md-8">
-                <header>Recipe</header>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim itaque quasi recusandae qui cupiditate eum similique quibusdam, unde, animi delectus eveniet tempora voluptates velit maxime cum sed architecto? Eaque, non.
-                </p>
-            </div>
-  </div>
-</div>
-
-<div id="dynamicContent" style="height: 500px;">
-  <!-- Polulate Area with jQuery -->
-</div>
-      
-      
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-
-<script type="text/javascript" src="assets/javascript/script.js"></script>
+    <script type="text/javascript" src="assets/javascript/script.js"></script>
 </body>
 
 </html>
