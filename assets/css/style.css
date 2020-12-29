@@ -120,10 +120,12 @@ searchTerm:focus {
    display: none;
 
  }
+ 
  .button-style-class {
    width: 100px;
    height: 110px;
    color: #b99999;
+    /* diet specific buttons  */
    src="./assets/images/blkbutton/paleo.png"
    src="./assets/images/blkbutton/raw.png"
    src="./assets/images/blkbutton/keto.png"
@@ -132,6 +134,22 @@ searchTerm:focus {
    src="./assets/images/blkbutton/zerocarb.png"
    src="./assets/images/blkbutton/trans.png"
    src="./assets/images/blkbutton/liquid.png"
+   /* food allergies buttons */
+   src="./assets/buttons/gluten.png"
+   src="./assets/buttons/shellfish.png"
+   src="./assets/buttons/alcohol.png"
+   src="./assets/buttons/peanuts.png"
+   src="./assets/buttons/egg.png"
+   src="./assets/buttons/fish.png"
+   src="./assets/buttons/corn.png"
+   src="./assets/buttons/nuts.png"
+    
+
+  }
+
+
+
+  
 
 
 
@@ -142,7 +160,6 @@ searchTerm:focus {
  
  
 
- }
 /*Resize the wrap to see the search bar change!*/
 
 
