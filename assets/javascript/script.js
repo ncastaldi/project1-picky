@@ -98,9 +98,10 @@ $(document).ready(function () {
         // Making a new row.
         var recipeResultCardEl = $("<div>");
         recipeResultCardEl.addClass("row card");
+        recipeResultCardEl.attr("id", "recipeCard");
 
         // Making the title element.
-        var recipeResultTitleEl = $("<p> " + recipeTitle[i] + "</p>");
+        var recipeResultTitleEl = $("<h5>" + recipeTitle[i] + "</h5>");
         // recipeResultTitleEl.append(recipeTitle[i]);
         recipeResultCardEl.append(recipeResultTitleEl);
 
