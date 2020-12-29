@@ -124,6 +124,9 @@ searchTerm:focus {
 
 
 /* ID STYLES */
+#recipeCard {
+  width: 500px;
+}
 
 /* MEDIA QUERIES */
 /* MEDIA QUERIES */

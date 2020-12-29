@@ -103,6 +103,7 @@ $(document).ready(function () {
         // Making the title element.
         var recipeResultTitleEl = $("<h5>" + recipeTitle[i] + "</h5>");
         // recipeResultTitleEl.append(recipeTitle[i]);
+        //recipeResultTitleEl.addClass("card-title");
         recipeResultCardEl.append(recipeResultTitleEl);
 
         // Making the img's and setting the src.
