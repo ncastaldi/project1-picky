@@ -7,12 +7,24 @@ $(document).ready(function () {
   var dynamicContent = $("#dynamicContent");
 
   /* Declare JavaScript Variables */
+  // Used in storing ID's of recipes.
   var recipeID = [];
+
+  // Allergen related variables.
   var noTreeNuts = false;
   var noDairy = false;
   var noEggs = false;
   var noPeanuts = false;
   var noAlcohol = false;
+  var noGluten = false;
+  var noShellfish = false;
+  var noCorn = false;
+
+  // Diet related variables.
+  var paleo = false;
+  var keto = false;
+  var vegan = false;
+  var vegetarian = false;
 
   /* Declare JavaScript Variables */
 
@@ -61,6 +73,67 @@ $(document).ready(function () {
           noAlcohol = true;
           break;
         }
+      case "gluten":
+        if (noGluten) {
+          noGluten = false;
+          break;
+        } else {
+          noGluten = true;
+          break;
+        }
+      case "corn":
+        if (noCorn) {
+          noCorn = false;
+          break;
+        } else {
+          noCorn = true;
+          break;
+        }
+      case "shellfish": {
+        if (noShellfish) {
+          noShellfish = false;
+          break;
+        } else {
+          noShellfish = true;
+          break;
+        }
+      }
+      case "paleo": {
+        if (paleo) {
+          paleo = false;
+          break;
+        } else {
+          paleo = true;
+          break;
+        }
+      }
+      case "keto": {
+        if (keto) {
+          keto = false;
+          break;
+        } else {
+          keto = true;
+          break;
+        }
+      }
+      case "vegan": {
+        if (vegan) {
+          vegan = false;
+          break;
+        } else {
+          vegan = true;
+          break;
+        }
+      }
+      case "vegetarian": {
+        if (vegetarian) {
+          vegetarian = false;
+          break;
+        } else {
+          vegetarian = true;
+          break;
+        }
+      }
     }
   }
 
