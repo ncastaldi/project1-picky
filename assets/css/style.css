@@ -6,14 +6,14 @@
 /* Set height of body and the document to 100% to enable "full page tabs" */
 .navbar {
   padding: 0;
-  background-image: url("/Users/danielthomasguadalupe/gt-ft/project1/assets/images/beige.png");
+  background-image: url("/Users/danielthomasguadalupe/gt-ft/project1/assets/images/foodie2x.png");
   background-size: cover;
 }
-         
+
 #logo {
       width: 250px;
-      -webkit-filter: drop-shadow(5px 5px 5px black);
-      filter: drop-shadow(5px 5px 5px black);
+      -webkit-filter: drop-shadow(5px 5px 5px rgb(63, 55, 55));
+      filter: drop-shadow(5px 5px 5px  rgb(63, 55, 55));
       align-content: center;
     }
 .navbar-brand {
@@ -22,11 +22,10 @@
 
 body {
   background-image: url("/Users/danielthomasguadalupe/gt-ft/project1/assets/images/check.png");
-background-size: cover;
-
+  background-size: contain;
   height: 100%;
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Reem Kufi', sans-serif;
   font-weight: bolder;
 }
 
@@ -67,33 +66,7 @@ button {
   /* background-image: url("/Users/danielthomasguadalupe/gt-ft/project1/assets/images/foodie.png");
   background-size: cover; */
 
-}
-
-#Home {
-  background-color: #e30022;
-}
-#Allergy {
-  background-color: #e30022;
-}
-#Diet {
-  background-color: #e30022;
-}
-#Cuisine {
-  background-color: #e30022;
-}
-
-#Home {
-  background-color: #e30022;
-}
-#Allergy {
-  background-color: #c90012;
-}
-#Diet {
-  background-color: #b70012;
-}
-#Cuisine {
-  background-color: #90000e;
-}
+} 
 
 .search {
   width: 100%;
@@ -137,13 +110,13 @@ searchTerm:focus {
 
 
 /* results container */
- .container-fluid {
+ .search-results {
+   padding-top: 20px;
    text-align: center;
-   background-color: #C5C6C6;
-   font-family: 'roboto';
-
-  font-weight: bolder;
-  border: 3px solid rgb(205, 10, 10);
+   background-color: #F5EDE0;
+   font-family: 'Reem Kufi', sans-serif;   
+   font-weight: bolder;
+   border: 3px solid rgb(205, 10, 10);
 
  }
 /*Resize the wrap to see the search bar change!*/

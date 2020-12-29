@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/6d73084841.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./assets/css/style.css" />
 
@@ -49,30 +49,30 @@
     <p>
       12 buttons
       Pick a concern
-    <div class="btn-group ">
+    <div class="btn-group d-flex flex-wrap">
       <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="gluten"
           src="./assets/buttons/gluten.png" /></button>
 
       <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="shellfish"
-          src="./assets/buttons/shellfish.png" /></button>
+          src="./assets/images/buttons/shellfish.png" /></button>
 
       <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="alcohol"
-          src="./assets/buttons/alcohol.png" /></button>
+          src="./assets/images/buttons/alcohol.png" /></button>
 
       <button class="allergy" data-type="peanuts" style="background-color: transparent;"><img width="100px"
-          height="110px" id="peanuts" src="./assets/buttons/peanuts.png" /></button>
+          height="110px" id="peanuts" src="./assets/images/buttons/peanuts.png" /></button>
 
       <button class="allergy" data-type="eggs" style="background-color: transparent;"><img width="100px" height="110px"
-          id="egg" src="./assets/buttons/egg.png" /></button>
+          id="egg" src="./assets/images/buttons/egg.png" /></button>
 
       <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="fish"
-          src="./assets/buttons/fish.png" /></button>
+          src="./assets/images/buttons/fish.png" /></button>
 
       <button class="allergy" style="background-color: transparent;"><img width="100px" height="110px" id="corn"
-          src="./assets/buttons/corn.png" /></button>
+          src="./assets/images/buttons/corn.png" /></button>
 
       <button class="allergy" data-type="treeNuts" style="background-color: transparent;"><img width="100px"
-          height="110px" id="gluten" src="./assets/buttons/nuts.png" /></button>
+          height="110px" id="gluten" src="./assets/images/buttons/nuts.png" /></button>
     </div>
 
     </p>
@@ -85,7 +85,7 @@
       (or that may have been cross contaminated).</p>
 
 
-    <div id="buttonSelectors" class="btn-group">
+    <div id="buttonSelectors" class="btn-group d-flex flex-wrap">
       <button style="background-color: transparent;"><img width="100px" height="110px" id="paleo"
           src="./assets/buttons/paleo.png" /></button>
 
@@ -119,14 +119,21 @@
     <p>26 buttons</p>
     <button style="background-color: transparent;"><img width="100px" height="110px" id="lactoveg"
         src="./assets/images/liquid.png" /></button>
-  </div>
-</div>
+      <button style="background-color: transparent;"><img width="100px" height="110px" id="pescetarian"
+          src="./assets/buttons/zerocarb.png" /></button>
 
-<div id="dynamicContent" style="height: 500px;">
+      <button style="background-color: transparent;"><img width="100px" height="110px" id="whole 30"
+          src="./assets/buttons/trans.png" /></button>
+
+      <button style="background-color: transparent;"><img width="100px" height="110px" id="ovoveg"
+          src="./assets/buttons/liquid.png" /></button>
+      <button style="background-color: transparent;"><img width="100px" height="110px" id="lactoveg"
+          src="./assets/buttons/liquid.png" /></button>
+  </div>
+
 <br>
 
-
-  <div class="container-fluid">
+  <div class="container-fluid search-results">
     <div class="w3-row-padding w3-padding-16 w3-center">
         <div class="col-lg-12 main center strong">
             <h1>Picky Results</h1>
@@ -135,7 +142,7 @@
             </div>
             <div class="row">
               <div class="col-md-4">
-                  <img src="assets/images/picky-logo.png" width="60%" class="img-thumbnail float-left" alt="recipeimg">
+                  <img style="background-color: transparent;" id="logo" src="assets/images/buttons/picky fork.png" width="60%" class="img-icon float-left" alt="recipeimg">
           
               </div>
               <div class="col-md-8">
