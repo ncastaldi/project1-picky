@@ -1,13 +1,13 @@
 $(document).ready(function () {
   /* Declare DOM Variables */
-  var userQueryInput = $("#userQueryInput");
+  var userQueryInput = $("#rs");
   var recipeSearchBtn = $("#searchRecipieButton");
   var buttonSelectors = $("#buttonSelectors");
   var ingredientsForm = $("#ingredientsForm");
   var dynamicContent = $("#dynamicContent");
-  var spoontacularButton = $("#spoontacular");
 
   /* Declare JavaScript Variables */
+  var recipeID = [];
   var noTreeNuts = false;
   var noDairy = false;
   var noEggs = false;
@@ -63,67 +63,23 @@ $(document).ready(function () {
         }
     }
   }
-  function searchingAPIs(event) {
-    event.preventDefault();
-    var searchQuery = $(this).prev().val();
-    searchEdamam(event, searchQuery);
-    searchSpoontacular(event, searchQuery);
-  }
-  //Function to query Edamam API
-  function searchEdamam(event, searchQuery) {
-    event.preventDefault();
-
-    var appID = "a1693f14";
-    var appKey = "f3aa39b9486a7dff1bea7a4cbcede5a9";
-    var searchURL =
-      "https://api.edamam.com/search?q=" +
-      searchQuery +
-      "&app_id=" +
-      appID +
-      "&app_key=" +
-      appKey;
-
-    // Adding these tags to the URL if the approiate selector is true.
-    if (noTreeNuts && searchURL.indexOf("health=tree-nut-free") === -1) {
-      searchURL = searchURL + "&health=tree-nut-free";
-    }
-    if (noEggs && searchURL.indexOf("health=vegan") === -1) {
-      searchURL = searchURL + "&health=vegan";
-    }
-    if (noDairy && searchURL.indexOf("health=vegan") === -1) {
-      searchURL = searchURL + "&health=vegan";
-    }
-    if (noPeanuts && searchURL.indexOf("health=peanut-free") === -1) {
-      searchURL = searchURL + "&health=peanut-free";
-    }
-    if (noAlcohol && searchURL.indexOf("health=alcohol-free")) {
-      searchURL = searchURL + "&health=alcohol-free";
-    }
-    // console.log(searchURL);
-    $.ajax({
-      url: searchURL,
-      method: "GET",
-    }).then(function (response) {
-      // console.log(response);
-      // searchResults = response.hits;
-      // displayRecipes(event);
-    });
-  }
 
   //Function to call Spoontacular API
-  function searchSpoontacular(event, searchQuery) {
+  function searchSpoontacular(event) {
     event.preventDefault();
 
     /* Clear dynamicContent DIV ahead of writing new search results */
     dynamicContent.empty();
 
     // Declaring local variables.
-    var recipeID = [];
+    var searchQuery = $(userQueryInput).val();
+
+    recipeID = [];
     var recipeImage = [];
     var recipeTitle = [];
 
     var recipeSearchURL =
-      "https://api.spoonacular.com/recipes/complexSearch?apiKey=55ef65bbdb1c401490f851867d7b839f";
+      "https://api.spoonacular.com/recipes/complexSearch?apiKey=096dffd3ff0d4431820fce4a3121a0c1";
     searchQuery = "&query=" + searchQuery;
 
     $.ajax({
@@ -153,22 +109,35 @@ $(document).ready(function () {
         recipeResultImg.attr("src", recipeImage[i]);
         recipeResultCardEl.append(recipeResultImg);
 
+        // Making a button to show the recipe.
+        var openRecipe = $("<button>").text("Show Recipe");
+        openRecipe.attr("class", "btn btn-primary recipe");
+        openRecipe.attr("id", "openRecipeButton");
+        openRecipe.attr("data-index", i);
+        recipeResultCardEl.append(openRecipe);
+
         // Appending everything to dynamicContent
         dynamicContent.append(recipeResultCardEl);
       }
+    });
+  }
+  // Second AJAX call for recipe.
+  function findRecipe(event) {
+    // Using the data-index to find which recipe ID to access in the global variable.
+    var index = this.dataset.index;
 
-      // Preparing the URL for the second ajax call to get the recipe.
-      var recipeStepsURL =
-        "https://api.spoonacular.com/recipes/" +
-        recipeID +
-        "/analyzedInstructions?apiKey=55ef65bbdb1c401490f851867d7b839f";
+    // Preparing the URL for the second ajax call to get the recipe.
+    var recipeStepsURL =
+      "https://api.spoonacular.com/recipes/" +
+      recipeID[index] +
+      "/analyzedInstructions?apiKey=096dffd3ff0d4431820fce4a3121a0c1";
 
-      $.ajax({
-        url: recipeStepsURL,
-        method: "GET",
-      }).then(function (response2) {
-        // console.log("Recipe Steps: " + results);
-      });
+    console.log(recipeStepsURL);
+    $.ajax({
+      url: recipeStepsURL,
+      method: "GET",
+    }).then(function (response2) {
+      console.log(response2);
     });
   }
 
@@ -195,10 +164,9 @@ $(document).ready(function () {
 
   /* Register Event Listeners */
   buttonSelectors.on("click", ".allergy", settingSearchCriteria);
-  recipeSearchBtn.on("click", searchingAPIs);
+  recipeSearchBtn.on("click", searchSpoontacular);
   ingredientsForm.on("submit", saveList);
-
-  spoontacularButton.on("click", searchSpoontacular);
+  dynamicContent.on("click", ".recipe", findRecipe);
 });
 
 function openPage(pageName, elmnt, color) {
