@@ -1,7 +1,7 @@
 $(document).ready(function () {
   /* Declare DOM Variables */
   var userQueryInput = $("#rs");
-  var recipeSearchBtn = $("#searchRecipieButton");
+  var recipeSearchBtn = $("#searchButton");
   var buttonSelectors = $("#buttonSelectors");
   var ingredientsForm = $("#ingredientsForm");
   var dynamicContent = $("#dynamicContent");
@@ -73,7 +73,7 @@ $(document).ready(function () {
 
     // Declaring local variables.
     var searchQuery = $(userQueryInput).val();
-
+    console.log(searchQuery);
     recipeID = [];
     var recipeImage = [];
     var recipeTitle = [];
@@ -87,7 +87,7 @@ $(document).ready(function () {
       method: "GET",
     }).then(function (response) {
       var spoonResults = response.results;
-
+      console.log(spoonResults);
       // Defining the three main variables we will be using.
       for (let i = 0; i < spoonResults.length; i++) {
         recipeTitle.push(spoonResults[i].title);
