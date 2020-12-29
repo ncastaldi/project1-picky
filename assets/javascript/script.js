@@ -89,6 +89,7 @@ $(document).ready(function () {
       var spoonResults = response.results;
       console.log(spoonResults);
       // Defining the three main variables we will be using.
+
       for (let i = 0; i < spoonResults.length; i++) {
         recipeTitle.push(spoonResults[i].title);
         recipeImage.push(spoonResults[i].image);
@@ -96,18 +97,22 @@ $(document).ready(function () {
 
         // Making recipe cards.
         // Making a new row.
+        var recipeCol = $("<div>");
+        recipeCol.addClass("col-lg-3 col-md-6");
+
         var recipeResultCardEl = $("<div>");
-        recipeResultCardEl.addClass("row card");
+        recipeResultCardEl.addClass("card");
         recipeResultCardEl.attr("id", "recipeCard");
 
         // Making the title element.
         var recipeResultTitleEl = $("<h5>" + recipeTitle[i] + "</h5>");
         // recipeResultTitleEl.append(recipeTitle[i]);
-        //recipeResultTitleEl.addClass("card-title");
+        recipeResultTitleEl.addClass("card-title");
         recipeResultCardEl.append(recipeResultTitleEl);
 
         // Making the img's and setting the src.
         var recipeResultImg = $("<img>");
+        recipeResultImg.addClass("card-img-top img-fluid");
         recipeResultImg.attr("src", recipeImage[i]);
         recipeResultCardEl.append(recipeResultImg);
 
@@ -119,7 +124,8 @@ $(document).ready(function () {
         recipeResultCardEl.append(openRecipe);
 
         // Appending everything to dynamicContent
-        dynamicContent.append(recipeResultCardEl);
+        recipeCol.append(recipeResultCardEl);
+        dynamicContent.append(recipeCol);
       }
     });
   }
