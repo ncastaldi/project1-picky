@@ -97,7 +97,7 @@ $(document).ready(function () {
         // Making recipe cards.
         // Making a new row.
         var recipeResultCardEl = $("<div>");
-        recipeResultCardEl.addClass("row");
+        recipeResultCardEl.addClass("row card");
 
         // Making the title element.
         var recipeResultTitleEl = $("<p> " + recipeTitle[i] + "</p>");
