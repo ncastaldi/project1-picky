@@ -1,29 +1,34 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-h1 {
-  color: #e30022;
-}
+
 
 /* ///daniel */
 /* Set height of body and the document to 100% to enable "full page tabs" */
-body {
-  height: 100%;
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-  font-weight: bolder;
-  background-color: #e30022 !important;
-}
 .navbar {
   padding: 0;
-  /*   background-image: url("./assets/check.png");
-  background: url("./assets/check.png"); */
+  background-image: url("/Users/danielthomasguadalupe/gt-ft/project1/assets/images/foodie2x.png");
+  background-size: cover;
 }
+
+#logo {
+      width: 250px;
+      -webkit-filter: drop-shadow(5px 5px 5px rgb(63, 55, 55));
+      filter: drop-shadow(5px 5px 5px  rgb(63, 55, 55));
+      align-content: center;
+    }
 .navbar-brand {
   margin: 0 auto;
 }
-#logo {
-  width: 200px;
+
+body {
+  background-image: url("/Users/danielthomasguadalupe/gt-ft/project1/assets/images/check.png");
+  background-size: contain;
+  height: 100%;
+  margin: 0;
+  font-family: 'Reem Kufi', sans-serif;
+  font-weight: bolder;
 }
+
 
 button {
   align-items: center;
@@ -36,7 +41,7 @@ button {
 
 /* Style tab links */
 .tablink {
-  background-color: #e30022;
+  background-color: #90000e;
   color: white;
   float: left;
   border: none;
@@ -53,37 +58,15 @@ button {
 
 /* Style the tab content (and add height:100% for full page content) */
 .tabcontent {
-  color: white;
+  color: black;
   display: none;
   padding: 100px 20px;
   height: 100%;
-}
+  background-color: #F5EDE0 !important;
+  /* background-image: url("/Users/danielthomasguadalupe/gt-ft/project1/assets/images/foodie.png");
+  background-size: cover; */
 
-#Home {
-  background-color: #e30022;
-}
-#Allergy {
-  background-color: #e30022;
-}
-#Diet {
-  background-color: #e30022;
-}
-#Cuisine {
-  background-color: #e30022;
-}
-
-#Home {
-  background-color: #e30022;
-}
-#Allergy {
-  background-color: #c90012;
-}
-#Diet {
-  background-color: #b70012;
-}
-#Cuisine {
-  background-color: #90000e;
-}
+} 
 
 .search {
   width: 100%;
@@ -125,11 +108,21 @@ searchTerm:focus {
   font-size: 30px;
 }
 
+
+/* results container */
+ .search-results {
+   padding-top: 20px;
+   text-align: center;
+   background-color: #F5EDE0;
+   font-family: 'Reem Kufi', sans-serif;   
+   font-weight: bolder;
+   border: 3px solid rgb(205, 10, 10);
+   display: none;
+
+ }
 /*Resize the wrap to see the search bar change!*/
 
-#logo {
-  width: 200px;
-}
+
 /* ID STYLES */
 
 /* MEDIA QUERIES */
