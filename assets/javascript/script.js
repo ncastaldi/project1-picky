@@ -1,7 +1,7 @@
 $(document).ready(function () {
   /* Declare DOM Variables */
   var userQueryInput = $("#rs");
-  var recipeSearchBtn = $("#searchRecipieButton");
+  var recipeSearchBtn = $("#searchButton");
   var buttonSelectors = $("#buttonSelectors");
   var ingredientsForm = $("#ingredientsForm");
   var dynamicContent = $("#dynamicContent");
