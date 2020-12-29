@@ -108,11 +108,12 @@ $(document).ready(function () {
         var recipeResultTitleEl = $("<h5>" + recipeTitle[i] + "</h5>");
         // recipeResultTitleEl.append(recipeTitle[i]);
         recipeResultTitleEl.addClass("card-title");
+        recipeResultTitleEl.attr("id", "cardTitle");
         recipeResultCardEl.append(recipeResultTitleEl);
 
         // Making the img's and setting the src.
         var recipeResultImg = $("<img>");
-        recipeResultImg.addClass("card-img-top img-fluid");
+        //recipeResultImg.addClass("card-img-top img-fluid");
         recipeResultImg.attr("src", recipeImage[i]);
         recipeResultCardEl.append(recipeResultImg);
 

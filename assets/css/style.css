@@ -128,5 +128,9 @@ searchTerm:focus {
   width: 500px;
 }
 
+#cardTitle {
+  text-align: center;
+}
+
 /* MEDIA QUERIES */
 /* MEDIA QUERIES */
