@@ -18,17 +18,17 @@ $(document).ready(function () {
   /* Define Functions */
   // Function to toggle the allergen variables.
   function settingAllergyCriteria(allergy) {
+    allergy = this.dataset.type;
     if (allergySelected[allergy]) {
       allergySelected[allergy] = false;
-      console.log(allergySelected);
     } else {
       allergySelected[allergy] = true;
-      console.log(allergySelected);
     }
   }
   // Function to toggle the diet variables.
   function settingDietCriteria(diet) {
-    if (dietSelected) {
+    diet = this.dataset.type;
+    if (dietSelected[diet]) {
       dietSelected[diet] = false;
     } else {
       dietSelected[diet] = true;
