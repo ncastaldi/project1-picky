@@ -5,7 +5,7 @@ $(document).ready(function () {
   var allergySelector = $("#Allergy");
   var dietSelector = $("#Diet");
   var ingredientsForm = $("#ingredientsForm");
-  var dynamicContent = $("#dynamicContent");
+  var dynamicContentDiv = $("#dynamicContent");
 
   /* Declare JavaScript Variables */
   // Used in storing ID's of recipes.
@@ -44,7 +44,7 @@ $(document).ready(function () {
     event.preventDefault();
 
     /* Clear dynamicContent DIV ahead of writing new search results */
-    dynamicContent.empty();
+    dynamicContentDiv.empty();
 
     // Declaring local variables.
     var searchQuery = $(userQueryInput).val();
@@ -112,17 +112,21 @@ $(document).ready(function () {
     }).then(function (response) {
       var spoonResults = response.results;
       console.log(spoonResults);
-      // Defining the three main variables we will be using.
+
+      // Create container to display recipe cards in
+      var contentRowEl = $("<div>");
+      contentRowEl.addClass("row");
+      contentRowEl.attr("id", "contentRow");
 
       for (let i = 0; i < spoonResults.length; i++) {
+        // Defining the three main variables we will be using.
         recipeTitle.push(spoonResults[i].title);
         recipeImage.push(spoonResults[i].image);
         recipeID.push(spoonResults[i].id);
 
-        // Making recipe cards.
-        // Making a new row.
+        // Create recipe cards.
         var recipeCol = $("<div>");
-        recipeCol.addClass("col-lg-4");
+        recipeCol.addClass("col-md-4 justify-content-center");
         recipeCol.attr("id", "recipeCol");
 
         var recipeResultCardEl = $("<div>");
@@ -140,6 +144,7 @@ $(document).ready(function () {
         var recipeResultImg = $("<img>");
         //recipeResultImg.addClass("card-img-top img-fluid");
         recipeResultImg.attr("src", recipeImage[i]);
+        recipeResultImg.attr("id", "recipeImg");
         recipeResultCardEl.append(recipeResultImg);
 
         // Making a button to show the recipe.
@@ -151,7 +156,7 @@ $(document).ready(function () {
 
         // Appending everything to dynamicContent
         recipeCol.append(recipeResultCardEl);
-        dynamicContent.append(recipeCol);
+        dynamicContentDiv.append(recipeCol);
       }
     });
   }
@@ -201,7 +206,7 @@ $(document).ready(function () {
   dietSelector.on("click", ".diet", settingDietCriteria);
   recipeSearchBtn.on("click", searchSpoontacular);
   ingredientsForm.on("submit", saveList);
-  dynamicContent.on("click", ".recipe", findRecipe);
+  dynamicContentDiv.on("click", ".recipe", findRecipe);
 });
 
 function openPage(pageName, elmnt, color) {

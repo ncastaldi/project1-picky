@@ -125,12 +125,16 @@ searchTerm:focus {
 
 /* ID STYLES */
 #recipeCard {
-  width: 500px;
+  /* width: 500px; */
   margin-bottom: 15px;
 }
 
 #cardTitle {
   text-align: center;
+}
+
+#recipeImg {
+  width: 200px;
 }
 
 /* MEDIA QUERIES */
