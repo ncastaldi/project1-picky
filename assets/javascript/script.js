@@ -9,131 +9,26 @@ $(document).ready(function () {
   /* Declare JavaScript Variables */
   // Used in storing ID's of recipes.
   var recipeID = [];
-
-  // Allergen related variables.
-  var noTreeNuts = false;
-  var noDairy = false;
-  var noEggs = false;
-  var noPeanuts = false;
-  var noAlcohol = false;
-  var noGluten = false;
-  var noShellfish = false;
-  var noCorn = false;
-
-  // Diet related variables.
-  var paleo = false;
-  var keto = false;
-  var vegan = false;
-  var vegetarian = false;
+  var allergySelected = {};
+  var dietSelected = {};
 
   /* Declare JavaScript Variables */
 
   /* Define Functions */
   // Function to toggle the allergen variables.
-  function settingSearchCriteria(event) {
-    var allergySelected = $(this).attr("data-type");
-    switch (allergySelected) {
-      case "treeNuts":
-        if (noTreeNuts) {
-          noTreeNuts = false;
-          break;
-        } else {
-          noTreeNuts = true;
-          break;
-        }
-      case "dairy":
-        if (noDairy) {
-          noDairy = false;
-          break;
-        } else {
-          noDairy = true;
-          break;
-        }
-      case "eggs":
-        if (noEggs) {
-          noEggs = false;
-          break;
-        } else {
-          noEggs = true;
-          break;
-        }
-      case "peanuts":
-        if (noPeanuts) {
-          noPeanuts = false;
-          break;
-        } else {
-          noPeanuts = true;
-          break;
-        }
-      case "alcohol":
-        if (noAlcohol) {
-          noAlcohol = false;
-          break;
-        } else {
-          noAlcohol = true;
-          break;
-        }
-      case "gluten":
-        if (noGluten) {
-          noGluten = false;
-          break;
-        } else {
-          noGluten = true;
-          break;
-        }
-      case "corn":
-        if (noCorn) {
-          noCorn = false;
-          break;
-        } else {
-          noCorn = true;
-          break;
-        }
-      case "shellfish": {
-        if (noShellfish) {
-          noShellfish = false;
-          break;
-        } else {
-          noShellfish = true;
-          break;
-        }
-      }
-      case "paleo": {
-        if (paleo) {
-          paleo = false;
-          break;
-        } else {
-          paleo = true;
-          break;
-        }
-      }
-      case "keto": {
-        if (keto) {
-          keto = false;
-          break;
-        } else {
-          keto = true;
-          break;
-        }
-      }
-      case "vegan": {
-        if (vegan) {
-          vegan = false;
-          break;
-        } else {
-          vegan = true;
-          break;
-        }
-      }
-      case "vegetarian": {
-        if (vegetarian) {
-          vegetarian = false;
-          break;
-        } else {
-          vegetarian = true;
-          break;
-        }
-      }
+  function settingAllergyCriteria(allergy) {
+    if (allergySelected[allergy]) {
+      allergySelected[allergy] = false;
+    } else {
+      allergySelected[allergy] = true;
+    }
+  }
+  // Function to toggle the diet variables.
+  function settingDietCriteria(diet) {
+    if (dietSelected) {
+      dietSelected = false;
+    } else {
+      dietSelected = true;
     }
   }
 
@@ -246,7 +141,8 @@ $(document).ready(function () {
   /* Make Function Calls */
 
   /* Register Event Listeners */
-  buttonSelectors.on("click", ".allergy", settingSearchCriteria);
+  buttonSelectors.on("click", ".allergy", settingAllergyCriteria);
+  buttonSelectors.on("click", ".diet", settingDietCriteria);
   recipeSearchBtn.on("click", searchSpoontacular);
   ingredientsForm.on("submit", saveList);
   dynamicContent.on("click", ".recipe", findRecipe);
