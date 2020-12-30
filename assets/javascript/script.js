@@ -195,7 +195,12 @@ $(document).ready(function () {
   }
 
   function showHide() {
-    console.log(this);
+
+    if (searchFiltersTab.hasClass("accordion-collapse collapse show")) {
+      console.log("collapsed");
+    } else if (searchFiltersTab.hasClass("show")) {
+      console.log("show");
+    }
   }
   /* Define Functions */
 
