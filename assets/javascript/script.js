@@ -48,6 +48,16 @@ $(document).ready(function () {
 
     // Declaring local variables.
     var searchQuery = $(userQueryInput).val();
+    searchQueryArray = searchQuery.split(" ");
+    searchFirstInstance = true;
+    for (let i = 0; i < searchQueryArray.length; i++) {
+      if (searchFirstInstance) {
+        searchQuery = "&query=" + searchQueryArray[i];
+        searchFirstInstance = false;
+      } else {
+        searchQuery = searchQuery + "+" + searchQueryArray[i];
+      }
+    }
     console.log(searchQuery);
 
     // Adding empty arrays to collect data.
@@ -91,7 +101,6 @@ $(document).ready(function () {
 
     var recipeSearchURL =
       "https://api.spoonacular.com/recipes/complexSearch?apiKey=55ef65bbdb1c401490f851867d7b839f";
-    searchQuery = "&query=" + searchQuery;
 
     // Combining the queries.
     let queryURL = recipeSearchURL + searchQuery + dietQuery + allergyQuery;
