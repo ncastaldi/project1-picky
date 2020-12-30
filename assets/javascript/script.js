@@ -2,65 +2,40 @@ $(document).ready(function () {
   /* Declare DOM Variables */
   var userQueryInput = $("#rs");
   var recipeSearchBtn = $("#searchButton");
-  var buttonSelectors = $("#buttonSelectors");
+  var allergySelector = $("#Allergy");
+  var dietSelector = $("#Diet");
   var ingredientsForm = $("#ingredientsForm");
   var dynamicContent = $("#dynamicContent");
 
   /* Declare JavaScript Variables */
+  // Used in storing ID's of recipes.
   var recipeID = [];
-  var noTreeNuts = false;
-  var noDairy = false;
-  var noEggs = false;
-  var noPeanuts = false;
-  var noAlcohol = false;
+  var allergySelected = {};
+  var dietSelected = {};
 
   /* Declare JavaScript Variables */
 
   /* Define Functions */
   // Function to toggle the allergen variables.
-  function settingSearchCriteria(event) {
-    var allergySelected = $(this).attr("data-type");
-    switch (allergySelected) {
-      case "treeNuts":
-        if (noTreeNuts) {
-          noTreeNuts = false;
-          break;
-        } else {
-          noTreeNuts = true;
-          break;
-        }
-      case "dairy":
-        if (noDairy) {
-          noDairy = false;
-          break;
-        } else {
-          noDairy = true;
-          break;
-        }
-      case "eggs":
-        if (noEggs) {
-          noEggs = false;
-          break;
-        } else {
-          noEggs = true;
-          break;
-        }
-      case "peanuts":
-        if (noPeanuts) {
-          noPeanuts = false;
-          break;
-        } else {
-          noPeanuts = true;
-          break;
-        }
-      case "alcohol":
-        if (noAlcohol) {
-          noAlcohol = false;
-          break;
-        } else {
-          noAlcohol = true;
-          break;
-        }
+  function settingAllergyCriteria(allergy) {
+    allergy = this.dataset.type;
+    if (allergySelected[allergy]) {
+      allergySelected[allergy] = false;
+      console.log(allergySelected);
+    } else {
+      allergySelected[allergy] = true;
+      console.log(allergySelected);
+    }
+  }
+  // Function to toggle the diet variables.
+  function settingDietCriteria(diet) {
+    diet = this.dataset.type;
+    if (dietSelected[diet]) {
+      dietSelected[diet] = false;
+      console.log(dietSelected);
+    } else {
+      dietSelected[diet] = true;
+      console.log(dietSelected);
     }
   }
 
@@ -74,16 +49,56 @@ $(document).ready(function () {
     // Declaring local variables.
     var searchQuery = $(userQueryInput).val();
     console.log(searchQuery);
+
+    // Adding empty arrays to collect data.
     recipeID = [];
     var recipeImage = [];
     var recipeTitle = [];
+
+    // Adding empty strings so that they can be populated with selections.
+    let dietQuery = "";
+    let allergyQuery = "";
+
+    // Converting the objects into array key/value pairs.
+    let allergyArray = Object.entries(allergySelected);
+    let dietArray = Object.entries(dietSelected);
+
+    // Iterating over the arrays and adding keys into the above string if they are true.
+    let firstInstanceAllergy = true;
+    for (let i = 0; i < allergyArray.length; i++) {
+      if (allergyArray[i][1]) {
+        if (firstInstanceAllergy) {
+          allergyQuery = "&intolerances=" + allergyArray[i][0];
+          firstInstanceAllergy = false;
+        } else {
+          allergyQuery = allergyQuery + "," + allergyArray[i][0];
+        }
+      }
+    }
+    let firstInstanceDiet = true;
+    for (let i = 0; i < dietArray.length; i++) {
+      if (dietArray[i][1]) {
+        if (firstInstanceDiet) {
+          dietQuery = "&diet=" + dietArray[i][0];
+          firstInstanceDiet = false;
+        } else {
+          dietQuery = dietQuery + "," + dietArray[i][0];
+        }
+      }
+    }
+    console.log(dietQuery);
+    console.log(allergyQuery);
 
     var recipeSearchURL =
       "https://api.spoonacular.com/recipes/complexSearch?apiKey=55ef65bbdb1c401490f851867d7b839f";
     searchQuery = "&query=" + searchQuery;
 
+    // Combining the queries.
+    let queryURL = recipeSearchURL + searchQuery + dietQuery + allergyQuery;
+    console.log(queryURL);
+
     $.ajax({
-      url: recipeSearchURL + searchQuery,
+      url: queryURL,
       method: "GET",
     }).then(function (response) {
       var spoonResults = response.results;
@@ -173,7 +188,8 @@ $(document).ready(function () {
   /* Make Function Calls */
 
   /* Register Event Listeners */
-  buttonSelectors.on("click", ".allergy", settingSearchCriteria);
+  allergySelector.on("click", ".allergy", settingAllergyCriteria);
+  dietSelector.on("click", ".diet", settingDietCriteria);
   recipeSearchBtn.on("click", searchSpoontacular);
   ingredientsForm.on("submit", saveList);
   dynamicContent.on("click", ".recipe", findRecipe);
