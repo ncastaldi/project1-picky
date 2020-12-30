@@ -6,7 +6,7 @@
 /* Set height of body and the document to 100% to enable "full page tabs" */
 .navbar {
   padding: 0;
-  background-image: url("/Users/danielthomasguadalupe/gt-ft/project1/assets/images/foodie2x.png");
+  background-image: url("../images/foodie2x.png");
   background-size: cover;
 }
 
@@ -21,7 +21,7 @@
 }
 
 body {
-  background-image: url("/Users/danielthomasguadalupe/gt-ft/project1/assets/images/check.png");
+  background-image: url("../images/check.png");
   background-size: contain;
   height: 100%;
   margin: 0;
@@ -164,6 +164,14 @@ searchTerm:focus {
 
 
 /* ID STYLES */
+#recipeCard {
+  width: 500px;
+  margin-bottom: 15px;
+}
+
+#cardTitle {
+  text-align: center;
+}
 
 /* MEDIA QUERIES */
 /* MEDIA QUERIES */

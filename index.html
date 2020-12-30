@@ -25,6 +25,39 @@
 </head>
 
 <body>
+  <nav class="navbar">
+
+    <a class="navbar-brand "><img id="logo" src="./assets/images/pickylogored.png" /></a>
+
+
+  </nav>
+  <div class="search input-group md-form form-sm form-2 pl-0">
+    <input type="text" id="rs" class="searchTerm form-control my-0 py-1" placeholder="Recipe Search">
+    <button><i class="fas fa-hand-pointer size:7x" id="searchButton" type="submit" class="searchButton"></i>
+    </button>
+  </div>
+
+  <hr>
+  <div class="wrap">
+    <button class="tablink" onclick="openPage('About', this, '#e30022')" id="defaultOpen">About Picky</button>
+    <button class="tablink" onclick="openPage('Allergy', this, '#c90012')">Food Allergies</button>
+    <button class="tablink" onclick="openPage('Diet', this, '#b70012')">Diet Specific</button>
+    <button class="tablink" onclick="openPage('Cuisine', this, '#90000E')">Cuisine Types</button>
+
+    <div id="About" class="tabcontent">
+      <h3>About Picky</h3>
+      <p>About Picky. pick, cook , eat, yum!</p>
+    </div>
+
+    <div id="Allergy" class="tabcontent">
+      <h3>Food Allergies</h3>
+      <p>
+        12 buttons
+        Pick a concern
+      <div class="btn-group d-flex flex-wrap">
+        
+
+      </div>
 
   <header>
     <nav class="navbar">
@@ -48,38 +81,75 @@
       <p>About Picky. pick, cook , eat, yum!</p>
     </div>
 
-    <div id="Allergy" class="tabcontent">
-      <h3>Food Allergies</h3>
-      <p>
-        Pick a concern
-      <div class="btn-group ">
-       
-      </div>
-
-      </p>
-    </div>
-
     <div id="Diet" class="tabcontent">
       <h3>Diet Specific</h3>
-      <p>Get in touch, or swing by for a cup of coffee.</p>
-      <div id="buttonSelectors" class="btn-group">
-       
+      <p>9 buttons
+        Eliminating gluten means avoiding wheat, barley, rye, and other gluten-containing grains and foods made from
+        them
+        (or that may have been cross contaminated).</p>
+
+
+      <div id="buttonSelectors" class="btn-group d-flex flex-wrap">
+        <button class="diet" data-type="Paleo" style="background-color: transparent;"><img width="100px" height="110px" id="paleo"
+            src="./assets/images/blkbutton/paleo.png" /></button>
+
+        <button class="diet" data-type="Ketogenic" style="background-color: transparent;"><img width="100px" height="110px" id="keto"
+            src="./assets/images/blkbutton/keto.png" /></button>
+
+        <button class="diet" data-type="Vegan" style="background-color: transparent;"><img width="100px" height="110px" id="vegan"
+            src="./assets/images/blkbutton/vegan2.png" /></button>
+
+        <button class="diet" data-type="Ovo-Vegetarian" style="background-color: transparent;"><img width="100px" height="110px" id="vegetarian"
+            src="./assets/images/blkbutton/vegetarian.png" /></button>
+
       </div>
 
     </div>
 
     <div id="Cuisine" class="tabcontent">
       <h3>Cuisine Types</h3>
-      <p>Who we are and what we do.</p>
+      <p>26 buttons</p>
     </div>
-  </div>
 
-  <div id="dynamicContent" style="height: 500px;">
+    <br>
 
-    <section id="spoontacular">
-      <button class="btn btn-primary">Search Spoontacular</button>
-    </section>
+    <!-- <div class="container-fluid search-results" id="dynamicContent">
+      <div class="w3-row-padding w3-padding-16 w3-center">
+        <div class="col-lg-12 main center strong">
+          <h1>Picky Results</h1>
+          <div class="row">
+            <div class="col-sm-12">
+              <hr>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <img style="background-color: transparent;" id="logo" src="assets/images/buttons/picky fork.png"
+                width="60%" class="img-icon float-left" alt="recipeimg">
 
+            </div>
+            <div class="col-md-8">
+              <header>Recipe</header>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim itaque quasi recusandae qui cupiditate eum
+                similique quibusdam, unde, animi delectus eveniet tempora voluptates velit maxime cum sed architecto?
+                Eaque, non.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+    <div id="dynamicContent" class="row">
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
       crossorigin="anonymous"></script>
