@@ -26,9 +26,9 @@ $(document).ready(function () {
   // Function to toggle the diet variables.
   function settingDietCriteria(diet) {
     if (dietSelected) {
-      dietSelected = false;
+      dietSelected[diet] = false;
     } else {
-      dietSelected = true;
+      dietSelected[diet] = true;
     }
   }
 
