@@ -49,15 +49,22 @@ $(document).ready(function () {
     // Declaring local variables.
     var searchQuery = $(userQueryInput).val();
     console.log(searchQuery);
+
+    // Adding empty arrays to collect data.
     recipeID = [];
     var recipeImage = [];
     var recipeTitle = [];
+
+    // Adding empty strings so that they can be populated with selections.
     let dietQuery = "";
     let allergyQuery = "";
+
+    // Converting the objects into array key/value pairs.
     let allergyArray = Object.entries(allergySelected);
     let dietArray = Object.entries(dietSelected);
+
+    // Iterating over the arrays and adding keys into the above string if they are true.
     let firstInstanceAllergy = true;
-    let firstInstanceDiet = true;
     for (let i = 0; i < allergyArray.length; i++) {
       if (allergyArray[i][1]) {
         if (firstInstanceAllergy) {
@@ -68,6 +75,7 @@ $(document).ready(function () {
         }
       }
     }
+    let firstInstanceDiet = true;
     for (let i = 0; i < dietArray.length; i++) {
       if (dietArray[i][1]) {
         if (firstInstanceDiet) {
@@ -83,10 +91,14 @@ $(document).ready(function () {
 
     var recipeSearchURL =
       "https://api.spoonacular.com/recipes/complexSearch?apiKey=55ef65bbdb1c401490f851867d7b839f";
-    searchQuery = "&query=" + searchQuery + allergyQuery + dietQuery;
+    searchQuery = "&query=" + searchQuery;
+
+    // Combining the queries.
+    let queryURL = recipeSearchURL + searchQuery + dietQuery + allergyQuery;
+    console.log(queryURL);
 
     $.ajax({
-      url: recipeSearchURL + searchQuery,
+      url: queryURL,
       method: "GET",
     }).then(function (response) {
       var spoonResults = response.results;
