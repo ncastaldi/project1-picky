@@ -21,7 +21,7 @@
 }
 
 body {
-  background-image: url("../images/check.png");
+  background-image: url("../images/foodie2x.png");
   background-size: contain;
   height: 100%;
   margin: 0;
@@ -165,12 +165,16 @@ searchTerm:focus {
 
 /* ID STYLES */
 #recipeCard {
-  width: 500px;
+  /* width: 500px; */
   margin-bottom: 15px;
 }
 
 #cardTitle {
   text-align: center;
+}
+
+#recipeImg {
+  /* width: 200px; */
 }
 
 /* MEDIA QUERIES */
