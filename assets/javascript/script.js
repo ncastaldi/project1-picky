@@ -2,7 +2,8 @@ $(document).ready(function () {
   /* Declare DOM Variables */
   var userQueryInput = $("#rs");
   var recipeSearchBtn = $("#searchButton");
-  var buttonSelectors = $("#buttonSelectors");
+  var allergySelector = $("#Allergy");
+  var dietSelector = $("#Diet");
   var ingredientsForm = $("#ingredientsForm");
   var dynamicContent = $("#dynamicContent");
 
@@ -19,8 +20,10 @@ $(document).ready(function () {
   function settingAllergyCriteria(allergy) {
     if (allergySelected[allergy]) {
       allergySelected[allergy] = false;
+      console.log(allergySelected);
     } else {
       allergySelected[allergy] = true;
+      console.log(allergySelected);
     }
   }
   // Function to toggle the diet variables.
@@ -141,8 +144,8 @@ $(document).ready(function () {
   /* Make Function Calls */
 
   /* Register Event Listeners */
-  buttonSelectors.on("click", ".allergy", settingAllergyCriteria);
-  buttonSelectors.on("click", ".diet", settingDietCriteria);
+  allergySelector.on("click", ".allergy", settingAllergyCriteria);
+  dietSelector.on("click", ".diet", settingDietCriteria);
   recipeSearchBtn.on("click", searchSpoontacular);
   ingredientsForm.on("submit", saveList);
   dynamicContent.on("click", ".recipe", findRecipe);
