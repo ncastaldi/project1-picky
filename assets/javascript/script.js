@@ -52,13 +52,38 @@ $(document).ready(function () {
     recipeID = [];
     var recipeImage = [];
     var recipeTitle = [];
-    dietQuery = "";
-    allergyQuery = "";
-    // for (let i = 0; i < )
+    let dietQuery = "";
+    let allergyQuery = "";
+    let allergyArray = Object.entries(allergySelected);
+    let dietArray = Object.entries(dietSelected);
+    let firstInstanceAllergy = true;
+    let firstInstanceDiet = true;
+    for (let i = 0; i < allergyArray.length; i++) {
+      if (allergyArray[i][1]) {
+        if (firstInstanceAllergy) {
+          allergyQuery = "&intolerances=" + allergyArray[i][0];
+          firstInstanceAllergy = false;
+        } else {
+          allergyQuery = allergyQuery + "," + allergyArray[i][0];
+        }
+      }
+    }
+    for (let i = 0; i < dietArray.length; i++) {
+      if (dietArray[i][1]) {
+        if (firstInstanceDiet) {
+          dietQuery = "&diet=" + dietArray[i][0];
+          firstInstanceDiet = false;
+        } else {
+          dietQuery = dietQuery + "," + dietArray[i][0];
+        }
+      }
+    }
+    console.log(dietQuery);
+    console.log(allergyQuery);
 
     var recipeSearchURL =
       "https://api.spoonacular.com/recipes/complexSearch?apiKey=55ef65bbdb1c401490f851867d7b839f";
-    searchQuery = "&query=" + searchQuery;
+    searchQuery = "&query=" + searchQuery + allergyQuery + dietQuery;
 
     $.ajax({
       url: recipeSearchURL + searchQuery,
