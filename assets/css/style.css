@@ -126,6 +126,7 @@ searchTerm:focus {
 /* ID STYLES */
 #recipeCard {
   width: 500px;
+  margin-bottom: 15px;
 }
 
 #cardTitle {
