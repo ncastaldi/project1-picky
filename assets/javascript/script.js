@@ -154,10 +154,29 @@ $(document).ready(function () {
         openRecipe.attr("data-index", i);
         recipeResultCardEl.append(openRecipe);
 
+        // Making a button to send full ingredient list to email
+        var sendIngredients = $("<button>").text("Send Ingredients");
+        sendIngredients.addClass("btn btn-secondary");
+        sendIngredients.attr("id", "sendIngredientsBtn");
+        sendIngredients.attr("data-index", i);
+        recipeResultCardEl.append(sendIngredients);
+
         // Appending everything to dynamicContent
         recipeCol.append(recipeResultCardEl);
         dynamicContentDiv.append(recipeCol);
       }
+
+      // Event Listener for "Send Ingredients" button
+      $("#sendIngredientsBtn").on("click", function () {
+        console.log("so far so good");
+
+        // Prompt for Email address
+
+        //Ajax call for ingredient list
+
+        //EmailJS call to send list
+
+      })
     });
   }
   // Second AJAX call for recipe.
