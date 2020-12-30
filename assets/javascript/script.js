@@ -7,6 +7,8 @@ $(document).ready(function () {
   var ingredientsForm = $("#ingredientsForm");
   var dynamicContent = $("#dynamicContent");
 
+  var searchFiltersTab = $("#searchFilters");
+
   /* Declare JavaScript Variables */
   // Used in storing ID's of recipes.
   var recipeID = [];
@@ -191,6 +193,10 @@ $(document).ready(function () {
       user_email: user_email,
     });
   }
+
+  function showHide() {
+    console.log(this);
+  }
   /* Define Functions */
 
   /* Make Function Calls */
@@ -202,6 +208,8 @@ $(document).ready(function () {
   recipeSearchBtn.on("click", searchSpoontacular);
   ingredientsForm.on("submit", saveList);
   dynamicContent.on("click", ".recipe", findRecipe);
+
+  searchFiltersTab.on("click", showHide);
 });
 
 function openPage(pageName, elmnt, color) {
