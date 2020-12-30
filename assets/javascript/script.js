@@ -21,8 +21,10 @@ $(document).ready(function () {
     allergy = this.dataset.type;
     if (allergySelected[allergy]) {
       allergySelected[allergy] = false;
+      console.log(allergySelected);
     } else {
       allergySelected[allergy] = true;
+      console.log(allergySelected);
     }
   }
   // Function to toggle the diet variables.
@@ -30,8 +32,10 @@ $(document).ready(function () {
     diet = this.dataset.type;
     if (dietSelected[diet]) {
       dietSelected[diet] = false;
+      console.log(dietSelected);
     } else {
       dietSelected[diet] = true;
+      console.log(dietSelected);
     }
   }
 
@@ -48,6 +52,9 @@ $(document).ready(function () {
     recipeID = [];
     var recipeImage = [];
     var recipeTitle = [];
+    dietQuery = "";
+    allergyQuery = "";
+    // for (let i = 0; i < )
 
     var recipeSearchURL =
       "https://api.spoonacular.com/recipes/complexSearch?apiKey=55ef65bbdb1c401490f851867d7b839f";
