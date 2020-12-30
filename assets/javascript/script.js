@@ -79,7 +79,7 @@ $(document).ready(function () {
     var recipeTitle = [];
 
     var recipeSearchURL =
-      "https://api.spoonacular.com/recipes/complexSearch?apiKey=096dffd3ff0d4431820fce4a3121a0c1";
+      "https://api.spoonacular.com/recipes/complexSearch?apiKey=55ef65bbdb1c401490f851867d7b839f";
     searchQuery = "&query=" + searchQuery;
 
     $.ajax({
@@ -98,7 +98,8 @@ $(document).ready(function () {
         // Making recipe cards.
         // Making a new row.
         var recipeCol = $("<div>");
-        recipeCol.addClass("col-lg-3 col-md-6");
+        recipeCol.addClass("col-lg-4");
+        recipeCol.attr("id", "recipeCol");
 
         var recipeResultCardEl = $("<div>");
         recipeResultCardEl.addClass("card");
