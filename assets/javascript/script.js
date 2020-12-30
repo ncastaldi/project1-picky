@@ -136,7 +136,7 @@ $(document).ready(function () {
         // Making the title element.
         var recipeResultTitleEl = $("<h2>" + recipeTitle[i] + "</h2>");
         // recipeResultTitleEl.append(recipeTitle[i]);
-        recipeResultTitleEl.addClass("card-title");
+        recipeResultTitleEl.addClass("card-title my-auto");
         recipeResultTitleEl.attr("id", "cardTitle");
         recipeResultCardEl.append(recipeResultTitleEl);
 
