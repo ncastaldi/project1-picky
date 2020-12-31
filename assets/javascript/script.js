@@ -269,6 +269,7 @@ $(document).ready(function () {
   ingredientsForm.on("submit", saveList);
   dynamicContentDiv.on("click", ".recipe", findRecipe);
   sendIngredientsBtn.on("click", saveList);
+  dynamicContentDiv.on("click", "#viewIngredients", findIngredients);
   $("#exampleInputEmail1").keyup(function (event) {
     if (event.keyCode === 13) {
       captureEmail.click(event);
