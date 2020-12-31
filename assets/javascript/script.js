@@ -259,7 +259,16 @@ $(document).ready(function () {
       trEle.append(amountTH);
       trEle.append(unitsTH);
 
-      for (let i = 0; i < ingredient.length; i++) {}
+      // Adding table body.
+      const tableBodyEle = $("<tbody>")
+      tableEle.append(tableBodyEle);
+
+      for (let i = 0; i < ingredient.length; i++) {
+        // Making a table row inside a for loop.
+        let tableBodyTR = $("<tr>");
+        tableEle.append(tableBodyTR);
+
+      }
     });
   }
 
