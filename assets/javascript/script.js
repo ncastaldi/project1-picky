@@ -194,7 +194,6 @@ $(document).ready(function () {
     let newQuery = tempURL + offsetQuery;
     dynamicContentDiv.empty();
     creatingRecipes(newQuery);
-    console.log("click");
   }
   // Second AJAX call for recipe.
   function findRecipe(event) {
