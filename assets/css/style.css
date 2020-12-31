@@ -135,7 +135,7 @@ searchTerm:focus {
 }
 
 #recipeImg {
-  /* width: 200px; */
+  padding: 5%;
 }
 
 #openRecipeButton, #sendIngredients {
