@@ -235,15 +235,19 @@ $(document).ready(function () {
     }).then(function (response) {
       let ingredient = response;
 
-      // Making a table
+      // Making a table.
       const tableEle = $("<table>");
       $(".modal-footer").append(tableEle);
       
-      // Adding a caption
+      // Adding a caption.
       const caption = $("<caption>").text("Ingredients needed.");
       tableEle.append(caption);
-      
+
+      // Adding table head.
       const theadEle = $("<thead>");
+      tableEle.append(theadEle);
+
+      // Adding table row.
 
       for (let i = 0; i < ingredient.length;i++) {
 
