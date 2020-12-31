@@ -192,9 +192,9 @@ $(document).ready(function () {
     let offset = 0 + 10 * offsetMultiple;
     let offsetQuery = "&offset=" + offset;
     let newQuery = tempURL + offsetQuery;
+    dynamicContentDiv.empty();
     creatingRecipes(newQuery);
     console.log("click");
-    console.log(queryURL);
   }
   // Second AJAX call for recipe.
   function findRecipe(event) {
