@@ -8,6 +8,8 @@ $(document).ready(function () {
   var dynamicContentDiv = $("#dynamicContent");
   var sendIngredientsBtn = $("#sendIngridents");
 
+  var emailInput = $("#exampleInputEmail1");
+
   /* Declare JavaScript Variables */
   // Used in storing ID's of recipes.
   var recipeID = [];
@@ -214,10 +216,15 @@ $(document).ready(function () {
   }
 
   // Function to capture user's email and send ingredient list
-  function sendIngredients() {
-    console.log("so far so good");
+  function sendIngredients(event) {
+    event.preventDefault();
 
-    // Prompt for Email address
+    console.log("so far so good");
+    $("#exampleModal").removeClass("show");
+
+    // Save Email address
+    console.log($(emailInput).val());
+    //var savedEmail = 
 
     //Ajax call for ingredient list
 
@@ -252,6 +259,11 @@ $(document).ready(function () {
   ingredientsForm.on("submit", saveList);
   dynamicContentDiv.on("click", ".recipe", findRecipe);
   sendIngredientsBtn.on("click", sendIngredients);
+  $("#exampleInputEmail1").keyup(function (event) {
+    if (event.keyCode === 13) {
+      sendIngredients.click(event);
+    }
+  })
   userQueryInput.keyup(function (event) {
     if (event.keyCode === 13) {
       recipeSearchBtn.click();

@@ -109,6 +109,10 @@ searchTerm:focus {
   font-size: 30px;
 }
 
+.modal-backdrop {
+  background-color: transparent;
+}
+
 
 /* results container */
  .search-results {
@@ -142,5 +146,8 @@ searchTerm:focus {
   width: 100%;
 }
 
+#sendIngridents{
+  float: right;
+}
 /* MEDIA QUERIES */
 /* MEDIA QUERIES */
