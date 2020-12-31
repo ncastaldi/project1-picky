@@ -262,8 +262,9 @@ $(document).ready(function () {
       method: "GET",
     }).then(function (response) {
       let ingredient = response.ingredients;
-      console.log(ingredient);
-      console.log(ingredient.length);
+
+      // Emptying the modal footer.
+      $(".modal-footer").empty();
 
       // Making a table.
       const tableEle = $("<table>");
