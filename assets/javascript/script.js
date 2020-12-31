@@ -110,7 +110,11 @@ $(document).ready(function () {
     // Storing a temporary URL to global.
     tempURL = queryURL;
     console.log(queryURL);
+    creatingRecipes(queryURL);
+  }
 
+  // Making the AJAX call and the DOM elements function.
+  function creatingRecipes(queryURL) {
     $.ajax({
       url: queryURL,
       method: "GET",
