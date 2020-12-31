@@ -227,13 +227,23 @@ $(document).ready(function () {
     var ingredientsNeededURL =
       "https://api.spoonacular.com/recipes/" +
       recipeID[index] +
-      "/ingredientWidget.json";
+      "/ingredientWidget.json?apiKey=096dffd3ff0d4431820fce4a3121a0c1";
 
     $.ajax({
       url: ingredientsNeededURL,
       method: "GET",
     }).then(function (response) {
-      console.log(response);
+      let ingredient = response;
+
+      // Making a table
+      const tableEle = $("<table>");
+      $(".modal-footer").append(tableEle);
+      
+      const theadEle = $("<thead>");
+
+      for (let i = 0; i < ingredient.length;i++) {
+
+      }
     });
   }
 
