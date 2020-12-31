@@ -239,6 +239,10 @@ $(document).ready(function () {
       const tableEle = $("<table>");
       $(".modal-footer").append(tableEle);
       
+      // Adding a caption
+      const caption = $("<caption>").text("Ingredients needed.");
+      tableEle.append(caption);
+      
       const theadEle = $("<thead>");
 
       for (let i = 0; i < ingredient.length;i++) {
