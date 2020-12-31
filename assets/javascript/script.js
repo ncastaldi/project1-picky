@@ -303,7 +303,7 @@ $(document).ready(function () {
         let ingredientNameTD = $("<td>").text(ingredient[i].name);
         tableBodyTR.append(ingredientNameTD);
 
-        let amountTD = $("<td>").text(ingredient[i].amount.us.value);
+        let amountTD = $("<td>").text(ingredient[i].amount.us.value.toFixed(2));
         tableBodyTR.append(amountTD);
 
         let unitsTD = $("<td>").text(ingredient[i].amount.us.unit);
