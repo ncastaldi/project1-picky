@@ -175,7 +175,7 @@ $(document).ready(function () {
         var rightCol = $("<div>");
         rightCol.addClass("col-6");
         var sendIngredients = $("<button>").text("Send Ingredients");
-        sendIngredients.addClass("btn btn-secondary");
+        sendIngredients.addClass("btn btn-secondary sendIngredients");
         sendIngredients.attr("id", "sendIngredients");
         sendIngredients.attr("data-index", i);
         rightCol.append(sendIngredients);
@@ -187,20 +187,9 @@ $(document).ready(function () {
         recipeCol.append(recipeResultCardEl);
         dynamicContentDiv.append(recipeCol);
       }
-
-      // Event Listener for "Send Ingredients" button
-      $("#sendIngredientsBtn").on("click", function () {
-        console.log("so far so good");
-
-        // Prompt for Email address
-
-        //Ajax call for ingredient list
-
-        //EmailJS call to send list
-
-      })
     });
   }
+
   // Second AJAX call for recipe.
   function findRecipe(event) {
     // Using the data-index to find which recipe ID to access in the global variable.
@@ -219,6 +208,16 @@ $(document).ready(function () {
     }).then(function (response2) {
       console.log(response2);
     });
+  }
+
+  function sendIngredients() {
+    console.log("so far so good");
+
+    // Prompt for Email address
+
+    //Ajax call for ingredient list
+
+    //EmailJS call to send list
   }
 
   //Function to send saved ingredient list via EmailJS API
@@ -248,6 +247,7 @@ $(document).ready(function () {
   recipeSearchBtn.on("click", searchSpoontacular);
   ingredientsForm.on("submit", saveList);
   dynamicContentDiv.on("click", ".recipe", findRecipe);
+  dynamicContentDiv.on("click", ".sendIngredients", sendIngredients);
   userQueryInput.keyup(function (event) {
     if (event.keyCode === 13) {
       recipeSearchBtn.click();
