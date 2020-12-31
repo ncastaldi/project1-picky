@@ -173,6 +173,11 @@ $(document).ready(function () {
         recipeCol.append(recipeResultCardEl);
         dynamicContentDiv.append(recipeCol);
       }
+      // Making the see next results button.
+      const offsetBtn = $("<button>").text("See the next 10 results!");
+      offsetBtn.attr("class", "btn btn-primary");
+      offsetBtn.attr("id", "offsetBtn");
+      dynamicContentDiv.append(offsetBtn);
     });
   }
   // Second AJAX call for recipe.
