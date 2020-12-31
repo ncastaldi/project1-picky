@@ -6,6 +6,7 @@ $(document).ready(function () {
   var dietSelector = $("#Diet");
   var ingredientsForm = $("#ingredientsForm");
   var dynamicContentDiv = $("#dynamicContent");
+  var sendIngredientsBtn = $("#sendIngridents");
 
   /* Declare JavaScript Variables */
   // Used in storing ID's of recipes.
@@ -177,6 +178,8 @@ $(document).ready(function () {
         var sendIngredients = $("<button>").text("Send Ingredients");
         sendIngredients.addClass("btn btn-secondary sendIngredients");
         sendIngredients.attr("id", "sendIngredients");
+        sendIngredients.attr("data-bs-toggle", "modal");
+        sendIngredients.attr("data-bs-target", "#exampleModal");
         sendIngredients.attr("data-index", i);
         rightCol.append(sendIngredients);
         buttonRow.append(rightCol);
@@ -210,6 +213,7 @@ $(document).ready(function () {
     });
   }
 
+  // Function to capture user's email and send ingredient list
   function sendIngredients() {
     console.log("so far so good");
 
@@ -247,7 +251,7 @@ $(document).ready(function () {
   recipeSearchBtn.on("click", searchSpoontacular);
   ingredientsForm.on("submit", saveList);
   dynamicContentDiv.on("click", ".recipe", findRecipe);
-  dynamicContentDiv.on("click", ".sendIngredients", sendIngredients);
+  sendIngredientsBtn.on("click", sendIngredients);
   userQueryInput.keyup(function (event) {
     if (event.keyCode === 13) {
       recipeSearchBtn.click();
