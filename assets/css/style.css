@@ -142,7 +142,7 @@ searchTerm:focus {
   padding: 5%;
 }
 
-#openRecipeButton, #sendIngredients {
+#openRecipeButton, #viewIngredients {
   width: 100%;
 }
 

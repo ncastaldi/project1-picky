@@ -103,7 +103,7 @@ $(document).ready(function () {
     console.log(allergyQuery);
 
     var recipeSearchURL =
-      "https://api.spoonacular.com/recipes/complexSearch?apiKey=55ef65bbdb1c401490f851867d7b839f";
+      "https://api.spoonacular.com/recipes/complexSearch?apiKey=096dffd3ff0d4431820fce4a3121a0c1";
 
     // Combining the queries.
     let queryURL = recipeSearchURL + searchQuery + dietQuery + allergyQuery;
@@ -178,8 +178,8 @@ $(document).ready(function () {
         var rightCol = $("<div>");
         rightCol.addClass("col-6");
         var sendIngredients = $("<button>").text("View Ingredients");
-        sendIngredients.addClass("btn btn-secondary ingredients");
-        sendIngredients.attr("id", "sendIngredients");
+        sendIngredients.addClass("btn btn-secondary");
+        sendIngredients.attr("id", "viewIngredients");
         sendIngredients.attr("data-bs-toggle", "modal");
         sendIngredients.attr("data-bs-target", "#exampleModal");
         sendIngredients.attr("data-index", i);
@@ -192,6 +192,9 @@ $(document).ready(function () {
         recipeCol.append(recipeResultCardEl);
         dynamicContentDiv.append(recipeCol);
       }
+
+      // Add returned recipe IDs to local storage
+      localStorage.setItem("recipeID", JSON.stringify(recipeID));
     });
   }
 
@@ -215,30 +218,18 @@ $(document).ready(function () {
     });
   }
 
-  // Function to capture user's email and send ingredient list
-  function captureEmail(event) {
-    event.preventDefault();
-
-    console.log("so far so good");
-
-    //$("#sendIngridents").value = 'Sending...';
-
-
+  //Function to send saved ingredient list via EmailJS API
+  function saveList(savedEmail) {
     // Save Email address
     var savedEmail = $(emailInput).val();
     console.log(savedEmail);
 
     //Ajax call for ingredient list
-    //console log recipe id to confirm i can pass as arg
+
+    // Hide modal
+    $("#exampleModal").removeClass("show");
 
     //EmailJS call to send list
-    //saveList(savedEmail);
-  }
-
-  //Function to send saved ingredient list via EmailJS API
-  function saveList(savedEmail) {
-    //event.preventDefault();
-    $("#exampleModal").removeClass("show");
     var bodyHTML = "<h3>test code</h3>";
 
     emailjs.send("service_y9qb5eg", "template_241tje5", {
@@ -258,8 +249,7 @@ $(document).ready(function () {
   recipeSearchBtn.on("click", searchSpoontacular);
   ingredientsForm.on("submit", saveList);
   dynamicContentDiv.on("click", ".recipe", findRecipe);
-  sendIngredientsBtn.on("click", captureEmail);
-
+  sendIngredientsBtn.on("click", saveList);
   $("#exampleInputEmail1").keyup(function (event) {
     if (event.keyCode === 13) {
       captureEmail.click(event);
