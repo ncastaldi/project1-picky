@@ -177,8 +177,8 @@ $(document).ready(function () {
         // Making a button to send full ingredient list to email
         var rightCol = $("<div>");
         rightCol.addClass("col-6");
-        var sendIngredients = $("<button>").text("Send Ingredients");
-        sendIngredients.addClass("btn btn-secondary sendIngredients");
+        var sendIngredients = $("<button>").text("View Ingredients");
+        sendIngredients.addClass("btn btn-secondary ingredients");
         sendIngredients.attr("id", "sendIngredients");
         sendIngredients.attr("data-bs-toggle", "modal");
         sendIngredients.attr("data-bs-target", "#exampleModal");
@@ -216,26 +216,29 @@ $(document).ready(function () {
   }
 
   // Function to capture user's email and send ingredient list
-  function sendIngredients(event) {
+  function captureEmail(event) {
     event.preventDefault();
 
     console.log("so far so good");
-    $("#exampleModal").removeClass("show");
+
+    //$("#sendIngridents").value = 'Sending...';
+
 
     // Save Email address
     var savedEmail = $(emailInput).val();
+    console.log(savedEmail);
 
     //Ajax call for ingredient list
+    //console log recipe id to confirm i can pass as arg
 
     //EmailJS call to send list
-    saveList(savedEmail);
+    //saveList(savedEmail);
   }
 
   //Function to send saved ingredient list via EmailJS API
   function saveList(savedEmail) {
     //event.preventDefault();
-
-    //btn.value = 'Sending...';
+    $("#exampleModal").removeClass("show");
     var bodyHTML = "<h3>test code</h3>";
 
     emailjs.send("service_y9qb5eg", "template_241tje5", {
@@ -255,10 +258,11 @@ $(document).ready(function () {
   recipeSearchBtn.on("click", searchSpoontacular);
   ingredientsForm.on("submit", saveList);
   dynamicContentDiv.on("click", ".recipe", findRecipe);
-  sendIngredientsBtn.on("click", sendIngredients);
+  sendIngredientsBtn.on("click", captureEmail);
+
   $("#exampleInputEmail1").keyup(function (event) {
     if (event.keyCode === 13) {
-      sendIngredients.click(event);
+      captureEmail.click(event);
     }
   })
   userQueryInput.keyup(function (event) {
