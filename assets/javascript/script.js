@@ -156,19 +156,32 @@ $(document).ready(function () {
         recipeResultImg.attr("id", "recipeImg");
         recipeResultCardEl.append(recipeResultImg);
 
+        // Making row to show buttons side by side
+        var buttonRow = $("<div>");
+        buttonRow.addClass("row");
+        buttonRow.attr("id", "buttonRow");
+
         // Making a button to show the recipe.
+        var leftCol = $("<div>");
+        leftCol.addClass("col-6");
         var openRecipe = $("<button>").text("Show Recipe");
         openRecipe.attr("class", "btn btn-primary recipe");
         openRecipe.attr("id", "openRecipeButton");
         openRecipe.attr("data-index", i);
-        recipeResultCardEl.append(openRecipe);
+        leftCol.append(openRecipe);
+        buttonRow.append(leftCol);
 
         // Making a button to send full ingredient list to email
+        var rightCol = $("<div>");
+        rightCol.addClass("col-6");
         var sendIngredients = $("<button>").text("Send Ingredients");
         sendIngredients.addClass("btn btn-secondary");
-        sendIngredients.attr("id", "sendIngredientsBtn");
+        sendIngredients.attr("id", "sendIngredients");
         sendIngredients.attr("data-index", i);
-        recipeResultCardEl.append(sendIngredients);
+        rightCol.append(sendIngredients);
+        buttonRow.append(rightCol);
+
+        recipeResultCardEl.append(buttonRow);
 
         // Appending everything to dynamicContent
         recipeCol.append(recipeResultCardEl);

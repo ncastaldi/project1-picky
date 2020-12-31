@@ -16,6 +16,7 @@
       filter: drop-shadow(5px 5px 5px  rgb(63, 55, 55));
       align-content: center;
     }
+
 .navbar-brand {
   margin: 0 auto;
 }
@@ -135,6 +136,10 @@ searchTerm:focus {
 
 #recipeImg {
   /* width: 200px; */
+}
+
+#openRecipeButton, #sendIngredients {
+  width: 100%;
 }
 
 /* MEDIA QUERIES */
