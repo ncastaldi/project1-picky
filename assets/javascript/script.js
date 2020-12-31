@@ -62,11 +62,6 @@ $(document).ready(function () {
     }
     console.log(searchQuery);
 
-    // Adding empty arrays to collect data.
-    recipeID = [];
-    var recipeImage = [];
-    var recipeTitle = [];
-
     // Adding empty strings so that they can be populated with selections.
     let dietQuery = "";
     let allergyQuery = "";
@@ -110,6 +105,8 @@ $(document).ready(function () {
     // Storing a temporary URL to global.
     tempURL = queryURL;
     console.log(queryURL);
+
+    // Calling the creatingRecipes and passing it the URL made above.
     creatingRecipes(queryURL);
   }
 
@@ -121,6 +118,11 @@ $(document).ready(function () {
     }).then(function (response) {
       var spoonResults = response.results;
       console.log(spoonResults);
+
+      // Adding empty arrays to collect data.
+      recipeID = [];
+      var recipeImage = [];
+      var recipeTitle = [];
 
       // If spoonResults is empty display search again.
       if (spoonResults.length === 0) {
@@ -186,8 +188,11 @@ $(document).ready(function () {
   // New function to make a new call with a higher offset.
   function nextResults(event) {
     // Setting the offset.
+    offsetMultiple++;
     let offset = 0 + 10 * offsetMultiple;
     let offsetQuery = "&offset=" + offset;
+    let newQuery = tempURL + offsetQuery;
+    creatingRecipes(newQuery);
     console.log("click");
     console.log(queryURL);
   }
