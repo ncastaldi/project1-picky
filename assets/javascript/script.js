@@ -203,7 +203,7 @@ $(document).ready(function () {
     // Using the data-index to find which recipe ID to access in the global variable.
     var index = this.dataset.index;
 
-    // Preparing the URL for the second ajax call to get the recipe.
+    // Preparing the URL for the ajax call to get the recipe.
     var recipeStepsURL =
       "https://api.spoonacular.com/recipes/" +
       recipeID[index] +
@@ -215,6 +215,25 @@ $(document).ready(function () {
       method: "GET",
     }).then(function (response2) {
       console.log(response2);
+    });
+  }
+
+  // Function to find the ingredients.
+  function findIngredients(event) {
+    // Using the data-index to find which recipe ID to access in the global variable.
+    var index = this.dataset.index;
+
+    // Preparing the URL for the ajax call to get the ingredients.
+    var ingredientsNeededURL =
+      "https://api.spoonacular.com/recipes/" +
+      recipeID[index] +
+      "/ingredientWidget.json";
+
+    $.ajax({
+      url: ingredientsNeededURL,
+      method: "GET",
+    }).then(function (response) {
+      console.log(response);
     });
   }
 
@@ -254,7 +273,7 @@ $(document).ready(function () {
     if (event.keyCode === 13) {
       captureEmail.click(event);
     }
-  })
+  });
   userQueryInput.keyup(function (event) {
     if (event.keyCode === 13) {
       recipeSearchBtn.click();
