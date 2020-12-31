@@ -238,7 +238,7 @@ $(document).ready(function () {
       // Making a table.
       const tableEle = $("<table>");
       $(".modal-footer").append(tableEle);
-      
+
       // Adding a caption.
       const caption = $("<caption>").text("Ingredients needed.");
       tableEle.append(caption);
@@ -248,10 +248,18 @@ $(document).ready(function () {
       tableEle.append(theadEle);
 
       // Adding table row.
+      const trEle = $("<tr>");
+      theadEle.append(trEle);
 
-      for (let i = 0; i < ingredient.length;i++) {
+      // Adding content for headers.
+      const ingredientNameTH = $("<th>").text("Ingredient");
+      const amountTH = $("<th>").text("Amount");
+      const unitsTH = $("<th>").text("Units");
+      trEle.append(ingredientNameTH);
+      trEle.append(amountTH);
+      trEle.append(unitsTH);
 
-      }
+      for (let i = 0; i < ingredient.length; i++) {}
     });
   }
 
