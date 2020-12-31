@@ -179,3 +179,8 @@ searchTerm:focus {
 
 /* MEDIA QUERIES */
 /* MEDIA QUERIES */
+
+
+.column {
+  float: left;
+}
