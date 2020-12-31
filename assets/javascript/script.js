@@ -246,6 +246,11 @@ $(document).ready(function () {
   ingredientsForm.on("submit", saveList);
   dynamicContentDiv.on("click", ".recipe", findRecipe);
   dynamicContentDiv.on("click", "#offsetBtn", nextResults);
+  userQueryInput.keyup(function (event) {
+    if (event.keyCode === 13) {
+      recipeSearchBtn.click();
+    }
+  });
 });
 
 function openPage(pageName, elmnt, color) {
