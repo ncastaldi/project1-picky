@@ -261,7 +261,9 @@ $(document).ready(function () {
       url: ingredientsNeededURL,
       method: "GET",
     }).then(function (response) {
-      let ingredient = response;
+      let ingredient = response.ingredients;
+      console.log(ingredient);
+      console.log(ingredient.length);
 
       // Making a table.
       const tableEle = $("<table>");
