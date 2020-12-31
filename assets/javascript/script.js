@@ -272,9 +272,11 @@ $(document).ready(function () {
   allergySelector.on("click", ".allergy", settingAllergyCriteria);
   dietSelector.on("click", ".diet", settingDietCriteria);
   recipeSearchBtn.on("click", searchSpoontacular);
-  ingredientsForm.on("submit", saveList);
+  sendIngredientsBtn.on("click", saveList);
   dynamicContentDiv.on("click", ".recipe", findRecipe);
   dynamicContentDiv.on("click", "#offsetBtn", nextResults);
+
+  $("#sendIngridents").on("click",);
   userQueryInput.keyup(function (event) {
     if (event.keyCode === 13) {
       recipeSearchBtn.click();
