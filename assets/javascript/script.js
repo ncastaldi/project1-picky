@@ -260,7 +260,7 @@ $(document).ready(function () {
       trEle.append(unitsTH);
 
       // Adding table body.
-      const tableBodyEle = $("<tbody>")
+      const tableBodyEle = $("<tbody>");
       tableEle.append(tableBodyEle);
 
       for (let i = 0; i < ingredient.length; i++) {
@@ -268,6 +268,15 @@ $(document).ready(function () {
         let tableBodyTR = $("<tr>");
         tableEle.append(tableBodyTR);
 
+        // Adding data into the chart.
+        let ingredientNameTD = $("<td>").text(ingredient[i].name);
+        tableBodyTR.append(ingredientNameTD);
+
+        let amountTD = $("<td>").text(ingredient[i].amount.us.value);
+        tableBodyTR.append(amountTD);
+
+        let unitsTD = $("<td>").text(ingredient[i].amount.us.unit);
+        tableBodyTR.append(unitsTD);
       }
     });
   }
