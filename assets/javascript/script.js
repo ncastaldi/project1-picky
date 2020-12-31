@@ -12,6 +12,8 @@ $(document).ready(function () {
   var recipeID = [];
   var allergySelected = {};
   var dietSelected = {};
+  let offsetMultiple = 0;
+  let tempURL = "";
 
   /* Declare JavaScript Variables */
 
@@ -60,11 +62,6 @@ $(document).ready(function () {
     }
     console.log(searchQuery);
 
-    // Adding empty arrays to collect data.
-    recipeID = [];
-    var recipeImage = [];
-    var recipeTitle = [];
-
     // Adding empty strings so that they can be populated with selections.
     let dietQuery = "";
     let allergyQuery = "";
@@ -104,14 +101,28 @@ $(document).ready(function () {
 
     // Combining the queries.
     let queryURL = recipeSearchURL + searchQuery + dietQuery + allergyQuery;
+
+    // Storing a temporary URL to global.
+    tempURL = queryURL;
     console.log(queryURL);
 
+    // Calling the creatingRecipes and passing it the URL made above.
+    creatingRecipes(queryURL);
+  }
+
+  // Making the AJAX call and the DOM elements function.
+  function creatingRecipes(queryURL) {
     $.ajax({
       url: queryURL,
       method: "GET",
     }).then(function (response) {
       var spoonResults = response.results;
       console.log(spoonResults);
+
+      // Adding empty arrays to collect data.
+      recipeID = [];
+      var recipeImage = [];
+      var recipeTitle = [];
 
       // If spoonResults is empty display search again.
       if (spoonResults.length === 0) {
@@ -167,8 +178,26 @@ $(document).ready(function () {
         recipeCol.append(recipeResultCardEl);
         dynamicContentDiv.append(recipeCol);
       }
+      // Making the see next results button.
+      const offsetBtn = $("<button>").text("See the next 10 results!");
+      offsetBtn.attr("class", "btn btn-primary");
+      offsetBtn.attr("id", "offsetBtn");
+      dynamicContentDiv.append(offsetBtn);
     });
   }
+  
+  // New function to make a new call with a higher offset.
+  function nextResults(event) {
+    // Setting the offset.
+    event.preventDefault();
+    offsetMultiple++;
+    let offset = 0 + 10 * offsetMultiple;
+    let offsetQuery = "&offset=" + offset;
+    let newQuery = tempURL + offsetQuery;
+    dynamicContentDiv.empty();
+    creatingRecipes(newQuery);
+  }
+
   // Second AJAX call for recipe.
   function findRecipe(event) {
     // Using the data-index to find which recipe ID to access in the global variable.
@@ -216,6 +245,7 @@ $(document).ready(function () {
   recipeSearchBtn.on("click", searchSpoontacular);
   ingredientsForm.on("submit", saveList);
   dynamicContentDiv.on("click", ".recipe", findRecipe);
+  dynamicContentDiv.on("click", "#offsetBtn", nextResults);
   userQueryInput.keyup(function (event) {
     if (event.keyCode === 13) {
       recipeSearchBtn.click();
