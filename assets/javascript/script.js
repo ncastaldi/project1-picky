@@ -235,6 +235,11 @@ $(document).ready(function () {
   recipeSearchBtn.on("click", searchSpoontacular);
   ingredientsForm.on("submit", saveList);
   dynamicContentDiv.on("click", ".recipe", findRecipe);
+  userQueryInput.keyup(function (event) {
+    if (event.keyCode === 13) {
+      recipeSearchBtn.click();
+    }
+  });
 });
 
 function openPage(pageName, elmnt, color) {
