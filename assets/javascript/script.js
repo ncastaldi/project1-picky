@@ -223,28 +223,25 @@ $(document).ready(function () {
     $("#exampleModal").removeClass("show");
 
     // Save Email address
-    console.log($(emailInput).val());
-    //var savedEmail = 
+    var savedEmail = $(emailInput).val();
 
     //Ajax call for ingredient list
 
     //EmailJS call to send list
+    saveList(savedEmail);
   }
 
   //Function to send saved ingredient list via EmailJS API
-  function saveList(event) {
-    event.preventDefault();
+  function saveList(savedEmail) {
+    //event.preventDefault();
 
     //btn.value = 'Sending...';
+    var bodyHTML = "<h3>test code</h3>";
 
-    const serviceID = "default_service";
-    const templateID = "template_241tje5";
-    var passed_html = $("#passed_html").val();
-    var user_email = $("#user_email").val();
-
-    emailjs.send(serviceID, templateID, {
-      passed_html: passed_html,
-      user_email: user_email,
+    emailjs.send("service_y9qb5eg", "template_241tje5", {
+      bodyHTML: bodyHTML,
+      userEmail: savedEmail,
+      recipeName: "TBD",
     });
   }
   /* Define Functions */
