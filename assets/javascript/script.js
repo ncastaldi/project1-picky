@@ -13,6 +13,7 @@ $(document).ready(function () {
   var allergySelected = {};
   var dietSelected = {};
   let offsetMultiple = 0;
+  let tempURL = "";
 
   /* Declare JavaScript Variables */
 
@@ -41,12 +42,8 @@ $(document).ready(function () {
   }
 
   //Function to call Spoontacular API
-  function searchSpoontacular(event, offset) {
+  function searchSpoontacular(event) {
     event.preventDefault();
-
-    // Setting the offset.
-    let offset = 0 + 10 * offsetMultiple;
-    let offsetQuery = "&offset=" + offset;
 
     /* Clear dynamicContent DIV ahead of writing new search results */
     dynamicContentDiv.empty();
@@ -108,8 +105,10 @@ $(document).ready(function () {
       "https://api.spoonacular.com/recipes/complexSearch?apiKey=55ef65bbdb1c401490f851867d7b839f";
 
     // Combining the queries.
-    let queryURL =
-      recipeSearchURL + searchQuery + dietQuery + allergyQuery + offsetQuery;
+    let queryURL = recipeSearchURL + searchQuery + dietQuery + allergyQuery;
+
+    // Storing a temporary URL to global.
+    tempURL = queryURL;
     console.log(queryURL);
 
     $.ajax({
@@ -180,6 +179,14 @@ $(document).ready(function () {
       dynamicContentDiv.append(offsetBtn);
     });
   }
+  // New function to make a new call with a higher offset.
+  function nextResults(event) {
+    // Setting the offset.
+    let offset = 0 + 10 * offsetMultiple;
+    let offsetQuery = "&offset=" + offset;
+    console.log("click");
+    console.log(queryURL);
+  }
   // Second AJAX call for recipe.
   function findRecipe(event) {
     // Using the data-index to find which recipe ID to access in the global variable.
@@ -227,6 +234,7 @@ $(document).ready(function () {
   recipeSearchBtn.on("click", searchSpoontacular);
   ingredientsForm.on("submit", saveList);
   dynamicContentDiv.on("click", ".recipe", findRecipe);
+  dynamicContentDiv.on("click", "#offsetBtn", nextResults);
 });
 
 function openPage(pageName, elmnt, color) {
