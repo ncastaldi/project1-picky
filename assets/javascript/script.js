@@ -12,6 +12,7 @@ $(document).ready(function () {
   var recipeID = [];
   var allergySelected = {};
   var dietSelected = {};
+  let offsetMultiple = 0;
 
   /* Declare JavaScript Variables */
 
@@ -40,8 +41,12 @@ $(document).ready(function () {
   }
 
   //Function to call Spoontacular API
-  function searchSpoontacular(event) {
+  function searchSpoontacular(event, offset) {
     event.preventDefault();
+
+    // Setting the offset.
+    let offset = 0 + 10 * offsetMultiple;
+    let offsetQuery = "&offset=" + offset;
 
     /* Clear dynamicContent DIV ahead of writing new search results */
     dynamicContentDiv.empty();
@@ -103,7 +108,8 @@ $(document).ready(function () {
       "https://api.spoonacular.com/recipes/complexSearch?apiKey=55ef65bbdb1c401490f851867d7b839f";
 
     // Combining the queries.
-    let queryURL = recipeSearchURL + searchQuery + dietQuery + allergyQuery;
+    let queryURL =
+      recipeSearchURL + searchQuery + dietQuery + allergyQuery + offsetQuery;
     console.log(queryURL);
 
     $.ajax({
