@@ -113,6 +113,15 @@ $(document).ready(function () {
       var spoonResults = response.results;
       console.log(spoonResults);
 
+      // If spoonResults is empty display search again.
+      if (spoonResults.length === 0) {
+        var tryAgain = $("<h2>No recipes found with this criteria.</h2>");
+        var searchAgain = $("<h3>").text("Please search again");
+        dynamicContentDiv.attr("class", "bg-white col-3");
+        dynamicContentDiv.append(tryAgain);
+        dynamicContentDiv.append(searchAgain);
+      }
+
       // Create container to display recipe cards in
       var contentRowEl = $("<div>");
       contentRowEl.addClass("row");
