@@ -185,9 +185,11 @@ $(document).ready(function () {
       dynamicContentDiv.append(offsetBtn);
     });
   }
+  
   // New function to make a new call with a higher offset.
   function nextResults(event) {
     // Setting the offset.
+    event.preventDefault();
     offsetMultiple++;
     let offset = 0 + 10 * offsetMultiple;
     let offsetQuery = "&offset=" + offset;
@@ -195,6 +197,7 @@ $(document).ready(function () {
     dynamicContentDiv.empty();
     creatingRecipes(newQuery);
   }
+
   // Second AJAX call for recipe.
   function findRecipe(event) {
     // Using the data-index to find which recipe ID to access in the global variable.
