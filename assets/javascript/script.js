@@ -329,7 +329,15 @@ $(document).ready(function () {
     $("#exampleModal").removeClass("show");
 
     //EmailJS call to send list
-    var bodyHTML = "<h3>test code</h3>";
+    var bodyHTML = [];
+
+    for (var i = 0; i < ingredient.length; i++) {
+      console.log("Name: " + ingredient[i].name);
+      console.log("Amount: " + ingredient[i].amount.us.value + " " + ingredient[i].amount.us.unit);
+
+      bodyHTML.push("<p>" + ingredient[i].amount.us.value + " " + ingredient[i].amount.us.unit + " " + ingredient[i].name + "</p>");
+    }
+    console.log(bodyHTML);
 
     emailjs.send("service_y9qb5eg", "template_241tje5", {
       bodyHTML: bodyHTML,
