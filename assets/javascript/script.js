@@ -309,15 +309,20 @@ $(document).ready(function () {
         let unitsTD = $("<td>").text(ingredient[i].amount.us.unit);
         tableBodyTR.append(unitsTD);
       }
+      sendIngredientsBtn.on("click", function (event) {
+        event.preventDefault();
+        let savedEmail = emailInput.val;
+        saveList(savedEmail, ingredient);
+      });
     });
   }
 
   //Function to send saved ingredient list via EmailJS API
-  function saveList(savedEmail) {
+  function saveList(savedEmail, ingredient) {
     // Save Email address
     var savedEmail = $(emailInput).val();
     console.log(savedEmail);
-
+    console.log(ingredient);
     //Ajax call for ingredient list
 
     // Hide modal
@@ -341,9 +346,9 @@ $(document).ready(function () {
   allergySelector.on("click", ".allergy", settingAllergyCriteria);
   dietSelector.on("click", ".diet", settingDietCriteria);
   recipeSearchBtn.on("click", searchSpoontacular);
-  ingredientsForm.on("submit", saveList);
+  // ingredientsForm.on("submit", saveList);
   dynamicContentDiv.on("click", ".recipe", findRecipe);
-  sendIngredientsBtn.on("click", saveList);
+  // sendIngredientsBtn.on("click", saveList);
   dynamicContentDiv.on("click", "#viewIngredients", findIngredients);
   $("#exampleInputEmail1").keyup(function (event) {
     if (event.keyCode === 13) {
