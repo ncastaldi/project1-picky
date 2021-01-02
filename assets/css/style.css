@@ -190,8 +190,21 @@ caption {
 
 #flexSwitchCheckChecked {
   background-color:#e30022 !important;
-  border-color: #fff;
+  border-color: rgb(0, 0, 0);
+  color: #f5ede0;
 
 }
-#flexSwitchCheckChecked {
-  background-color:#fff;
+.form-check-input {
+  color: #e30022;
+}
+ 
+<style>
+  .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
+  .toggle.ios .toggle-handle { border-radius: 20px; }
+</style>
+<input type="checkbox" checked data-toggle="toggle" data-style="ios">
+<style>
+  .toggle.android { border-radius: 0px;}
+  .toggle.android .toggle-handle { border-radius: 0px; }
+</style>
+<input type="checkbox" checked data-toggle="toggle" data-style="android" data-onstyle="info">
