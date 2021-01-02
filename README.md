@@ -22,6 +22,8 @@ Git Hub Repository: [https://github.com/ncastaldi/project1](#https://github.com/
 ![Repo Screenshot](./assets/images/repo-screenshot.png)
 
 Live Site: [https://www.castaldi.dev/project1/index.html](#https://www.castaldi.dev/project1/index.html)
+
+![Site Screenshot](./assets/images/site-screenshot.png)
 ## Credits
 
 **Created By:**
