@@ -4,7 +4,8 @@
 ---
 
 This app was designed to help busy people find recipes quickly while still being mindful of allergies and diet preferences, and allowing them the access to email themselves ingredients required.
-## Table of Contents
+#### Table of Contents
+---
 
 * [Installation](#installation)
 * [Usage](#usage)
@@ -12,10 +13,18 @@ This app was designed to help busy people find recipes quickly while still being
 * [License](#license)
 * [Badges](#badges)
 #### Installation
+---
 To successfully install this project you need to do the following:
 
+1. Create a account at Spoonacular API and Email.js API.
+1. Start making the html page, which should include our four main html elements: search area, tabs with content, DOM area below tabs, and modals with DOM areas.
+1. In javascript write code to perform the AJAX calls to get the information needed to display the recipe and related information into the DOM area.  We decided to display 10 recipes per call.
+1. Develop the functions to make your buttons for allergens, diets, and cuisines functional and add to the url you send into the API.
+1. In the modal areas display the recipe and ingredient information when the approriate button is clicked, show recipe and show ingredients, respectively.
+1. Lastly, make a clear button to reset the DOM elements and all variables back to base state, so the user can re-search for another recipe(s).
 
-#### Usage 
+#### Usage
+---
 
 Git Hub Repository: [https://github.com/ncastaldi/project1](#https://github.com/ncastaldi/project1)
 
@@ -25,6 +34,7 @@ Live Site: [https://www.castaldi.dev/project1/index.html](#https://www.castaldi.
 
 ![Site Screenshot](./assets/images/site-screenshot.png)
 #### Credits
+---
 
 **Created By:**
 * Daniel Guadalupe ([GitHub](https://github.com/danielthomas129))
@@ -35,7 +45,8 @@ Live Site: [https://www.castaldi.dev/project1/index.html](#https://www.castaldi.
 **API's Used:**
 * [EmailJS](#https://www.emailjs.com/)
 * [Spoonacular](#https://spoonacular.com/)
-## License
+#### License
+---
 
 MIT License
 
@@ -59,5 +70,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ## Badges
+---
 
 [![GitHub license](https://img.shields.io/github/license/ncastaldi/project1?style=for-the-badge)](https://github.com/ncastaldi/project1/blob/main/license.txt)
