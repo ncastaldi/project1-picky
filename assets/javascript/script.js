@@ -250,6 +250,8 @@ $(document).ready(function () {
   function findIngredients(event) {
     // Using the data-index to find which recipe ID to access in the global variable.
     var index = this.dataset.index;
+    let emailRecipeName = this.parentNode.parentNode.parentNode.firstChild
+      .textContent;
 
     // Preparing the URL for the ajax call to get the ingredients.
     var ingredientsNeededURL =
@@ -312,13 +314,13 @@ $(document).ready(function () {
       sendIngredientsBtn.on("click", function (event) {
         event.preventDefault();
         let savedEmail = emailInput.val;
-        saveList(savedEmail, ingredient);
+        saveList(savedEmail, ingredient, emailRecipeName);
       });
     });
   }
 
   //Function to send saved ingredient list via EmailJS API
-  function saveList(savedEmail, ingredient) {
+  function saveList(savedEmail, ingredient, emailRecipeName) {
     // Save Email address
     var savedEmail = $(emailInput).val();
     console.log(savedEmail);
@@ -333,9 +335,22 @@ $(document).ready(function () {
 
     for (var i = 0; i < ingredient.length; i++) {
       console.log("Name: " + ingredient[i].name);
-      console.log("Amount: " + ingredient[i].amount.us.value + " " + ingredient[i].amount.us.unit);
+      console.log(
+        "Amount: " +
+          ingredient[i].amount.us.value +
+          " " +
+          ingredient[i].amount.us.unit
+      );
 
-      bodyHTML.push("<p>" + ingredient[i].amount.us.value + " " + ingredient[i].amount.us.unit + " " + ingredient[i].name + "</p>");
+      bodyHTML.push(
+        "<p>" +
+          ingredient[i].amount.us.value +
+          " " +
+          ingredient[i].amount.us.unit +
+          " " +
+          ingredient[i].name +
+          "</p>"
+      );
     }
     console.log(bodyHTML);
 
