@@ -24,7 +24,7 @@ body {
   background-size: contain;
   height: 100%;
   margin: 0;
-  font-family: "Reem Kufi", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
 }
 
@@ -36,6 +36,7 @@ button {
   border: none;
   background: #e30022;
 }
+
 
 /* Style tab links */
 .tablink {
@@ -84,7 +85,7 @@ searchTerm {
   background-color: #90000e;
   color: white;
   border-color: #e30022;
-  font-family: "Roboto", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 searchTerm:focus {
   color: #ffffff;
@@ -184,3 +185,13 @@ tr:nth-child(odd) td {
 caption {
   padding: 10px;
 }
+
+
+
+#flexSwitchCheckChecked {
+  background-color:#e30022 !important;
+  border-color: #fff;
+
+}
+#flexSwitchCheckChecked {
+  background-color:#fff;
