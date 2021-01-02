@@ -17,7 +17,11 @@ This app was designed to help busy people find recipes quickly while still being
 Installation requires uploading the application files and folders to root of web server.
 ## Usage 
 
-[INSERT SCREENSHOTS]
+Git Hub Repository: [https://github.com/ncastaldi/project1](#https://github.com/ncastaldi/project1)
+
+![Repo Screenshot](./assets/images/repo-screenshot.png)
+
+Live Site: [https://www.castaldi.dev/project1/index.html](#https://www.castaldi.dev/project1/index.html)
 ## Credits
 
 **Created By:**
