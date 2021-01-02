@@ -285,7 +285,7 @@ $(document).ready(function () {
       theadEle.append(trEle);
 
       // Adding content for headers.
-      const ingredientNameTH = $("<th>").text("Ingredient");
+      const ingredientNameTH = $("<th>").text("Ingredients");
       const amountTH = $("<th>").text("Amount");
       const unitsTH = $("<th>").text("Units");
       trEle.append(ingredientNameTH);
