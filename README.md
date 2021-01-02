@@ -2,9 +2,7 @@
 
 ## Description 
 
-[TBD]
-
-
+This app was designed to help busy people find recipes quickly while still being mindful of allergies and diet preferences.
 ## Table of Contents
 
 * [Installation](#installation)
