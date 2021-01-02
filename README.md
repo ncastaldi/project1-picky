@@ -1,8 +1,9 @@
 # Project 1: Picky
 
-## Description 
+#### Description 
+---
 
-This app was designed to help busy people find recipes quickly while still being mindful of allergies and diet preferences.
+This app was designed to help busy people find recipes quickly while still being mindful of allergies and diet preferences, and allowing them the access to email themselves ingredients required.
 ## Table of Contents
 
 * [Installation](#installation)
@@ -10,10 +11,11 @@ This app was designed to help busy people find recipes quickly while still being
 * [Credits](#credits)
 * [License](#license)
 * [Badges](#badges)
-## Installation
+#### Installation
+To successfully install this project you need to do the following:
 
-Installation requires uploading the application files and folders to root of web server.
-## Usage 
+
+#### Usage 
 
 Git Hub Repository: [https://github.com/ncastaldi/project1](#https://github.com/ncastaldi/project1)
 
@@ -22,13 +24,13 @@ Git Hub Repository: [https://github.com/ncastaldi/project1](#https://github.com/
 Live Site: [https://www.castaldi.dev/project1/index.html](#https://www.castaldi.dev/project1/index.html)
 
 ![Site Screenshot](./assets/images/site-screenshot.png)
-## Credits
+#### Credits
 
 **Created By:**
-* Daniel Guadalupe ([GitHub](#https://github.com/danielthomas129))
-* John Erler ([GitHub](#https://github.com/jerler1))
-* Mya Todd ([GitHub](#https://github.com/mt428376))
-* Nathan Castaldi ([GitHub](#https://github.com/ncastaldi))
+* Daniel Guadalupe ([GitHub](https://github.com/danielthomas129))
+* John Erler ([GitHub](https://github.com/jerler1))
+* Mya Todd ([GitHub](https://github.com/mt428376))
+* Nathan Castaldi ([GitHub](https://github.com/ncastaldi))
 
 **API's Used:**
 * [EmailJS](#https://www.emailjs.com/)
