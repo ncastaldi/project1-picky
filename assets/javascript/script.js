@@ -337,19 +337,19 @@ $(document).ready(function () {
       console.log("Name: " + ingredient[i].name);
       console.log(
         "Amount: " +
-          ingredient[i].amount.us.value +
-          " " +
-          ingredient[i].amount.us.unit
+        ingredient[i].amount.us.value +
+        " " +
+        ingredient[i].amount.us.unit
       );
 
       bodyHTML.push(
         "<p>" +
-          ingredient[i].amount.us.value +
-          " " +
-          ingredient[i].amount.us.unit +
-          " " +
-          ingredient[i].name +
-          "</p>"
+        ingredient[i].amount.us.value +
+        " " +
+        ingredient[i].amount.us.unit +
+        " " +
+        ingredient[i].name +
+        "</p>"
       );
     }
     console.log(bodyHTML);
@@ -357,7 +357,7 @@ $(document).ready(function () {
     emailjs.send("service_y9qb5eg", "template_241tje5", {
       bodyHTML: bodyHTML,
       userEmail: savedEmail,
-      recipeName: "TBD",
+      recipeName: emailRecipeName,
     });
   }
   /* Define Functions */
