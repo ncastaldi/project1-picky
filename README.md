@@ -18,13 +18,27 @@ To successfully install this project you need to do the following:
 
 1. Create a account at Spoonacular API and Email.js API.
 1. Start making the html page, which should include our four main html elements: search area, tabs with content, DOM area below tabs, and modals with DOM areas.
+1. In the tabs make buttons or toggles to be clicked for which allergen or diets are being selected.
+1. Label the modals, one for recipe, and one for ingredients.
 1. In javascript write code to perform the AJAX calls to get the information needed to display the recipe and related information into the DOM area.  We decided to display 10 recipes per call.
 1. Develop the functions to make your buttons for allergens, diets, and cuisines functional and add to the url you send into the API.
 1. In the modal areas display the recipe and ingredient information when the approriate button is clicked, show recipe and show ingredients, respectively.
+1. Using another AJAX call populate the recipe modal or the ingredient modal via DOM.
 1. Lastly, make a clear button to reset the DOM elements and all variables back to base state, so the user can re-search for another recipe(s).
 
 #### Usage
 ---
+To properly use this website a three step starting process is used.
+
+1. Input your search in the search bar.
+1. Click the filters that interest you, diet, allergen, and/or cuisine.  Click as many diet and/or allergens you want and one cuisine filter.
+1. Click the search button.
+
+At this point a group of search results should have populated with a title, image, show recipe button, and a show ingredient button.
+
+If you would like to see the recipe, click the "show recipe" button and a modal should open with the listed steps to follow to complete the recipe.
+
+Click the "show ingredient" button and a modal will display with the ingredient list and a input email input.  If you wish the list of ingredients emailed to your email, input your email and click the button next to the input.
 
 Git Hub Repository: [https://github.com/ncastaldi/project1](#https://github.com/ncastaldi/project1)
 
