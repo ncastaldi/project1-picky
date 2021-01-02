@@ -10,8 +10,6 @@ This app was designed to help busy people find recipes quickly while still being
 * [Credits](#credits)
 * [License](#license)
 * [Badges](#badges)
-* [Features](#features)
-* [Tests](#tests)
 ## Installation
 
 Installation requires uploading the application files and folders to root of web server.
@@ -61,11 +59,3 @@ SOFTWARE.
 ## Badges
 
 [![GitHub license](https://img.shields.io/github/license/ncastaldi/project1?style=for-the-badge)](https://github.com/ncastaldi/project1/blob/main/license.txt)
-
-
-## Features
-
-[TBD]
-## Tests
-
-[TBD]
