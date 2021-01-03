@@ -181,6 +181,7 @@ searchTerm:focus {
 /* MEDIA QUERIES */
 
 
-.column {
+.container  {
   float: left;
+  color: #ebf0e9;
 }
