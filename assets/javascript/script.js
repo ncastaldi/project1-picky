@@ -360,11 +360,6 @@ $(document).ready(function () {
       recipeName: emailRecipeName,
     });
   }
-  /* Define Functions */
-
-  /* Make Function Calls */
-  /* Make Function Calls */
-
   /* Register Event Listeners */
   allergySelector.on("click", ".allergy", settingAllergyCriteria);
   dietSelector.on("click", ".diet", settingDietCriteria);
