@@ -187,24 +187,20 @@ caption {
 }
 
 
-
 #flexSwitchCheckChecked {
-  background-color:#e30022 !important;
+  background-color:#f5f5f5 #E40022 !important;
   border-color: rgb(0, 0, 0);
   color: #f5ede0;
+  
 
 }
 .form-check-input {
   color: #e30022;
 }
  
-<style>
-  .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
-  .toggle.ios .toggle-handle { border-radius: 20px; }
-</style>
-<input type="checkbox" checked data-toggle="toggle" data-style="ios">
-<style>
-  .toggle.android { border-radius: 0px;}
-  .toggle.android .toggle-handle { border-radius: 0px; }
-</style>
-<input type="checkbox" checked data-toggle="toggle" data-style="android" data-onstyle="info">
+/* Dropdown menu background color*/
+
+.dropdown-menu {     
+  background-color: #f5ede0; 
+  opacity: .96;
+}
