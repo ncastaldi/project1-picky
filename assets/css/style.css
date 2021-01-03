@@ -19,6 +19,15 @@
   margin: 0 auto;
 }
 
+.allergy, .diet {
+  background-color: transparent;
+}
+
+.intoleranceImg {
+  width: 100px;
+  height: 110px;
+}
+
 body {
   background-image: url("../images/foodie2x.png");
   background-size: contain;
