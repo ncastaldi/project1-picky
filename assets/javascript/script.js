@@ -337,19 +337,19 @@ $(document).ready(function () {
       console.log("Name: " + ingredient[i].name);
       console.log(
         "Amount: " +
-        ingredient[i].amount.us.value +
-        " " +
-        ingredient[i].amount.us.unit
+          ingredient[i].amount.us.value +
+          " " +
+          ingredient[i].amount.us.unit
       );
 
       bodyHTML.push(
         "<p>" +
-        ingredient[i].amount.us.value +
-        " " +
-        ingredient[i].amount.us.unit +
-        " " +
-        ingredient[i].name +
-        "</p>"
+          ingredient[i].amount.us.value +
+          " " +
+          ingredient[i].amount.us.unit +
+          " " +
+          ingredient[i].name +
+          "</p>"
       );
     }
     console.log(bodyHTML);
@@ -369,9 +369,7 @@ $(document).ready(function () {
   allergySelector.on("click", ".allergy", settingAllergyCriteria);
   dietSelector.on("click", ".diet", settingDietCriteria);
   recipeSearchBtn.on("click", searchSpoontacular);
-  // ingredientsForm.on("submit", saveList);
   dynamicContentDiv.on("click", ".recipe", findRecipe);
-  // sendIngredientsBtn.on("click", saveList);
   dynamicContentDiv.on("click", "#viewIngredients", findIngredients);
   $("#exampleInputEmail1").keyup(function (event) {
     if (event.keyCode === 13) {
