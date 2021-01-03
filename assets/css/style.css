@@ -141,7 +141,6 @@ tr:nth-child(odd) td {
 .tablink {
   background-color: #90000e;
   color: white;
-  float: left;
   border: none;
   outline: none;
   cursor: pointer;
@@ -151,7 +150,7 @@ tr:nth-child(odd) td {
 }
 
 .tablink:hover {
-  background-color: #90000e;
+  background-color: #bd081b;
 }
 
 /* results container */
