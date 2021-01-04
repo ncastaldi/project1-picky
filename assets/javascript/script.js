@@ -116,7 +116,7 @@ $(document).ready(function () {
     }
 
     var recipeSearchURL =
-      "https://api.spoonacular.com/recipes/complexSearch?apiKey=" + apiKey;
+      "https://api.spoonacular.com/recipes/complexSearch?apiKey=6dcaf82c542a4de9b9370845a910130c";
 
     // Combining the queries.
     let queryURL =
