@@ -160,15 +160,23 @@ tr:nth-child(odd) td {
 }
 
 /* results container */
-.search-results {
-  padding-top: 20px;
-  text-align: center;
-  background-color: #f5ede0;
-  font-family: "Reem Kufi", sans-serif;
-  font-weight: bolder;
-  border: 3px solid rgb(205, 10, 10);
-  display: none;
-}
+ .search-results {
+   padding-top: 20px;
+   text-align: center;
+   background-color: #F5EDE0;
+   font-family: 'Reem Kufi', sans-serif;   
+   font-weight: bolder;
+   border: 3px solid rgb(205, 10, 10);
+   display: none;
+
+ }
+ h3{
+   font-size: 200%;
+ }
+ p{
+   font-size: 150%;
+ }
+
 /*Resize the wrap to see the search bar change!*/
 /* Class Styles */
 

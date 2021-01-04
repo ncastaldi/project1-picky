@@ -56,14 +56,6 @@
         class="searchTerm form-control my-0 py-1"
         placeholder="Recipe Search"
       />
-      <button>
-        <i
-          class="fas fa-hand-pointer size:7x"
-          id="searchButton"
-          type="submit"
-          class="searchButton"
-        ></i>
-      </button>
     </div>
 
     <hr />
@@ -153,7 +145,8 @@
           />
         </button>
 
-        <button class="allergy" data-type="Tree+Nut">
+
+        <button class="allergy" data-type="'Tree Nut'">
           <img
             class="intoleranceImg"
             id="gluten"
@@ -206,25 +199,242 @@
       </div>
     </div>
 
-    <div id="Cuisine" class="tabcontent">
+    <div id="Cuisine" class="tabcontent mx-auto">
       <h3>Cuisine Types</h3>
-      <p>26 buttons</p>
+      <div class="form-check col-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="cuisineType"
+          value="African"
+        />
+        <label class="form-check-label" for="flexRadioDefault2">
+          African
+        </label>
+      </div>
+      <div class="form-check col-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="cuisineType"
+          value="American"
+        />
+        <label class="form-check-label" for="flexRadioDefault2">
+          American
+        </label>
+      </div>
+      <div class="form-check col-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="cuisineType"
+          value="British"
+        />
+        <label class="form-check-label" for="flexRadioDefault2">
+          British
+        </label>
+      </div>
+      <div class="form-check col-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="cuisineType"
+          value="Cajun"
+        />
+        <label class="form-check-label" for="flexRadioDefault2"> Cajun </label>
+      </div>
+      <div class="form-check col-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="cuisineType"
+          value="Caribbean"
+        />
+        <label class="form-check-label" for="flexRadioDefault2">
+          Caribbean
+        </label>
+      </div>
+      <div class="form-check col-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="cuisineType"
+          value="Chinese"
+        />
+        <label class="form-check-label" for="flexRadioDefault2">
+          Chinese
+        </label>
+      </div>
+      <div class="form-check col-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="cuisineType"
+          value="French"
+        />
+        <label class="form-check-label" for="flexRadioDefault2"> French </label>
+      </div>
+      <div class="form-check col-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="cuisineType"
+          value="German"
+        />
+        <label class="form-check-label" for="flexRadioDefault2"> German </label>
+      </div>
+      <div class="form-check col-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="cuisineType"
+          value="Greek"
+        />
+        <label class="form-check-label" for="flexRadioDefault2"> Greek </label>
+      </div>
+      <div class="form-check col-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="cuisineType"
+          value="Indian"
+        />
+        <label class="form-check-label" for="flexRadioDefault2"> Indian </label>
+      </div>
+      <div class="form-check col-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="cuisineType"
+          value="Irish"
+        />
+        <label class="form-check-label" for="flexRadioDefault2"> Irish </label>
+      </div>
+      <div class="form-check col-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="cuisineType"
+          value="Italian"
+        />
+        <label class="form-check-label" for="flexRadioDefault2">
+          Italian
+        </label>
+      </div>
+      <div class="form-check col-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="cuisineType"
+          value="Japanese"
+        />
+        <label class="form-check-label" for="flexRadioDefault2">
+          Japanese
+        </label>
+      </div>
+      <div class="form-check col-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="cuisineType"
+          value="Jewish"
+        />
+        <label class="form-check-label" for="flexRadioDefault2"> Jewish </label>
+      </div>
+      <div class="form-check col-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="cuisineType"
+          value="Korean"
+        />
+        <label class="form-check-label" for="flexRadioDefault2"> Korean </label>
+      </div>
+      <div class="form-check col-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="cuisineType"
+          value="Mexican"
+        />
+        <label class="form-check-label" for="flexRadioDefault2">
+          Mexican
+        </label>
+      </div>
+      <div class="form-check col-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="cuisineType"
+          value="Thai"
+        />
+        <label class="form-check-label" for="flexRadioDefault2"> Thai </label>
+      </div>
+      <div class="form-check col-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="cuisineType"
+          value="Vietnamese"
+        />
+        <label class="form-check-label" for="flexRadioDefault2">
+          Vietnamese
+        </label>
+      </div>
     </div>
+
+    <button>
+      <i
+        class="fas fa-hand-pointer size:7x"
+        id="searchButton"
+        type="submit"
+        class="searchButton"
+      ></i>
+    </button>
+    <button type="button" class="btn btn-primary" id="reset">Reset</button>
 
     <br />
 
-    <!-- Modal -->
+
+    <!-- Show Recipe Modal -->
     <div
       class="modal fade"
-      id="exampleModal"
+      id="viewRecipe"
       tabindex="-1"
-      aria-labelledby="exampleModalLabel"
+      aria-labelledby="viewRecipeLabel"
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Picky</h5>
+            <h5 class="modal-title" id="modalTitle">Picky</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="viewRecipeBody">
+            <!-- Use jQuery to dynamically generate recipe steps in table -->
+          </div>
+          <div class="modal-footer d-flex justify-content-center"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Show Ingredients Modal -->
+    <div
+      class="modal fade"
+      id="viewIngredients"
+      tabindex="-1"
+      aria-labelledby="viewIngredientsLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitle">Picky</h5>
             <button
               type="button"
               class="btn-close"
@@ -284,6 +494,21 @@
         "sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW";
       crossorigin = "anonymous";
     </script>
+
+
+    <div class="row" id="dynamicContent"></div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"

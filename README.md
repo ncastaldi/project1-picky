@@ -1,4 +1,4 @@
-# Project 1: Picky
+# Picky: the Recipe Finder
 
 #### Description 
 ---
