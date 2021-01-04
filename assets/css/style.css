@@ -120,6 +120,9 @@ searchTerm:focus {
    display: none;
 
  }
+ h3{
+   font-size: 200%;
+ }
 /*Resize the wrap to see the search bar change!*/
 
 
