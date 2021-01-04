@@ -231,6 +231,7 @@ $(document).ready(function () {
   function findRecipe(event) {
     // Using the data-index to find which recipe ID to access in the global variable.
     var index = this.dataset.index;
+    console.log(index);
 
     // Preparing the URL for the ajax call to get the recipe.
     var recipeStepsURL =
@@ -243,7 +244,39 @@ $(document).ready(function () {
       url: recipeStepsURL,
       method: "GET",
     }).then(function (response2) {
-      console.log(response2);
+      let recipeSteps = response2[0].steps;
+      console.log(recipeSteps);
+
+      // Emptying the modal footer.
+      $("#viewRecipeBody").empty();
+
+      // Making a table.
+      const tableEle = $("<table>");
+      $("#viewRecipeBody").append(tableEle);
+
+      // Adding a caption.
+      const caption = $("<caption>").text("Ingredients needed.");
+      tableEle.append(caption);
+
+      // Adding table head.
+      const theadEle = $("<thead>");
+      tableEle.append(theadEle);
+
+      // Adding table row.
+      const trEle = $("<tr>");
+      theadEle.append(trEle);
+
+      // Adding content for headers.
+      const ingredientNameTH = $("<th>").text("Ingredients");
+      const amountTH = $("<th>").text("Amount");
+      const unitsTH = $("<th>").text("Units");
+      trEle.append(ingredientNameTH);
+      trEle.append(amountTH);
+      trEle.append(unitsTH);
+
+      // Adding table body.
+      const tableBodyEle = $("<tbody>");
+      tableEle.append(tableBodyEle);
     });
   }
 
