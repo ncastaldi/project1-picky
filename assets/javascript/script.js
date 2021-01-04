@@ -101,13 +101,24 @@ $(document).ready(function () {
     console.log(dietQuery);
     console.log(allergyQuery);
 
-    
+    // Selecting all the radio inputs by name.
+    const radioInputs = document.querySelectorAll('input[name="cuisineType"]');
+
+    // Defining the query selector to be added into the url string.
+    let cuisineSelected = "";
+
+    // Checking all the radio buttons for selection and putting that value into the selector.
+    for (let i = 0; i < radioInputs.length; i++) {
+      if (radioInputs.checked) {
+        cuisineSelected = radioInputs[i].value;
+      }
+    }
 
     var recipeSearchURL =
       "https://api.spoonacular.com/recipes/complexSearch?apiKey=" + apiKey;
 
     // Combining the queries.
-    let queryURL = recipeSearchURL + searchQuery + dietQuery + allergyQuery;
+    let queryURL = recipeSearchURL + searchQuery + dietQuery + allergyQuery + cuisineSelected;
 
     // Storing a temporary URL to global.
     tempURL = queryURL;
