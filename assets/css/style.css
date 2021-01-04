@@ -188,7 +188,7 @@ caption {
 
 /* footer styling starts here*/
 #footer{
-  position: fixed;
+  position: static;
   bottom:0;
   width: 100%;
   height:30-px ;
