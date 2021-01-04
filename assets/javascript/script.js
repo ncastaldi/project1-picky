@@ -17,6 +17,7 @@ $(document).ready(function () {
   var dietSelected = {};
   let offsetMultiple = 0;
   let tempURL = "";
+  let apiKey = "2fd89026b24a4e32ae3e50be0ae6e009";
 
   /* Declare JavaScript Variables */
 
