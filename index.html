@@ -61,110 +61,104 @@
       </button>
     </li>
   </ul>
-    
-    
-    
-    
-    
-    
 
-    <div id="About" class="tabcontent">
-      <h3>About Picky</h3>
-      <p>About Picky. pick, cook , eat, yum!</p>
+  <div id="About" class="tabcontent">
+    <h3>About Picky</h3>
+    <p>About Picky. pick, cook , eat, yum!</p>
+  </div>
+
+  <div id="Allergy" class="tabcontent">
+    <h3>Food Allergies</h3>
+    <p>12 buttons Pick a concern</p>
+
+    <div class="btn-group d-flex flex-wrap">
+      <button class="allergy" data-type="Gluten">
+        <img class="intoleranceImg" id="gluten" src="./assets/images/blkbutton/gluten.png" />
+      </button>
+
+      <button class="allergy" data-type="Shellfish">
+        <img class="intoleranceImg" id="shellfish" src="./assets/images/blkbutton/shell.png" />
+      </button>
+
+      <button class="allergy" data-type="Peanut">
+        <img class="intoleranceImg" id="peanuts" src="./assets/images/blkbutton/peanuts.png" />
+      </button>
+
+      <button class="allergy" data-type="Egg">
+        <img class="intoleranceImg" id="eggs" src="./assets/images/blkbutton/egg.png" />
+      </button>
+
+      <button class="allergy" data-type="Seafood">
+        <img class="intoleranceImg" id="fish" src="./assets/images/blkbutton/fish.png" />
+      </button>
+
+      <button class="allergy" data-type="Tree+Nut">
+        <img class="intoleranceImg" id="gluten" src="./assets/images/blkbutton/nuts.png" />
+      </button>
     </div>
+  </div>
 
-    <div id="Allergy" class="tabcontent">
-      <h3>Food Allergies</h3>
-      <p>12 buttons Pick a concern</p>
+  <div id="Diet" class="tabcontent">
+    <h3>Diet Specific</h3>
+    <p>
+      9 buttons Eliminating gluten means avoiding wheat, barley, rye, and
+      other gluten-containing grains and foods made from them (or that may
+      have been cross contaminated).
+    </p>
 
-      <div class="btn-group d-flex flex-wrap">
-        <button class="allergy" data-type="Gluten">
-          <img class="intoleranceImg" id="gluten" src="./assets/images/blkbutton/gluten.png" />
-        </button>
+    <div id="buttonSelectors" class="btn-group d-flex flex-wrap">
+      <button class="diet" data-type="Paleo">
+        <img class="intoleranceImg" id="paleo" src="./assets/images/blkbutton/paleo.png" />
+      </button>
 
-        <button class="allergy" data-type="Shellfish">
-          <img class="intoleranceImg" id="shellfish" src="./assets/images/blkbutton/shell.png" />
-        </button>
+      <button class="diet" data-type="Ketogenic">
+        <img class="intoleranceImg" id="keto" src="./assets/images/blkbutton/keto.png" />
+      </button>
 
-        <button class="allergy" data-type="Peanut">
-          <img class="intoleranceImg" id="peanuts" src="./assets/images/blkbutton/peanuts.png" />
-        </button>
+      <button class="diet" data-type="Vegan">
+        <img class="intoleranceImg" id="vegan" src="./assets/images/blkbutton/vegan2.png" />
+      </button>
 
-        <button class="allergy" data-type="Egg">
-          <img class="intoleranceImg" id="eggs" src="./assets/images/blkbutton/egg.png" />
-        </button>
-
-        <button class="allergy" data-type="Seafood">
-          <img class="intoleranceImg" id="fish" src="./assets/images/blkbutton/fish.png" />
-        </button>
-
-        <button class="allergy" data-type="Tree+Nut">
-          <img class="intoleranceImg" id="gluten" src="./assets/images/blkbutton/nuts.png" />
-        </button>
-      </div>
+      <button class="diet" data-type="Ovo-Vegetarian">
+        <img class="intoleranceImg" id="vegetarian" src="./assets/images/blkbutton/vegetarian.png" />
+      </button>
     </div>
+  </div>
 
-    <div id="Diet" class="tabcontent">
-      <h3>Diet Specific</h3>
-      <p>
-        9 buttons Eliminating gluten means avoiding wheat, barley, rye, and
-        other gluten-containing grains and foods made from them (or that may
-        have been cross contaminated).
-      </p>
+  <div id="Cuisine" class="tabcontent">
+    <h3>Cuisine Types</h3>
+    <p>26 buttons</p>
+  </div>
 
-      <div id="buttonSelectors" class="btn-group d-flex flex-wrap">
-        <button class="diet" data-type="Paleo">
-          <img class="intoleranceImg" id="paleo" src="./assets/images/blkbutton/paleo.png" />
-        </button>
+  <br />
 
-        <button class="diet" data-type="Ketogenic">
-          <img class="intoleranceImg" id="keto" src="./assets/images/blkbutton/keto.png" />
-        </button>
-
-        <button class="diet" data-type="Vegan">
-          <img class="intoleranceImg" id="vegan" src="./assets/images/blkbutton/vegan2.png" />
-        </button>
-
-        <button class="diet" data-type="Ovo-Vegetarian">
-          <img class="intoleranceImg" id="vegetarian" src="./assets/images/blkbutton/vegetarian.png" />
-        </button>
-      </div>
-    </div>
-
-    <div id="Cuisine" class="tabcontent">
-      <h3>Cuisine Types</h3>
-      <p>26 buttons</p>
-    </div>
-
-    <br />
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Picky</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Please enter your email address:</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                <div id="emailHelp" class="form-text">
-                  We'll never share your email with anyone else.
-                </div>
-              </div>
-              <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-              <button type="button" class="btn btn-primary" id="sendIngridents">
-                Send Ingredient List
-              </button>
-            </form>
-          </div>
-          <div class="modal-footer d-flex justify-content-center"></div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Picky</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Please enter your email address:</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+              <div id="emailHelp" class="form-text">
+                We'll never share your email with anyone else.
+              </div>
+            </div>
+            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+            <button type="button" class="btn btn-primary" id="sendIngridents">
+              Send Ingredient List
+            </button>
+          </form>
+        </div>
+        <div class="modal-footer d-flex justify-content-center"></div>
       </div>
     </div>
+  </div>
   </div>
 
   <div class="row" id="dynamicContent"></div>
