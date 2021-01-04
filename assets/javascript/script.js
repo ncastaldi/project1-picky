@@ -7,7 +7,7 @@ $(document).ready(function () {
   var resetBtn = $("#reset");
   var dynamicContentDiv = $("#dynamicContent");
   var sendIngredientsBtn = $("#sendIngridents");
-  var modalFooter = $(".modalfooter");
+  var modalFooter = $(".modal-footer");
 
   var emailInput = $("#exampleInputEmail1");
 
@@ -424,7 +424,6 @@ $(document).ready(function () {
     tempURL = "";
     userQueryInput[0].value = "";
     userQueryInput[0].focus();
-
   }
 
   /* Register Event Listeners */
