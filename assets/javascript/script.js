@@ -180,6 +180,8 @@ $(document).ready(function () {
         var openRecipe = $("<button>").text("Show Recipe");
         openRecipe.attr("class", "btn btn-primary recipe");
         openRecipe.attr("id", "openRecipeButton");
+        openRecipe.attr("data-bs-toggle", "modal");
+        openRecipe.attr("data-bs-target", "#viewRecipe");
         openRecipe.attr("data-index", i);
         leftCol.append(openRecipe);
         buttonRow.append(leftCol);
