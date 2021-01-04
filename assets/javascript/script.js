@@ -255,7 +255,7 @@ $(document).ready(function () {
       $("#viewRecipeBody").append(tableEle);
 
       // Adding a caption.
-      const caption = $("<caption>").text("Ingredients needed.");
+      const caption = $("<caption>").text("Steps needed.");
       tableEle.append(caption);
 
       // Adding table head.
@@ -267,16 +267,33 @@ $(document).ready(function () {
       theadEle.append(trEle);
 
       // Adding content for headers.
-      const ingredientNameTH = $("<th>").text("Ingredients");
-      const amountTH = $("<th>").text("Amount");
-      const unitsTH = $("<th>").text("Units");
-      trEle.append(ingredientNameTH);
-      trEle.append(amountTH);
-      trEle.append(unitsTH);
+      const stepNameTH = $("<th>").text("Steps");
+      // const amountTH = $("<th>").text("Amount");
+      // const unitsTH = $("<th>").text("Units");
+      trEle.append(stepNameTH);
+      // trEle.append(amountTH);
+      // trEle.append(unitsTH);
 
       // Adding table body.
       const tableBodyEle = $("<tbody>");
       tableEle.append(tableBodyEle);
+
+
+      for (let i = 0; i < recipeSteps.length; i++) {
+        // Making a table row inside a for loop.
+        let tableBodyTR = $("<tr>");
+        tableEle.append(tableBodyTR);
+
+        // Adding data into the chart.
+        let stepNameTD = $("<td>").text(recipeSteps[i].step);
+        tableBodyTR.append(stepNameTD);
+
+        // let amountTD = $("<td>").text(ingredient[i].amount.us.value.toFixed(2));
+        // tableBodyTR.append(amountTD);
+
+        // let unitsTD = $("<td>").text(ingredient[i].amount.us.unit);
+        // tableBodyTR.append(unitsTD);
+      }
     });
   }
 
