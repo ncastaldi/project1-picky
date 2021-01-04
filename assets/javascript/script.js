@@ -180,6 +180,8 @@ $(document).ready(function () {
         var openRecipe = $("<button>").text("Show Recipe");
         openRecipe.attr("class", "btn btn-primary recipe");
         openRecipe.attr("id", "openRecipeButton");
+        openRecipe.attr("data-bs-toggle", "modal");
+        openRecipe.attr("data-bs-target", "#viewRecipe");
         openRecipe.attr("data-index", i);
         leftCol.append(openRecipe);
         buttonRow.append(leftCol);
@@ -191,7 +193,7 @@ $(document).ready(function () {
         sendIngredients.addClass("btn btn-secondary");
         sendIngredients.attr("id", "viewIngredients");
         sendIngredients.attr("data-bs-toggle", "modal");
-        sendIngredients.attr("data-bs-target", "#exampleModal");
+        sendIngredients.attr("data-bs-target", "#viewIngredients");
         sendIngredients.attr("data-index", i);
         rightCol.append(sendIngredients);
         buttonRow.append(rightCol);
@@ -229,6 +231,7 @@ $(document).ready(function () {
   function findRecipe(event) {
     // Using the data-index to find which recipe ID to access in the global variable.
     var index = this.dataset.index;
+    console.log(index);
 
     // Preparing the URL for the ajax call to get the recipe.
     var recipeStepsURL =
@@ -241,7 +244,56 @@ $(document).ready(function () {
       url: recipeStepsURL,
       method: "GET",
     }).then(function (response2) {
-      console.log(response2);
+      let recipeSteps = response2[0].steps;
+      console.log(recipeSteps);
+
+      // Emptying the modal footer.
+      $("#viewRecipeBody").empty();
+
+      // Making a table.
+      const tableEle = $("<table>");
+      $("#viewRecipeBody").append(tableEle);
+
+      // Adding a caption.
+      const caption = $("<caption>").text("Steps needed.");
+      tableEle.append(caption);
+
+      // Adding table head.
+      const theadEle = $("<thead>");
+      tableEle.append(theadEle);
+
+      // Adding table row.
+      const trEle = $("<tr>");
+      theadEle.append(trEle);
+
+      // Adding content for headers.
+      const stepNameTH = $("<th>").text("Steps");
+      // const amountTH = $("<th>").text("Amount");
+      // const unitsTH = $("<th>").text("Units");
+      trEle.append(stepNameTH);
+      // trEle.append(amountTH);
+      // trEle.append(unitsTH);
+
+      // Adding table body.
+      const tableBodyEle = $("<tbody>");
+      tableEle.append(tableBodyEle);
+
+
+      for (let i = 0; i < recipeSteps.length; i++) {
+        // Making a table row inside a for loop.
+        let tableBodyTR = $("<tr>");
+        tableEle.append(tableBodyTR);
+
+        // Adding data into the chart.
+        let stepNameTD = $("<td>").text(recipeSteps[i].step);
+        tableBodyTR.append(stepNameTD);
+
+        // let amountTD = $("<td>").text(ingredient[i].amount.us.value.toFixed(2));
+        // tableBodyTR.append(amountTD);
+
+        // let unitsTD = $("<td>").text(ingredient[i].amount.us.unit);
+        // tableBodyTR.append(unitsTD);
+      }
     });
   }
 
@@ -336,19 +388,19 @@ $(document).ready(function () {
       console.log("Name: " + ingredient[i].name);
       console.log(
         "Amount: " +
-          ingredient[i].amount.us.value +
-          " " +
-          ingredient[i].amount.us.unit
+        ingredient[i].amount.us.value +
+        " " +
+        ingredient[i].amount.us.unit
       );
 
       bodyHTML.push(
         "<p>" +
-          ingredient[i].amount.us.value +
-          " " +
-          ingredient[i].amount.us.unit +
-          " " +
-          ingredient[i].name +
-          "</p>"
+        ingredient[i].amount.us.value +
+        " " +
+        ingredient[i].amount.us.unit +
+        " " +
+        ingredient[i].name +
+        "</p>"
       );
     }
     console.log(bodyHTML);
