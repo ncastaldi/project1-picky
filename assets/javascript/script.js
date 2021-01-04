@@ -266,11 +266,11 @@ $(document).ready(function () {
       let ingredient = response.ingredients;
 
       // Emptying the modal footer.
-      $(".modal-footer").empty();
+      modalFooter.empty();
 
       // Making a table.
       const tableEle = $("<table>");
-      $(".modal-footer").append(tableEle);
+      modalFooter.append(tableEle);
 
       // Adding a caption.
       const caption = $("<caption>").text("Ingredients needed.");
@@ -363,7 +363,16 @@ $(document).ready(function () {
   function reset(event) {
     event.preventDefault();
     dynamicContentDiv.empty();
+    recipeID = [];
+    allergySelected = {};
+    dietSelected = {};
+    offsetMultiple = 0;
+    tempURL = "";
+    userQueryInput[0].value = "";
+    userQueryInput[0].focus();
+
   }
+
   /* Register Event Listeners */
   allergySelector.on("click", ".allergy", settingAllergyCriteria);
   dietSelector.on("click", ".diet", settingDietCriteria);
