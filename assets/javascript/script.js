@@ -18,6 +18,7 @@ $(document).ready(function () {
   var dietSelected = {};
   let offsetMultiple = 0;
   let tempURL = "";
+  let apiKey = "2fd89026b24a4e32ae3e50be0ae6e009";
 
   /* Declare JavaScript Variables */
 
@@ -101,7 +102,7 @@ $(document).ready(function () {
     console.log(allergyQuery);
 
     var recipeSearchURL =
-      "https://api.spoonacular.com/recipes/complexSearch?apiKey=096dffd3ff0d4431820fce4a3121a0c1";
+      "https://api.spoonacular.com/recipes/complexSearch?apiKey=" + apiKey;
 
     // Combining the queries.
     let queryURL = recipeSearchURL + searchQuery + dietQuery + allergyQuery;
@@ -238,7 +239,8 @@ $(document).ready(function () {
     var recipeStepsURL =
       "https://api.spoonacular.com/recipes/" +
       recipeID[index] +
-      "/analyzedInstructions?apiKey=096dffd3ff0d4431820fce4a3121a0c1";
+      "/analyzedInstructions?apiKey=" +
+      apiKey;
 
     console.log(recipeStepsURL);
     $.ajax({
@@ -279,7 +281,6 @@ $(document).ready(function () {
       const tableBodyEle = $("<tbody>");
       tableEle.append(tableBodyEle);
 
-
       for (let i = 0; i < recipeSteps.length; i++) {
         // Making a table row inside a for loop.
         let tableBodyTR = $("<tr>");
@@ -309,7 +310,8 @@ $(document).ready(function () {
     var ingredientsNeededURL =
       "https://api.spoonacular.com/recipes/" +
       recipeID[index] +
-      "/ingredientWidget.json?apiKey=096dffd3ff0d4431820fce4a3121a0c1";
+      "/ingredientWidget.json?apiKey=" +
+      apiKey;
 
     $.ajax({
       url: ingredientsNeededURL,
@@ -389,19 +391,19 @@ $(document).ready(function () {
       console.log("Name: " + ingredient[i].name);
       console.log(
         "Amount: " +
-        ingredient[i].amount.us.value +
-        " " +
-        ingredient[i].amount.us.unit
+          ingredient[i].amount.us.value +
+          " " +
+          ingredient[i].amount.us.unit
       );
 
       bodyHTML.push(
         "<p>" +
-        ingredient[i].amount.us.value +
-        " " +
-        ingredient[i].amount.us.unit +
-        " " +
-        ingredient[i].name +
-        "</p>"
+          ingredient[i].amount.us.value +
+          " " +
+          ingredient[i].amount.us.unit +
+          " " +
+          ingredient[i].name +
+          "</p>"
       );
     }
     console.log(bodyHTML);
