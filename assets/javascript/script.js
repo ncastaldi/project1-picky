@@ -159,15 +159,14 @@ $(document).ready(function () {
         // Making the title element.
         var recipeResultTitleEl = $("<h2>" + recipeTitle[i] + "</h2>");
         // recipeResultTitleEl.append(recipeTitle[i]);
-        recipeResultTitleEl.addClass("card-title my-auto");
-        recipeResultTitleEl.attr("id", "cardTitle");
+        recipeResultTitleEl.attr("class", "cardTitle flex my-auto mx-auto");
         recipeResultCardEl.append(recipeResultTitleEl);
 
         // Making the img's and setting the src.
         var recipeResultImg = $("<img>");
         //recipeResultImg.addClass("card-img-top img-fluid");
         recipeResultImg.attr("src", recipeImage[i]);
-        recipeResultImg.attr("id", "recipeImg");
+        recipeResultImg.attr("class", "recipeImg");
         recipeResultCardEl.append(recipeResultImg);
 
         // Making row to show buttons side by side
