@@ -101,6 +101,8 @@ $(document).ready(function () {
     console.log(dietQuery);
     console.log(allergyQuery);
 
+    
+
     var recipeSearchURL =
       "https://api.spoonacular.com/recipes/complexSearch?apiKey=" + apiKey;
 
