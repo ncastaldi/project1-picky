@@ -4,9 +4,10 @@ $(document).ready(function () {
   var recipeSearchBtn = $("#searchButton");
   var allergySelector = $("#Allergy");
   var dietSelector = $("#Diet");
-  var ingredientsForm = $("#ingredientsForm");
+  var resetBtn = $("#reset");
   var dynamicContentDiv = $("#dynamicContent");
   var sendIngredientsBtn = $("#sendIngridents");
+  var modalFooter = $(".modalfooter");
 
   var emailInput = $("#exampleInputEmail1");
 
@@ -317,11 +318,11 @@ $(document).ready(function () {
       let ingredient = response.ingredients;
 
       // Emptying the modal footer.
-      $(".modal-footer").empty();
+      modalFooter.empty();
 
       // Making a table.
       const tableEle = $("<table>");
-      $(".modal-footer").append(tableEle);
+      modalFooter.append(tableEle);
 
       // Adding a caption.
       const caption = $("<caption>").text("Ingredients needed.");
@@ -411,10 +412,24 @@ $(document).ready(function () {
       recipeName: emailRecipeName,
     });
   }
+  function reset(event) {
+    event.preventDefault();
+    dynamicContentDiv.empty();
+    recipeID = [];
+    allergySelected = {};
+    dietSelected = {};
+    offsetMultiple = 0;
+    tempURL = "";
+    userQueryInput[0].value = "";
+    userQueryInput[0].focus();
+
+  }
+
   /* Register Event Listeners */
   allergySelector.on("click", ".allergy", settingAllergyCriteria);
   dietSelector.on("click", ".diet", settingDietCriteria);
   recipeSearchBtn.on("click", searchSpoontacular);
+  resetBtn.on("click", reset);
   dynamicContentDiv.on("click", ".recipe", findRecipe);
   dynamicContentDiv.on("click", "#viewIngredients", findIngredients);
   $("#exampleInputEmail1").keyup(function (event) {
