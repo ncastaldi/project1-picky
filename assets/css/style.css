@@ -123,6 +123,9 @@ searchTerm:focus {
  h3{
    font-size: 200%;
  }
+ p{
+   font-size: 150%;
+ }
 /*Resize the wrap to see the search bar change!*/
 
 
