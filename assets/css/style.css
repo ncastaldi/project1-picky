@@ -223,15 +223,17 @@ caption {
 
 /* footer styling starts here*/
 #footer{
-  position: static;
-  bottom:0;
+  position: sticky;
+  bottom: 0;
   width: 100%;
-  height:30-px ;
-  background-color:   rgba(0, 0, 0, 0.2);
-  margin-top: auto;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.2);
+  /* margin-top: auto; */
   left: 0;
+}
 
-
+#footerText{
+  text-align: center;
 }
 
 /* Media Queries */
