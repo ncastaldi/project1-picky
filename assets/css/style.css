@@ -187,13 +187,15 @@ caption {
 }
 
 /* footer styling starts here*/
-footer{
+#footer{
   position: fixed;
   bottom:0;
   width: 100%;
   height:30-px ;
   background-color: #edeef5;
-  margin-top: auto ;
+  margin-top: auto;
+  left: 0;
+
 
 }
 
