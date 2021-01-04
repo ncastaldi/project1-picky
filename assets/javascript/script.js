@@ -4,9 +4,10 @@ $(document).ready(function () {
   var recipeSearchBtn = $("#searchButton");
   var allergySelector = $("#Allergy");
   var dietSelector = $("#Diet");
-  var ingredientsForm = $("#ingredientsForm");
+  var resetBtn = $("#reset");
   var dynamicContentDiv = $("#dynamicContent");
   var sendIngredientsBtn = $("#sendIngridents");
+  var modalFooter = $(".modal-footer");
 
   var emailInput = $("#exampleInputEmail1");
 
@@ -17,6 +18,7 @@ $(document).ready(function () {
   var dietSelected = {};
   let offsetMultiple = 0;
   let tempURL = "";
+  let apiKey = "2fd89026b24a4e32ae3e50be0ae6e009";
 
   /* Declare JavaScript Variables */
 
@@ -99,11 +101,30 @@ $(document).ready(function () {
     console.log(dietQuery);
     console.log(allergyQuery);
 
+    // Selecting all the radio inputs by name.
+    const radioInputs = document.querySelectorAll('input[name="cuisineType"]');
+    console.log(radioInputs);
+
+    // Defining the query selector to be added into the url string.
+    let cuisineSelected = "&cuisine=";
+
+    // Checking all the radio buttons for selection and putting that value into the selector.
+    for (let i = 0; i < radioInputs.length; i++) {
+      if (radioInputs[i].checked) {
+        cuisineSelected = cuisineSelected + radioInputs[i].value;
+      }
+    }
+
     var recipeSearchURL =
       "https://api.spoonacular.com/recipes/complexSearch?apiKey=6dcaf82c542a4de9b9370845a910130c";
 
     // Combining the queries.
-    let queryURL = recipeSearchURL + searchQuery + dietQuery + allergyQuery;
+    let queryURL =
+      recipeSearchURL +
+      searchQuery +
+      dietQuery +
+      allergyQuery +
+      cuisineSelected;
 
     // Storing a temporary URL to global.
     tempURL = queryURL;
@@ -159,15 +180,14 @@ $(document).ready(function () {
         // Making the title element.
         var recipeResultTitleEl = $("<h2>" + recipeTitle[i] + "</h2>");
         // recipeResultTitleEl.append(recipeTitle[i]);
-        recipeResultTitleEl.addClass("card-title my-auto");
-        recipeResultTitleEl.attr("id", "cardTitle");
+        recipeResultTitleEl.attr("class", "cardTitle flex my-auto mx-auto");
         recipeResultCardEl.append(recipeResultTitleEl);
 
         // Making the img's and setting the src.
         var recipeResultImg = $("<img>");
         //recipeResultImg.addClass("card-img-top img-fluid");
         recipeResultImg.attr("src", recipeImage[i]);
-        recipeResultImg.attr("id", "recipeImg");
+        recipeResultImg.attr("class", "recipeImg");
         recipeResultCardEl.append(recipeResultImg);
 
         // Making row to show buttons side by side
@@ -181,6 +201,8 @@ $(document).ready(function () {
         var openRecipe = $("<button>").text("Show Recipe");
         openRecipe.attr("class", "btn btn-primary recipe");
         openRecipe.attr("id", "openRecipeButton");
+        openRecipe.attr("data-bs-toggle", "modal");
+        openRecipe.attr("data-bs-target", "#viewRecipe");
         openRecipe.attr("data-index", i);
         leftCol.append(openRecipe);
         buttonRow.append(leftCol);
@@ -192,7 +214,7 @@ $(document).ready(function () {
         sendIngredients.addClass("btn btn-secondary");
         sendIngredients.attr("id", "viewIngredients");
         sendIngredients.attr("data-bs-toggle", "modal");
-        sendIngredients.attr("data-bs-target", "#exampleModal");
+        sendIngredients.attr("data-bs-target", "#viewIngredients");
         sendIngredients.attr("data-index", i);
         rightCol.append(sendIngredients);
         buttonRow.append(rightCol);
@@ -230,19 +252,69 @@ $(document).ready(function () {
   function findRecipe(event) {
     // Using the data-index to find which recipe ID to access in the global variable.
     var index = this.dataset.index;
+    console.log(index);
 
     // Preparing the URL for the ajax call to get the recipe.
     var recipeStepsURL =
       "https://api.spoonacular.com/recipes/" +
       recipeID[index] +
-      "/analyzedInstructions?apiKey=096dffd3ff0d4431820fce4a3121a0c1";
+      "/analyzedInstructions?apiKey=" +
+      apiKey;
 
     console.log(recipeStepsURL);
     $.ajax({
       url: recipeStepsURL,
       method: "GET",
     }).then(function (response2) {
-      console.log(response2);
+      let recipeSteps = response2[0].steps;
+      console.log(recipeSteps);
+
+      // Emptying the modal footer.
+      $("#viewRecipeBody").empty();
+
+      // Making a table.
+      const tableEle = $("<table>");
+      $("#viewRecipeBody").append(tableEle);
+
+      // Adding a caption.
+      const caption = $("<caption>").text("Steps needed.");
+      tableEle.append(caption);
+
+      // Adding table head.
+      const theadEle = $("<thead>");
+      tableEle.append(theadEle);
+
+      // Adding table row.
+      const trEle = $("<tr>");
+      theadEle.append(trEle);
+
+      // Adding content for headers.
+      const stepNameTH = $("<th>").text("Steps");
+      // const amountTH = $("<th>").text("Amount");
+      // const unitsTH = $("<th>").text("Units");
+      trEle.append(stepNameTH);
+      // trEle.append(amountTH);
+      // trEle.append(unitsTH);
+
+      // Adding table body.
+      const tableBodyEle = $("<tbody>");
+      tableEle.append(tableBodyEle);
+
+      for (let i = 0; i < recipeSteps.length; i++) {
+        // Making a table row inside a for loop.
+        let tableBodyTR = $("<tr>");
+        tableEle.append(tableBodyTR);
+
+        // Adding data into the chart.
+        let stepNameTD = $("<td>").text(recipeSteps[i].step);
+        tableBodyTR.append(stepNameTD);
+
+        // let amountTD = $("<td>").text(ingredient[i].amount.us.value.toFixed(2));
+        // tableBodyTR.append(amountTD);
+
+        // let unitsTD = $("<td>").text(ingredient[i].amount.us.unit);
+        // tableBodyTR.append(unitsTD);
+      }
     });
   }
 
@@ -250,12 +322,15 @@ $(document).ready(function () {
   function findIngredients(event) {
     // Using the data-index to find which recipe ID to access in the global variable.
     var index = this.dataset.index;
+    let emailRecipeName = this.parentNode.parentNode.parentNode.firstChild
+      .textContent;
 
     // Preparing the URL for the ajax call to get the ingredients.
     var ingredientsNeededURL =
       "https://api.spoonacular.com/recipes/" +
       recipeID[index] +
-      "/ingredientWidget.json?apiKey=096dffd3ff0d4431820fce4a3121a0c1";
+      "/ingredientWidget.json?apiKey=" +
+      apiKey;
 
     $.ajax({
       url: ingredientsNeededURL,
@@ -264,11 +339,11 @@ $(document).ready(function () {
       let ingredient = response.ingredients;
 
       // Emptying the modal footer.
-      $(".modal-footer").empty();
+      modalFooter.empty();
 
       // Making a table.
       const tableEle = $("<table>");
-      $(".modal-footer").append(tableEle);
+      modalFooter.append(tableEle);
 
       // Adding a caption.
       const caption = $("<caption>").text("Ingredients needed.");
@@ -283,7 +358,7 @@ $(document).ready(function () {
       theadEle.append(trEle);
 
       // Adding content for headers.
-      const ingredientNameTH = $("<th>").text("Ingredient");
+      const ingredientNameTH = $("<th>").text("Ingredients");
       const amountTH = $("<th>").text("Amount");
       const unitsTH = $("<th>").text("Units");
       trEle.append(ingredientNameTH);
@@ -312,13 +387,13 @@ $(document).ready(function () {
       sendIngredientsBtn.on("click", function (event) {
         event.preventDefault();
         let savedEmail = emailInput.val;
-        saveList(savedEmail, ingredient);
+        saveList(savedEmail, ingredient, emailRecipeName);
       });
     });
   }
 
   //Function to send saved ingredient list via EmailJS API
-  function saveList(savedEmail, ingredient) {
+  function saveList(savedEmail, ingredient, emailRecipeName) {
     // Save Email address
     var savedEmail = $(emailInput).val();
     console.log(savedEmail);
@@ -329,26 +404,53 @@ $(document).ready(function () {
     $("#exampleModal").removeClass("show");
 
     //EmailJS call to send list
-    var bodyHTML = "<h3>test code</h3>";
+    var bodyHTML = [];
+
+    for (var i = 0; i < ingredient.length; i++) {
+      console.log("Name: " + ingredient[i].name);
+      console.log(
+        "Amount: " +
+          ingredient[i].amount.us.value +
+          " " +
+          ingredient[i].amount.us.unit
+      );
+
+      bodyHTML.push(
+        "<p>" +
+          ingredient[i].amount.us.value +
+          " " +
+          ingredient[i].amount.us.unit +
+          " " +
+          ingredient[i].name +
+          "</p>"
+      );
+    }
+    console.log(bodyHTML);
 
     emailjs.send("service_y9qb5eg", "template_241tje5", {
       bodyHTML: bodyHTML,
       userEmail: savedEmail,
-      recipeName: "TBD",
+      recipeName: emailRecipeName,
     });
   }
-  /* Define Functions */
-
-  /* Make Function Calls */
-  /* Make Function Calls */
+  function reset(event) {
+    event.preventDefault();
+    dynamicContentDiv.empty();
+    recipeID = [];
+    allergySelected = {};
+    dietSelected = {};
+    offsetMultiple = 0;
+    tempURL = "";
+    userQueryInput[0].value = "";
+    userQueryInput[0].focus();
+  }
 
   /* Register Event Listeners */
   allergySelector.on("click", ".allergy", settingAllergyCriteria);
   dietSelector.on("click", ".diet", settingDietCriteria);
   recipeSearchBtn.on("click", searchSpoontacular);
-  // ingredientsForm.on("submit", saveList);
+  resetBtn.on("click", reset);
   dynamicContentDiv.on("click", ".recipe", findRecipe);
-  // sendIngredientsBtn.on("click", saveList);
   dynamicContentDiv.on("click", "#viewIngredients", findIngredients);
   $("#exampleInputEmail1").keyup(function (event) {
     if (event.keyCode === 13) {
