@@ -159,15 +159,14 @@ $(document).ready(function () {
         // Making the title element.
         var recipeResultTitleEl = $("<h2>" + recipeTitle[i] + "</h2>");
         // recipeResultTitleEl.append(recipeTitle[i]);
-        recipeResultTitleEl.addClass("card-title my-auto");
-        recipeResultTitleEl.attr("id", "cardTitle");
+        recipeResultTitleEl.attr("class", "cardTitle flex my-auto mx-auto");
         recipeResultCardEl.append(recipeResultTitleEl);
 
         // Making the img's and setting the src.
         var recipeResultImg = $("<img>");
         //recipeResultImg.addClass("card-img-top img-fluid");
         recipeResultImg.attr("src", recipeImage[i]);
-        recipeResultImg.attr("id", "recipeImg");
+        recipeResultImg.attr("class", "recipeImg");
         recipeResultCardEl.append(recipeResultImg);
 
         // Making row to show buttons side by side
@@ -337,19 +336,19 @@ $(document).ready(function () {
       console.log("Name: " + ingredient[i].name);
       console.log(
         "Amount: " +
-        ingredient[i].amount.us.value +
-        " " +
-        ingredient[i].amount.us.unit
+          ingredient[i].amount.us.value +
+          " " +
+          ingredient[i].amount.us.unit
       );
 
       bodyHTML.push(
         "<p>" +
-        ingredient[i].amount.us.value +
-        " " +
-        ingredient[i].amount.us.unit +
-        " " +
-        ingredient[i].name +
-        "</p>"
+          ingredient[i].amount.us.value +
+          " " +
+          ingredient[i].amount.us.unit +
+          " " +
+          ingredient[i].name +
+          "</p>"
       );
     }
     console.log(bodyHTML);
@@ -360,18 +359,11 @@ $(document).ready(function () {
       recipeName: emailRecipeName,
     });
   }
-  /* Define Functions */
-
-  /* Make Function Calls */
-  /* Make Function Calls */
-
   /* Register Event Listeners */
   allergySelector.on("click", ".allergy", settingAllergyCriteria);
   dietSelector.on("click", ".diet", settingDietCriteria);
   recipeSearchBtn.on("click", searchSpoontacular);
-  // ingredientsForm.on("submit", saveList);
   dynamicContentDiv.on("click", ".recipe", findRecipe);
-  // sendIngredientsBtn.on("click", saveList);
   dynamicContentDiv.on("click", "#viewIngredients", findIngredients);
   $("#exampleInputEmail1").keyup(function (event) {
     if (event.keyCode === 13) {

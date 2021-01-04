@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-
 /* searchTerm {
   width: 100%;
   border: 3px solid white;
@@ -74,7 +73,8 @@ tr:nth-child(odd) td {
 /* Element Styles */
 
 /* Class Styles */
-.allergy, .diet {
+.allergy,
+.diet {
   background-color: transparent;
 }
 
@@ -140,18 +140,23 @@ tr:nth-child(odd) td {
 /* Style tab links */
 .tablink {
   background-color: #90000e;
-  color: white;
-  float: left;
+  font-size: 30px !important;
+  font-weight: bold;
+  color: black;
   border: none;
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
   font-size: 17px;
-  width: 25%;
+  width: 100%;
 }
 
 .tablink:hover {
-  background-color: #90000e;
+  background-color: #bd081b;
+  color: rgb(192, 211, 24);
+}
+.tablink:active {
+  color: white;
 }
 
 /* results container */
@@ -168,8 +173,8 @@ tr:nth-child(odd) td {
 /* Class Styles */
 
 /* ID Styles */
-#cardTitle {
-  text-align: center;
+.cardTitle {
+  padding-top: 10px;
 }
 
 #logo {
@@ -189,8 +194,14 @@ tr:nth-child(odd) td {
   margin-bottom: 15px;
 }
 
-#recipeImg {
-  padding: 5%;
+.recipeImg {
+  width: 100%;
+  height: 200px;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 1%;
+  padding-bottom: 2%;
+  object-fit: cover;
 }
 
 #sendIngridents {

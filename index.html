@@ -39,19 +39,34 @@
   </div>
 
   <hr />
-  <div class="wrap">
-    <button class="tablink" onclick="openPage('About', this, '#e30022')" id="defaultOpen">
-      About Picky
-    </button>
-    <button class="tablink" onclick="openPage('Allergy', this, '#c90012')">
-      Food Allergies
-    </button>
-    <button class="tablink" onclick="openPage('Diet', this, '#b70012')">
-      Diet Specific
-    </button>
-    <button class="tablink" onclick="openPage('Cuisine', this, '#90000E')">
-      Cuisine Types
-    </button>
+  <ul class="nav nav-tabs wrap nav-fill flex-column flex-sm-row">
+    <li class="nav-item">
+      <button class="tablink flex-sm-fill" onclick="openPage('About', this, '#e30022')" id="defaultOpen">
+        About Picky
+      </button>
+    </li>
+    <li class="nav-item">
+      <button class="tablink flex-sm-fill" onclick="openPage('Allergy', this, '#c90012')">
+        Food Allergies
+      </button>
+    </li>
+    <li class="nav-item">
+      <button class="tablink flex-sm-fill" onclick="openPage('Diet', this, '#b70012')">
+        Diet Specific
+      </button>
+    </li>
+    <li class="nav-item">
+      <button class="tablink flex-sm-fill" onclick="openPage('Cuisine', this, '#90000E')">
+        Cuisine Types
+      </button>
+    </li>
+  </ul>
+    
+    
+    
+    
+    
+    
 
     <div id="About" class="tabcontent">
       <h3>About Picky</h3>
