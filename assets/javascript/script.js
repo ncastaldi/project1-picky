@@ -7,7 +7,7 @@ $(document).ready(function () {
   var resetBtn = $("#reset");
   var dynamicContentDiv = $("#dynamicContent");
   var sendIngredientsBtn = $("#sendIngridents");
-  var modalFooter = $(".modalfooter");
+  var modalFooter = $(".modal-footer");
 
   var emailInput = $("#exampleInputEmail1");
 
@@ -18,6 +18,7 @@ $(document).ready(function () {
   var dietSelected = {};
   let offsetMultiple = 0;
   let tempURL = "";
+  let apiKey = "2fd89026b24a4e32ae3e50be0ae6e009";
 
   /* Declare JavaScript Variables */
 
@@ -100,11 +101,30 @@ $(document).ready(function () {
     console.log(dietQuery);
     console.log(allergyQuery);
 
+    // Selecting all the radio inputs by name.
+    const radioInputs = document.querySelectorAll('input[name="cuisineType"]');
+    console.log(radioInputs);
+
+    // Defining the query selector to be added into the url string.
+    let cuisineSelected = "&cuisine=";
+
+    // Checking all the radio buttons for selection and putting that value into the selector.
+    for (let i = 0; i < radioInputs.length; i++) {
+      if (radioInputs[i].checked) {
+        cuisineSelected = cuisineSelected + radioInputs[i].value;
+      }
+    }
+
     var recipeSearchURL =
-      "https://api.spoonacular.com/recipes/complexSearch?apiKey=096dffd3ff0d4431820fce4a3121a0c1";
+      "https://api.spoonacular.com/recipes/complexSearch?apiKey=" + apiKey;
 
     // Combining the queries.
-    let queryURL = recipeSearchURL + searchQuery + dietQuery + allergyQuery;
+    let queryURL =
+      recipeSearchURL +
+      searchQuery +
+      dietQuery +
+      allergyQuery +
+      cuisineSelected;
 
     // Storing a temporary URL to global.
     tempURL = queryURL;
@@ -238,7 +258,8 @@ $(document).ready(function () {
     var recipeStepsURL =
       "https://api.spoonacular.com/recipes/" +
       recipeID[index] +
-      "/analyzedInstructions?apiKey=096dffd3ff0d4431820fce4a3121a0c1";
+      "/analyzedInstructions?apiKey=" +
+      apiKey;
 
     console.log(recipeStepsURL);
     $.ajax({
@@ -279,7 +300,6 @@ $(document).ready(function () {
       const tableBodyEle = $("<tbody>");
       tableEle.append(tableBodyEle);
 
-
       for (let i = 0; i < recipeSteps.length; i++) {
         // Making a table row inside a for loop.
         let tableBodyTR = $("<tr>");
@@ -309,7 +329,8 @@ $(document).ready(function () {
     var ingredientsNeededURL =
       "https://api.spoonacular.com/recipes/" +
       recipeID[index] +
-      "/ingredientWidget.json?apiKey=096dffd3ff0d4431820fce4a3121a0c1";
+      "/ingredientWidget.json?apiKey=" +
+      apiKey;
 
     $.ajax({
       url: ingredientsNeededURL,
@@ -389,19 +410,19 @@ $(document).ready(function () {
       console.log("Name: " + ingredient[i].name);
       console.log(
         "Amount: " +
-        ingredient[i].amount.us.value +
-        " " +
-        ingredient[i].amount.us.unit
+          ingredient[i].amount.us.value +
+          " " +
+          ingredient[i].amount.us.unit
       );
 
       bodyHTML.push(
         "<p>" +
-        ingredient[i].amount.us.value +
-        " " +
-        ingredient[i].amount.us.unit +
-        " " +
-        ingredient[i].name +
-        "</p>"
+          ingredient[i].amount.us.value +
+          " " +
+          ingredient[i].amount.us.unit +
+          " " +
+          ingredient[i].name +
+          "</p>"
       );
     }
     console.log(bodyHTML);
@@ -422,7 +443,6 @@ $(document).ready(function () {
     tempURL = "";
     userQueryInput[0].value = "";
     userQueryInput[0].focus();
-
   }
 
   /* Register Event Listeners */
