@@ -191,7 +191,7 @@ $(document).ready(function () {
         sendIngredients.addClass("btn btn-secondary");
         sendIngredients.attr("id", "viewIngredients");
         sendIngredients.attr("data-bs-toggle", "modal");
-        sendIngredients.attr("data-bs-target", "#exampleModal");
+        sendIngredients.attr("data-bs-target", "#viewIngredients");
         sendIngredients.attr("data-index", i);
         rightCol.append(sendIngredients);
         buttonRow.append(rightCol);
@@ -336,19 +336,19 @@ $(document).ready(function () {
       console.log("Name: " + ingredient[i].name);
       console.log(
         "Amount: " +
-          ingredient[i].amount.us.value +
-          " " +
-          ingredient[i].amount.us.unit
+        ingredient[i].amount.us.value +
+        " " +
+        ingredient[i].amount.us.unit
       );
 
       bodyHTML.push(
         "<p>" +
-          ingredient[i].amount.us.value +
-          " " +
-          ingredient[i].amount.us.unit +
-          " " +
-          ingredient[i].name +
-          "</p>"
+        ingredient[i].amount.us.value +
+        " " +
+        ingredient[i].amount.us.unit +
+        " " +
+        ingredient[i].name +
+        "</p>"
       );
     }
     console.log(bodyHTML);
