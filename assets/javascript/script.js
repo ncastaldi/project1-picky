@@ -28,9 +28,11 @@ $(document).ready(function () {
     allergy = this.dataset.type;
     if (allergySelected[allergy]) {
       allergySelected[allergy] = false;
+      console.log(allergySelected);
       $(this).removeClass("activated");
     } else {
       allergySelected[allergy] = true;
+      console.log(allergySelected);
       $(this).addClass("activated");
     }
   }
