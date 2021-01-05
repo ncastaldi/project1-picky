@@ -28,10 +28,10 @@ $(document).ready(function () {
     allergy = this.dataset.type;
     if (allergySelected[allergy]) {
       allergySelected[allergy] = false;
-      console.log(allergySelected);
+      $(this).removeClass("activated");
     } else {
       allergySelected[allergy] = true;
-      console.log(allergySelected);
+      $(this).addClass("activated");
     }
   }
   // Function to toggle the diet variables.
@@ -39,10 +39,10 @@ $(document).ready(function () {
     diet = this.dataset.type;
     if (dietSelected[diet]) {
       dietSelected[diet] = false;
-      console.log(dietSelected);
+      $(this).removeClass("activated");
     } else {
       dietSelected[diet] = true;
-      console.log(dietSelected);
+      $(this).addClass("activated");
     }
   }
 
