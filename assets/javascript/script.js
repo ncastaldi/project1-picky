@@ -28,10 +28,10 @@ $(document).ready(function () {
     allergy = this.dataset.type;
     if (allergySelected[allergy]) {
       allergySelected[allergy] = false;
-      console.log(allergySelected);
+      $(this).removeClass("activated");
     } else {
       allergySelected[allergy] = true;
-      console.log(allergySelected);
+      $(this).addClass("activated");
     }
   }
   // Function to toggle the diet variables.
@@ -39,10 +39,10 @@ $(document).ready(function () {
     diet = this.dataset.type;
     if (dietSelected[diet]) {
       dietSelected[diet] = false;
-      console.log(dietSelected);
+      $(this).removeClass("activated");
     } else {
       dietSelected[diet] = true;
-      console.log(dietSelected);
+      $(this).addClass("activated");
     }
   }
 
@@ -98,12 +98,9 @@ $(document).ready(function () {
         }
       }
     }
-    console.log(dietQuery);
-    console.log(allergyQuery);
 
     // Selecting all the radio inputs by name.
     const radioInputs = document.querySelectorAll('input[name="cuisineType"]');
-    console.log(radioInputs);
 
     // Defining the query selector to be added into the url string.
     let cuisineSelected = "&cuisine=";
@@ -128,7 +125,6 @@ $(document).ready(function () {
 
     // Storing a temporary URL to global.
     tempURL = queryURL;
-    console.log(queryURL);
 
     // Calling the creatingRecipes and passing it the URL made above.
     creatingRecipes(queryURL);
@@ -141,7 +137,6 @@ $(document).ready(function () {
       method: "GET",
     }).then(function (response) {
       var spoonResults = response.results;
-      console.log(spoonResults);
 
       // Adding empty arrays to collect data.
       recipeID = [];
@@ -252,7 +247,6 @@ $(document).ready(function () {
   function findRecipe(event) {
     // Using the data-index to find which recipe ID to access in the global variable.
     var index = this.dataset.index;
-    console.log(index);
 
     // Preparing the URL for the ajax call to get the recipe.
     var recipeStepsURL =
@@ -261,13 +255,11 @@ $(document).ready(function () {
       "/analyzedInstructions?apiKey=" +
       apiKey;
 
-    console.log(recipeStepsURL);
     $.ajax({
       url: recipeStepsURL,
       method: "GET",
     }).then(function (response2) {
       let recipeSteps = response2[0].steps;
-      console.log(recipeSteps);
 
       // Emptying the modal footer.
       $("#viewRecipeBody").empty();
@@ -396,9 +388,6 @@ $(document).ready(function () {
   function saveList(savedEmail, ingredient, emailRecipeName) {
     // Save Email address
     var savedEmail = $(emailInput).val();
-    console.log(savedEmail);
-    console.log(ingredient);
-    //Ajax call for ingredient list
 
     // Hide modal
     $("#exampleModal").removeClass("show");
@@ -407,13 +396,6 @@ $(document).ready(function () {
     var bodyHTML = [];
 
     for (var i = 0; i < ingredient.length; i++) {
-      console.log("Name: " + ingredient[i].name);
-      console.log(
-        "Amount: " +
-          ingredient[i].amount.us.value +
-          " " +
-          ingredient[i].amount.us.unit
-      );
 
       bodyHTML.push(
         "<p>" +
@@ -425,7 +407,6 @@ $(document).ready(function () {
           "</p>"
       );
     }
-    console.log(bodyHTML);
 
     emailjs.send("service_y9qb5eg", "template_241tje5", {
       bodyHTML: bodyHTML,
