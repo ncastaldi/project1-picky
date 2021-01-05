@@ -74,7 +74,7 @@ tr:nth-child(odd) td {
 
 /* Class Styles */
 .activated {
-  background-color: red;
+  background-color: red !important;
 }
 
 .allergy,
